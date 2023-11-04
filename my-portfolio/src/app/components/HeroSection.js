@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
-export const HeroSection = () => {
+const HeroSection = () => {
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -27,7 +27,6 @@ export const HeroSection = () => {
               ]}
               wrapper="span"
               speed={50}
-              style={{ fontSize: "2em", display: "inline-block" }}
               repeat={Infinity}
             />
           </h1>
@@ -60,3 +59,5 @@ export const HeroSection = () => {
     </section>
   );
 };
+
+export default HeroSection;
