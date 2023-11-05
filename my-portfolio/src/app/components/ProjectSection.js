@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectCard } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
 
 const projectsData = [
   {
@@ -61,16 +61,22 @@ const projectsData = [
 const ProjectSection = () => {
   return (
     <div>
-      <h2>My Projects</h2>
-      <div>
-        {projectsData.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            imgUrl={project.image}
-          />
-        ))}
+      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+        My Projects
+      </h2>
+      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+          {projectsData.map((project) => (
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              imgUrl={project.image}
+              previewUrl={project.previewUrl}
+              gitUrl={project.gitUrl}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
