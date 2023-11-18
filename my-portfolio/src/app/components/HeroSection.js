@@ -45,13 +45,14 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="col-span-5 place-self-center mt-4 lg:text-xl">
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[355px] lg:h-[355px] relative">
             <Image
-              src="/images/hero-image.png"
+              src="/images/LokeshHero.jpg"
               alt="hero image"
               className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
+              width={350}
+              height={350}
+              style={{ borderRadius: "50%" }}
             />
           </div>
         </div>
