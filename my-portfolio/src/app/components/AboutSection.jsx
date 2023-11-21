@@ -12,7 +12,9 @@ const Tab_data = [
         <li>Node.js</li>
         <li>JavaScript</li>
         <li>Next.js</li>
-        <li>React</li>
+        <li>React.js</li>
+        <li>HTML</li>
+        <li>CSS</li>
       </ul>
     ),
   },

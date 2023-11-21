@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@heroicons/react": "^2.0.18",
+    "framer-motion": "^10.16.5",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
