@@ -6,30 +6,32 @@ import { animate, motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
+    title: "Prompt search website",
+    description: "Read and create intersting prompts",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl:
+      "https://github.com/LokeshSunhare1999/NextJS-Project/tree/main/prmoptSite",
+    previewUrl: "https://prompt-site-ruby.vercel.app/",
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
+    title: "Team Members Allocation",
+    description: "Allocate the team members according to need",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://replit.com/@lokeshsunhare/TeamMemberAllocation",
+    previewUrl: "https://team-member-allocation-black.vercel.app/",
   },
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
+    title: "Movie Land",
+    description: "Search favorite Movies",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl:
+      "https://github.com/LokeshSunhare1999/React_Projects/tree/main/movie-land",
+    previewUrl: "https://movie-land-lyart.vercel.app/",
   },
 ];
 
