@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -36,7 +37,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Front end developer with 2 years of experience building web
+            Frontend developer with 2+ years of experience building web
             applications using React.js/Next.js and modern JavaScript
             tools/frameworks.
           </p>
@@ -44,7 +45,15 @@ const HeroSection = () => {
             {/* <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-200 text-black">
               Hire Me
             </button> */}
-            <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-transparent bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-4">
+            <button
+              target="_blank"
+              onClick={() =>
+                window.open(
+                  "https://suesys.s3.amazonaws.com/storage/user_pf_doc/1711387368_1711387008987417.pdf"
+                )
+              }
+              className="px-1 py-1 w-full sm:w-fit rounded-full bg-transparent bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-4"
+            >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
                 Download CV
               </span>
