@@ -43,7 +43,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                   {sidebarLinks.map((item) => {
                     const isActive =
                       pathname === item.route ||
-                      pathname.startsWith(`${item.route}`);
+                      pathname.startsWith(`${item.route}/`);
                     return (
                       <SheetClose asChild key={item.route}>
                         <Link

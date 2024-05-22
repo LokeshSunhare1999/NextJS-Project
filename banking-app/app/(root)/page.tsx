@@ -4,7 +4,11 @@ import RightSidebar from "@/components/ui/RightSidebar";
 import React from "react";
 
 const Home = () => {
-  const loggedIn = { firstName: "Lokesh", lastName: "Sunhare" };
+  const loggedIn = {
+    firstName: "Lokesh",
+    lastName: "Sunhare",
+    email: "lokeshsunhare@gmail.com",
+  };
   return (
     <div className="home">
       <div className="home-content">
@@ -23,7 +27,11 @@ const Home = () => {
         </header>
         RECENT TRANSACTIONS
       </div>
-      <RightSidebar user={loggedIn} transactions={[]} banks={[]} />
+      <RightSidebar
+        user={loggedIn}
+        transactions={[]}
+        banks={[{ currentBalance: 120.35 }, { currentBalance: 120.35 }]}
+      />
     </div>
   );
 };
