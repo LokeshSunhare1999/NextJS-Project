@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import CustomInput from "./CustomInput";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -82,7 +83,19 @@ const AuthForm = ({ type }: { type: string }) => {
                   </div>
                 )}
               />
-              <FormField
+              <CustomInput
+                control={form.control}
+                name="username"
+                label="User Name"
+                placeholder="Enter your username"
+              />
+              <CustomInput
+                control={form.control}
+                name="password"
+                label="Password"
+                placeholder="Enter your password"
+              />
+              {/* <FormField
                 control={form.control}
                 name="password"
                 render={({ field }) => (
@@ -101,7 +114,7 @@ const AuthForm = ({ type }: { type: string }) => {
                     </div>
                   </div>
                 )}
-              />
+              /> */}
               <Button type="submit">Submit</Button>
             </form>
           </Form>
