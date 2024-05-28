@@ -8,13 +8,10 @@ import {
 import { Control } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
-
-const formSchema = z.object({
-  email: z.string().email(),
-});
+import { authFormSchema } from "@/lib/utils";
 
 interface CustomInput {
-  control: Control<z.infer<typeof formSchema>>;
+  control: Control<z.infer<typeof authFormSchema>>;
   name: string;
   label: string;
   placeholder: string;
