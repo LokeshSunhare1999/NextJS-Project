@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import AboutSection from "./components/AboutSection";
@@ -16,6 +17,7 @@ export default function Home() {
         <EmailSection />
       </div>
       <Footer />
+      <Analytics />
     </main>
   );
 }
