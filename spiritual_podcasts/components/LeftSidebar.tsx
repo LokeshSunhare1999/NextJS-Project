@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { sidebarLinks } from "@/constants";
+import { usePathname, useRouter } from "next/navigation";
 
 const LeftSidebar = () => {
+  const pathname = usePathname();
+  const router = useRouter();
   return (
     <section className="left_sidebar">
       <nav className="flex flex-col gap-6 ">
@@ -17,6 +21,8 @@ const LeftSidebar = () => {
           </h1>
         </Link>
         {sidebarLinks.map(({ route, label, imgURL }) => {
+          const isActive =
+            pathname === route || pathname.startsWith(`${route}/`);
           return (
             <Link
               key={label}
