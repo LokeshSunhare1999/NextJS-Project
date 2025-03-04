@@ -37,7 +37,7 @@ const CreatePodcast = () => {
   }
 
   return (
-    <>
+    <section>
       {" "}
       <h1 className="text-20 font-bold text-white-1">Create Podcast</h1>
       <Form {...form}>
@@ -61,7 +61,7 @@ const CreatePodcast = () => {
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-    </>
+    </section>
   );
 };
 
