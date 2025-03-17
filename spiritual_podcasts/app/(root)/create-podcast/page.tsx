@@ -124,14 +124,14 @@ const CreatePodcast = () => {
                     </SelectItem>
                   ))}
                 </SelectContent>
-                {voiceType && (
+                {voiceType ? (
                   <audio
                     controls
                     src={`/${voiceType}.mp3`}
                     autoPlay
                     className="hidden"
                   />
-                )}
+                ) : null}
               </Select>
             </div>
             <FormField
@@ -158,7 +158,7 @@ const CreatePodcast = () => {
             <GeneratePodcast
               setAudioStorageId={setAudioStorageId}
               setAudio={setAudioUrl}
-              viceType={voiceType}
+              voiceType={voiceType}
               audio={audioUrl}
               voicePrompt={voicePrompt}
               setVoicePrompt={setVoicePrompt}
