@@ -19,7 +19,7 @@ const useGeneratePodcast = ({
 }: GeneratePodcastProps) => {
   const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
-
+  console.log("voiceType >>>>>>>", voiceType);
   const generateUploadUrl = useMutation(api.files.generateUploadUrl);
   const { startUpload } = useUploadFiles(generateUploadUrl);
 
@@ -43,18 +43,19 @@ const useGeneratePodcast = ({
         voice: voiceType,
         input: voicePrompt,
       });
-
+      console.log("response >>>>>>", response);
       const blob = new Blob([response], { type: "audio/mpeg" });
       const fileName = `podcast-${uuidv4()}.mp3`;
       const file = new File([blob], fileName, { type: "audio/mpeg" });
 
       const uploaded = await startUpload([file]);
+      console.log("uploaded", uploaded);
       const storageId = (uploaded[0].response as any).storageId;
       console.log("storageId>>>>", storageId);
       setAudioStorageId(storageId);
 
       const audioUrl = await getAudioUrl({ storageId });
-      console.log('audioUrl>>>', audioUrl)
+      console.log("audioUrl>>>", audioUrl);
       setAudio(audioUrl!);
       setIsGenerating(false);
       toast({
