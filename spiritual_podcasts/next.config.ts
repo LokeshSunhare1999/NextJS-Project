@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         // hostname: "lovely-flamingo-139.convex.cloud",
         hostname: "i.scdn.co",
       },
+      {
+        protocol: "https",
+        hostname: "rare-rabbit-541.convex.cloud",
+      },
     ],
   },
 };
