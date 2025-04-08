@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAction, useMutation } from "convex/react";
 import { useUploadFiles } from "@xixixao/uploadstuff/react";
 import { api } from "@/convex/_generated/api";
-
+import { v4 as uuidv4 } from "uuid";
 const GenerateThumbnail = ({
   setImage,
   setImageStorageId,
@@ -55,7 +55,18 @@ const GenerateThumbnail = ({
     }
   };
 
-  const generateImage = async () => {};
+  const generateImage = async () => {
+    try {
+      const response = await handleGenerateThumbnail({
+        prompt: imagePrompt,
+      })
+      const blob = new Blob([response], { type: 'image/png' });
+      handleImage(blob, `thumbnail-${uuidv4()}`)
+    } catch (error) {
+      console.error("Error generating image", error);
+      toast({ title: "Error generating image", variant: "destructive" })
+    }
+  }
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     try {
