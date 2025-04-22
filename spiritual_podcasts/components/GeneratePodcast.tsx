@@ -1,3 +1,4 @@
+'use client';
 import { GeneratePodcastProps } from "@/types";
 import React, { useState } from "react";
 import { Label } from "./ui/label";

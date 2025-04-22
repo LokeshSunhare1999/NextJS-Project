@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";

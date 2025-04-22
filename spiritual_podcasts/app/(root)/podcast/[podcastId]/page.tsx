@@ -12,15 +12,16 @@ import Image from "next/image";
 import React from "react";
 
 const PodcastsDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'podcasts'> } }) => {
-  const user = useUser()
+  const {user, isLoaded} = useUser()
   const podcast = useQuery(api.podcasts.getPodcastById, { podcastId });
 
   const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType, { podcastId });
 
+  
+  // if (!similarPodcasts || !podcast) return <LoaderSpinner />
+  if (!isLoaded || !similarPodcasts || !podcast) return <LoaderSpinner />;
   const isOwner = user?.id === podcast?.authorId;
   
-  if (!similarPodcasts || !podcast) return <LoaderSpinner />
-
   return (<section className="flex w-full flex-col">
     <header className="mt-9 flex items-center justify-between">
       <h1 className="text-200 font-bold text-white-1">Currently Playing</h1>
@@ -34,7 +35,11 @@ const PodcastsDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'p
         <h2 className="text-16 font-bold text-white-1">{podcast?.views}</h2>
       </figure>
     </header>
-    <PodcastDetailsPlayer />
+    <PodcastDetailsPlayer
+      isOwner={isOwner}
+      podcastId={podcast._id}
+      {...podcast}
+    />
     <p className="text-white-2 text-16 pb-8 pt-[45px] font-medium max-md:text-center">{podcast?.podcastDescription}</p>
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-4">
@@ -63,10 +68,10 @@ const PodcastsDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'p
         </div>
       ) : (
         <div className="flex-center text-white-1">
-          <EmptyState 
-          title="No similar podcasts found"
-          buttonLink = '/discover'
-          buttonText="Discover more podcasts"
+          <EmptyState
+            title="No similar podcasts found"
+            buttonLink='/discover'
+            buttonText="Discover more podcasts"
           />
         </div>
       )}
