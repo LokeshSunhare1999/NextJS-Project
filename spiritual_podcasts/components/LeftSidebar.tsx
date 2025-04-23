@@ -7,13 +7,15 @@ import { sidebarLinks } from "@/constants";
 import { usePathname, useRouter } from "next/navigation";
 import { SignedIn, SignedOut, useClerk } from "@clerk/nextjs";
 import { Button } from "./ui/button";
+import { useAudio } from "@/providers/AudioProvider";
 
 const LeftSidebar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { signOut } = useClerk();
+  const { audio } = useAudio();
   return (
-    <section className="left_sidebar">
+    <section className={cn("left_sidebar h-[calc(100vh-5px)]",{'h-[calc(100vh-130px)]': audio?.audioUrl})}>
       <nav className="flex flex-col gap-6 ">
         <Link
           href="/"
