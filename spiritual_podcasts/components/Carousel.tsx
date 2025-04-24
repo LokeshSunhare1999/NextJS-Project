@@ -9,11 +9,6 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image';
 import LoaderSpinner from './ui/LoaderSpinner';
 
-type PropType = {
-    slides: number[]
-    options?: EmblaOptionsType
-}
-
 const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
     const router = useRouter()
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])

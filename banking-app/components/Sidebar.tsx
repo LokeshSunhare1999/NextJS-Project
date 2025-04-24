@@ -8,9 +8,8 @@ import React from "react";
 
 const Sidebar = ({ user }: SiderbarProps) => {
   const pathname = usePathname();
-  const { audio } = useAudio();
   return (
-    <section className={cn("sidebar h-[calc(100vh-5px)]",{'h-[calc(100vh-130px)]': audio?.audioUrl})}>
+    <section className="sidebar">
       <nav className="flex flex-col gap-4">
         <Link href="/" className="mb-12 cursor-pointer items-center flex gap-2">
           <Image

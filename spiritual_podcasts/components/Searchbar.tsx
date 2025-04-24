@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import path from "path";
 import { useDebounce } from "@/lib/useDebounce";
 
 const Searchbar = () => {

@@ -28,7 +28,7 @@ export default function RootLayout({
       <html lang="en">
         <AudioProvider>
           <body
-            className={`${manrope.className} antialiased`}
+            className={`md:overflow-hidden ${manrope.className}`}
           >
             {children}
           </body>

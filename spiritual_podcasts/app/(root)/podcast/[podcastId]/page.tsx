@@ -5,7 +5,6 @@ import EmptyState from "@/components/ui/EmptyState";
 import LoaderSpinner from "@/components/ui/LoaderSpinner";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import { getPodcastById } from "@/convex/podcasts";
 import { useUser } from "@clerk/nextjs";
 import { useQuery } from "convex/react";
 import Image from "next/image";

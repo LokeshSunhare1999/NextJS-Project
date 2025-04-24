@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -81,19 +80,19 @@ const CreatePodcast = () => {
         setIsSubmitting(false);
         throw new Error("Please generate audio and image before submitting");
       }
-      const podcast = await createPodcast({
-        podcastTitle: data.podcastTitle,
-        podcastDescription: data.podcastDescription,
-        audioUrl,
-        imageUrl,
-        voiceType,
-        imagePrompt,
-        voicePrompt,
-        views: 0,
-        audioDuration,
-        audioStorageId: audioStorageId!,
-        imageStorageId: imageStorageId!,
-      })
+      // const podcast = await createPodcast({
+      //   podcastTitle: data.podcastTitle,
+      //   podcastDescription: data.podcastDescription,
+      //   audioUrl,
+      //   imageUrl,
+      //   voiceType,
+      //   imagePrompt,
+      //   voicePrompt,
+      //   views: 0,
+      //   audioDuration,
+      //   audioStorageId: audioStorageId!,
+      //   imageStorageId: imageStorageId!,
+      // })
       toast({
         title: "Podcast created successfully",
       })
