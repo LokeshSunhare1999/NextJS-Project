@@ -128,7 +128,7 @@ const CreatePodcast = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="input-class focus-visible:ring-offset-orange-1"
+                      className="input-class focus-visible:ring-offset-yellow-1"
                       placeholder="Enter your podcasts title"
                       {...field}
                     />
@@ -152,12 +152,12 @@ const CreatePodcast = () => {
                     className="placeholder:text-gray-1"
                   />
                 </SelectTrigger>
-                <SelectContent className="text-16 border-none bg-black-1 font-bold text-white-1 focus-visible:ring-offset-orange-1">
+                <SelectContent className="text-16 border-none bg-black-1 font-bold text-white-1 focus-visible:ring-offset-yellow-1">
                   {voiceCategories.map((category) => (
                     <SelectItem
                       key={category}
                       value={category}
-                      className="focus-visible:ring-offset-orange-1"
+                      className="focus-visible:ring-offset-yellow-1"
                     >
                       {category}
                     </SelectItem>
@@ -183,7 +183,7 @@ const CreatePodcast = () => {
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      className="input-class focus-visible:ring-offset-orange-1"
+                      className="input-class focus-visible:ring-offset-yellow-1"
                       placeholder="Write a short description for your podcasts"
                       {...field}
                     />
@@ -213,7 +213,7 @@ const CreatePodcast = () => {
             <div className="mt-10 w-full">
               <Button
                 type="submit"
-                className="text-16 w-full bg-orange-1 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1"
+                className="text-16 w-full bg-yellow-1 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1 rounded-full"
               >
                 {isSubmitting ? (
                   <>

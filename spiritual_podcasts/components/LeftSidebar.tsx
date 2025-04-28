@@ -36,7 +36,7 @@ const LeftSidebar = () => {
               className={cn(
                 "flex gap-3 items-center py-4 max-lg:px-4 justify-center lg:justify-start",
                 {
-                  "bg-nav-focus border-r-4 border-orange-1": isActive,
+                  "bg-nav-focus border-r-4 border-[#D5C95E]": isActive,
                 }
               )}
             >
@@ -48,14 +48,14 @@ const LeftSidebar = () => {
       </nav>
       <SignedOut>
         <div className="flex-center w-full pb-14 max-lg:px-4 lg:pr-8">
-          <Button className="text-16 w-full bg-orange-1 font-extrabold">
+          <Button className="text-16 w-full bg-[#D5C95E] font-extrabold rounded-full">
             <Link href="/sign-in">Sign In</Link>
           </Button>
         </div>
       </SignedOut>
       <SignedIn>
         <div className="flex-center w-full pb-14 max-lg:px-4 lg:pr-8">
-          <Button className="text-16 w-full bg-orange-1 font-extrabold" onClick={() => signOut(()=>{router.push("/")})}>
+          <Button className="text-16 w-full bg-[#D5C95E] font-extrabold rounded-full" onClick={() => signOut(()=>{router.push("/")})}>
             Log Out
           </Button>
         </div>

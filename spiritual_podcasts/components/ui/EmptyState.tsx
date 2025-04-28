@@ -22,7 +22,7 @@ const EmptyState = ({
         <h1 className="text-16 text-center">{title}</h1>
         {search && <p className="text-14 text-center text-white-2">{search}</p>}
         {buttonLink && (
-          <Button className="bg-orange-1">
+          <Button className="bg-yellow-1 rounded-full">
             <Link href={buttonLink} className="gap-1 flex">
               <Image
                 src="/icons/discover.svg"

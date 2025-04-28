@@ -28,7 +28,7 @@ export default function RootLayout({
       <html lang="en">
         <AudioProvider>
           <body
-            className={`md:overflow-hidden ${manrope.className}`}
+            className={`${manrope.className}`}
           >
             {children}
           </body>
