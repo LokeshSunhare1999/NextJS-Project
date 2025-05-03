@@ -26,6 +26,16 @@ const projectsData = [
   },
   {
     id: 3,
+    title: "Movie List",
+    description: "Search favorite Movies",
+    image: "/images/projects/3.png",
+    tag: ["All", "Web"],
+    gitUrl:
+      "https://github.com/LokeshSunhare1999/React_19_Projects/tree/main/movie-list",
+    previewUrl: "https://react-19-projects.vercel.app/",
+  },
+  {
+    id: 4,
     title: "Team Members Allocation",
     description: "Allocate the team members according to need",
     image: "/images/projects/2.png",
@@ -33,16 +43,7 @@ const projectsData = [
     gitUrl: "https://replit.com/@lokeshsunhare/TeamMemberAllocation",
     previewUrl: "https://team-member-allocation-black.vercel.app/",
   },
-  {
-    id: 4,
-    title: "Movie Land",
-    description: "Search favorite Movies",
-    image: "/images/projects/3.png",
-    tag: ["All", "Web"],
-    gitUrl:
-      "https://github.com/LokeshSunhare1999/React_Projects/tree/main/movie-land",
-    previewUrl: "https://movie-land-lyart.vercel.app/",
-  },
+ 
 ];
 
 const ProjectSection = () => {
