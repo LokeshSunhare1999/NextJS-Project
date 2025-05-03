@@ -23,7 +23,7 @@ const HeroSection = () => {
               sequence={[
                 "Lokesh",
                 1000,
-                "Web Devloper",
+                "Frontend Devloper",
                 1000,
                 "Next.js Devloper",
                 1000,
@@ -36,7 +36,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Frontend developer with 2+ years of experience building web
+            Frontend developer with 3+ years of experience building web
             applications using React.js/Next.js and modern JavaScript
             tools/frameworks.
           </p>

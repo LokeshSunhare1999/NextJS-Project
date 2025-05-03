@@ -6,6 +6,16 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
+    title: "Spiritual Podcast",
+    description: "Dive into the world of spirituality",
+    image: "/images/projects/4.png",
+    tag: ["All", "Web"],
+    gitUrl:
+      "https://github.com/LokeshSunhare1999/NextJS-Project/tree/main/spiritual_podcasts",
+    previewUrl: "https://spiritual-podcasts.vercel.app/",
+  },
+  {
+    id: 2,
     title: "Prompt search website",
     description: "Read and create intersting prompts",
     image: "/images/projects/1.png",
@@ -15,7 +25,7 @@ const projectsData = [
     previewUrl: "https://prompt-site-ruby.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Team Members Allocation",
     description: "Allocate the team members according to need",
     image: "/images/projects/2.png",
@@ -24,7 +34,7 @@ const projectsData = [
     previewUrl: "https://team-member-allocation-black.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Movie Land",
     description: "Search favorite Movies",
     image: "/images/projects/3.png",
