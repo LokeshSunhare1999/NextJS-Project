@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import { RESUME_URL } from "@/constant";
 
 const HeroSection = () => {
   return (
@@ -47,9 +48,7 @@ const HeroSection = () => {
             <button
               target="_blank"
               onClick={() =>
-                window.open(
-                  "https://suesys.s3.amazonaws.com/storage/user_pf_doc/1715453046_1711387008987387.pdf"
-                )
+                window.open(RESUME_URL, "_blank", "noopener,noreferrer")
               }
               className="px-1 py-1 w-full sm:w-fit rounded-full bg-transparent bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-4"
             >
