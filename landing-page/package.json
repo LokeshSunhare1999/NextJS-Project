@@ -1,0 +1,45 @@
+{
+  "name": "saathi-jobs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "bunx biome lint --write && bunx tsc --noEmit",
+    "format": "bunx biome format --write"
+  },
+  "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.48",
+    "@headlessui/react": "^2.2.2",
+    "@heroicons/react": "^2.2.0",
+    "@radix-ui/react-slot": "^1.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.9.2",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.475.0",
+    "next": "^15.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-page-scroll": "^1.0.6",
+    "swiper": "^11.2.6",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
