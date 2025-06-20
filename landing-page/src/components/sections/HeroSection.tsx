@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/ui/button";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
 
@@ -20,7 +19,7 @@ export default function HeroSection() {
       </div>
 
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 pointer-events-none" />
 
       {/* Header */}
       <div className="w-full relative z-20">
@@ -28,8 +27,8 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="container h-full pb-20 md:pb-15 relative z-10 px-4 sm:px-6 flex flex-col justify-end items-center text-white gap-3 sm:gap-5 pt-64 sm:pt-64">
-        <h1 className="text-4xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-2 sm:mb-3 text-center">
+      <div className="container min-h-[80vh] z-10 flex flex-col justify-end items-center text-white gap-3 sm:gap-5 pt-64 sm:pt-64">
+        <h1 className="text-4xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-2 sm:mb-3 text-center font-['helvetica']">
           The Future of Hiring is Here
         </h1>
       </div>
