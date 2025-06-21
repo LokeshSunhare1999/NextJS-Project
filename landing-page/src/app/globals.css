@@ -15,6 +15,13 @@ html {
   overscroll-behavior-y: none;
 }
 
+.hero-bg {
+  background-image: url('/herobg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Full-screen section styles */
 .fullscreen-section {
   min-height: 100vh;
