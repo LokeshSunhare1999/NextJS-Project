@@ -15,13 +15,6 @@ html {
   overscroll-behavior-y: none;
 }
 
-.hero-bg {
-  background-image: url('/herobg.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 /* Full-screen section styles */
 .fullscreen-section {
   min-height: 100vh;
@@ -59,7 +52,7 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* @font-face {
+@font-face {
   font-family: 'Helvetica';
   src: url('/fonts/helvetica-255/Helvetica.ttf') format('truetype');
   font-weight: normal;
@@ -97,7 +90,7 @@ html {
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-} */
+}
 
 @layer base {
   :root {

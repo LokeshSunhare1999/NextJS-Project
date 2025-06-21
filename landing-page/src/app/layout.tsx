@@ -45,7 +45,7 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <GoogleAnalytics />
+        {/* <GoogleAnalytics /> */}
         <ClientBody>{children}</ClientBody>
       </body>
     </html>
