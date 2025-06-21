@@ -59,7 +59,7 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Helvetica';
   src: url('/fonts/helvetica-255/Helvetica.ttf') format('truetype');
   font-weight: normal;
@@ -97,7 +97,7 @@ html {
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @layer base {
   :root {
