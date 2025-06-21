@@ -33,11 +33,11 @@ export default function HeroSection() {
           The Future of Hiring is Here
         </h1>
       </div> */}
-      <div className="container min-h-[80vh] pb-20 relative z-10 px-4 sm:px-6 flex flex-col justify-end items-center text-white gap-3 sm:gap-5">
+      {/* <div className="container min-h-[80vh] pb-20 relative z-10 px-4 sm:px-6 flex flex-col justify-end items-center text-white gap-3 sm:gap-5">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-3 text-center font-sans">
           The Future of Hiring is Here
         </h1>
-      </div>
+      </div> */}
     </section>
   );
 }
