@@ -9,7 +9,7 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="https://shiv-test-1.s3.ap-south-1.amazonaws.com/herobg.webp"
+          src="/herobg.webp"
           alt="Team working in futuristic hiring environment"
           fill
           // priority={true}

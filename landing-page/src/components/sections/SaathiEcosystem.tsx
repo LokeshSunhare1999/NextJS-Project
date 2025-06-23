@@ -15,21 +15,25 @@ const SaathiEcosystem = () => {
           src="/images/identityImg.webp"
           alt="mobile-1"
           className="max-h-[150px] md:max-h-[420px] mt-1 md:-mt-4"
+          loading="lazy"
         />
         <img
           src="/images/skillingImg.webp"
           alt="mobile-2"
           className="z-10 max-h-[150px] md:max-h-[400px] relative"
+          loading="lazy"
         />
          <img
           src="/images/jobs.webp"
           alt="mobile-3"
           className="z-10 max-h-[150px] md:max-h-[400px] relative"
+          loading="lazy"
         />
         <img
           src="/images/community.webp"
           alt="mobile-4"
           className="max-h-[150px] md:max-h-[420px] mt-1 md:-mt-4"
+          loading="lazy"
         />
       </div>
 

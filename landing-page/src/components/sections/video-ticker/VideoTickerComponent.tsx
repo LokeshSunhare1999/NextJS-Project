@@ -20,7 +20,7 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
   const [isHovering, setIsHovering] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const tickerRef = useRef<HTMLDivElement>(null);
-  const videoRefs = useRef<{[key: string]: HTMLVideoElement}>({});
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -29,10 +29,10 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -45,9 +45,9 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
 
   const handleCardHover = (id: string, isHovering: boolean, isDuplicate: boolean = false) => {
     if (isMobile) return; // Don't handle hover on mobile
-    
+
     setIsHovering(isHovering ? id : null);
-    
+
     // Play or pause video based on hover state
     const videoRefKey = getVideoRefKey(id, isDuplicate);
     const videoElement = videoRefs.current[videoRefKey];
@@ -83,11 +83,11 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
   return (
     <div className="w-full overflow-hidden  md:py-10">
       <h2 className="text-lg md:text-[28px] font-bold text-gray-500 mb-6">{title}</h2>
-      
+
       {/* Video Modal */}
       {selectedVideo && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div 
+          <div
             ref={modalRef}
             className="bg-black rounded-lg overflow-hidden w-full max-w-4xl relative"
           >
@@ -116,23 +116,22 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
       )}
 
       <div className="relative overflow-hidden">
-        <div 
+        <div
           ref={tickerRef}
           className="flex animate-ticker"
-          style={{ 
+          style={{
             willChange: 'transform',
             width: 'fit-content'
           }}
         >
           {/* Original items */}
           {videos.map((video) => (
-            <div 
+            <div
               key={`original-${video.id}`}
-              className={`relative flex-shrink-0 mx-2 transition-all duration-300 ${
-                isHovering === video.id 
-                  ? 'w-[364px] md:w-[468px] h-[208px] md:h-[260px] md:z-10 md:scale-105' 
+              className={`relative flex-shrink-0 mx-2 transition-all duration-300 ${isHovering === video.id
+                  ? 'w-[364px] md:w-[468px] h-[208px] md:h-[260px] md:z-10 md:scale-105'
                   : 'w-[280px] md:w-[360px] h-[160px] md:h-[200px]'
-              }`}
+                }`}
               onMouseEnter={() => !isMobile && handleCardHover(video.id, true, false)}
               onMouseLeave={() => !isMobile && handleCardHover(video.id, false, false)}
               onClick={() => handleCardClick(video.id, false)}
@@ -147,7 +146,7 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                     allowFullScreen
                   />
                 )}
-                
+
                 {/* Video element (hidden until hover/click) */}
                 {!video.youtubeUrl && (
                   <video
@@ -155,25 +154,25 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                       if (el) videoRefs.current[getVideoRefKey(video.id, false)] = el;
                     }}
                     src={video.videoUrl}
-                    className={`absolute inset-0 w-full h-full object-cover ${
-                      isHovering === video.id ? 'opacity-100 z-10' : 'opacity-0'
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-cover ${isHovering === video.id ? 'opacity-100 z-10' : 'opacity-0'
+                      }`}
                     playsInline
                     loop
                     muted
                     preload="auto"
                   />
                 )}
-                
+
                 {/* Thumbnail image (shown when not hovering/active) */}
-                <div className={`absolute inset-0 transition-opacity duration-300 ${
-                  isHovering === video.id ? 'opacity-0' : 'opacity-100'
-                }`}>
+                <div className={`absolute inset-0 transition-opacity duration-300 ${isHovering === video.id ? 'opacity-0' : 'opacity-100'
+                  }`}>
                   <Image
                     src={video.thumbnailUrl}
                     alt={video.title}
                     fill
+                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 468px"
                     className="object-cover"
+                    // priority
                     onError={(e) => {
                       // Fallback for missing images
                       const target = e.target as HTMLImageElement;
@@ -182,10 +181,10 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                     }}
                   />
                 </div>
-                
+
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                
+
                 {/* Content overlay */}
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <h3 className="text-white font-semibold truncate">{video.title}</h3>
@@ -204,16 +203,15 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
               </div>
             </div>
           ))}
-          
+
           {/* Duplicate items for seamless loop */}
           {videos.map((video) => (
-            <div 
+            <div
               key={`duplicate-${video.id}`}
-              className={`relative flex-shrink-0 mx-2 transition-all duration-300 ${
-                isHovering === video.id 
-                  ? 'w-[364px] md:w-[468px] h-[208px] md:h-[260px] md:z-10 md:scale-105' 
+              className={`relative flex-shrink-0 mx-2 transition-all duration-300 ${isHovering === video.id
+                  ? 'w-[364px] md:w-[468px] h-[208px] md:h-[260px] md:z-10 md:scale-105'
                   : 'w-[280px] md:w-[360px] h-[160px] md:h-[200px]'
-              }`}
+                }`}
               onMouseEnter={() => !isMobile && handleCardHover(video.id, true, true)}
               onMouseLeave={() => !isMobile && handleCardHover(video.id, false, true)}
               onClick={() => handleCardClick(video.id, true)}
@@ -228,7 +226,7 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                     allowFullScreen
                   />
                 )}
-                
+
                 {/* Video element (hidden until hover/click) */}
                 {!video.youtubeUrl && (
                   <video
@@ -236,25 +234,26 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                       if (el) videoRefs.current[getVideoRefKey(video.id, true)] = el;
                     }}
                     src={video.videoUrl}
-                    className={`absolute inset-0 w-full h-full object-cover ${
-                      isHovering === video.id ? 'opacity-100 z-10' : 'opacity-0'
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-cover ${isHovering === video.id ? 'opacity-100 z-10' : 'opacity-0'
+                      }`}
                     playsInline
                     loop
                     muted={false}
                     preload="auto"
                   />
                 )}
-                
+
                 {/* Thumbnail image (shown when not hovering/active) */}
-                <div className={`absolute inset-0 transition-opacity duration-300 ${
-                  isHovering === video.id ? 'opacity-0' : 'opacity-100'
-                }`}>
+                <div className={`absolute inset-0 transition-opacity duration-300 ${isHovering === video.id ? 'opacity-0' : 'opacity-100'
+                  }`}>
                   <Image
                     src={video.thumbnailUrl}
                     alt={video.title}
-                    fill
-                    className="object-cover"
+                    width={360} // fallback width
+                    height={200}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 468px"
+                    className="object-cover w-full h-full"
                     onError={(e) => {
                       // Fallback for missing images
                       const target = e.target as HTMLImageElement;
@@ -263,10 +262,10 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                     }}
                   />
                 </div>
-                
+
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                
+
                 {/* Content overlay */}
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <h3 className="text-white font-bold truncate">{video.title}</h3>

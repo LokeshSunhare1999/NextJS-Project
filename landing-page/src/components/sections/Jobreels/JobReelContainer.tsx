@@ -483,6 +483,7 @@ const JobReelContainer: React.FC<{showFrame?: boolean}> = ({ showFrame = false }
                   className={`responsive-feature-image ${index === activeStep ? 'active' : ''}`}
                   sizes={image.sizes}
                   srcSet={image.srcset}
+                  loading='lazy'
                 />
               ))}
             </div>

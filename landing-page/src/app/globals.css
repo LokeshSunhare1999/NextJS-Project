@@ -15,32 +15,6 @@ html {
   overscroll-behavior-y: none;
 }
 
-/* Full-screen section styles */
-.fullscreen-section {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-}
-
-.fullscreen-section.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.fullscreen-section.inactive {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-/* Smooth transition between fullscreen sections */
-.fullscreen-transition {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-}
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
   display: none;
@@ -328,11 +302,6 @@ html {
   }
 }
 
-.smooth-scroll {
-  animation: smoothScroll 0.5s ease-in-out;
-  will-change: transform;
-}
-
 /* Optimize section transitions */
 .section-transition {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
@@ -352,9 +321,6 @@ html {
   }
 }
 
-.fullscreen-slide-in {
-  animation: fullscreenSlide 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
 
 @keyframes fullscreenSlideOut {
   0% {
@@ -365,13 +331,4 @@ html {
     transform: translateY(-100%);
     opacity: 0;
   }
-}
-
-.fullscreen-slide-out {
-  animation: fullscreenSlideOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Add touch-action manipulation to prevent default touch behaviors */
-.touch-handler {
-  touch-action: pan-y pinch-zoom;
 }
