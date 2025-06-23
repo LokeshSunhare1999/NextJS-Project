@@ -17,7 +17,7 @@ export default function HeroSection() {
           placeholder="blur"
           blurDataURL="/reelslogo.webp"
           sizes="100vw"
-          className="object-cover z-[-1]"
+          className="object-cover z-[-1] "
         />
       </div>
 
