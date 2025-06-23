@@ -7,15 +7,15 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden bg-black mt-0 pt-0">
       {/* Background image */}
-      <div className="absolute inset-0 bg-yellow-300">
-        {/* <Image
-          src="/herobg.webp"
+      <div className="absolute inset-0 bg-white-300">
+        <Image
+          src="/herobg.avif"
           alt="Hero background"
           fill
           priority
           sizes="100vw"
           className="object-cover absolute inset-0 z-0"
-        /> */}
+        />
       </div>
 
       {/* Overlay gradient */}
