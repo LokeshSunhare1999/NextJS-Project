@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Reel Banao, Naukari Paao",
   icons: {
     icon: "/Logo.svg",
-  },  
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preload" as="image" href="/herobg.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/herobg.webp" />
         <link rel="preload" href="/fonts/helvetica-255/Helvetica.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/helvetica-255/Helvetica-Bold.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/helvetica-255/Helvetica-Oblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
@@ -44,10 +44,10 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className={`antialiased ${poppins.variable} font-poppins`}>
         <noscript>
-          <iframe 
+          <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TTS7HWCR"
-            height="0" 
-            width="0" 
+            height="0"
+            width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
