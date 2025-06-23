@@ -9,14 +9,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 
 const FastTrainSection = dynamic(() => import("@/components/sections/fasttrain/FastTrainSection"));
 const Impact = dynamic(() => import("@/components/sections/Impact"));
-// const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
-const HeroSection = dynamic(() => import("@/components/sections/HeroSection"), {
-  loading: () => (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-white text-center">The Future of Hiring is Here</h1>
-    </div>
-  )
-});
+const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
 const SaathiEcosystem = dynamic(() => import("@/components/sections/SaathiEcosystem"));
 const IdentityVerified2 = dynamic(() => import("@/components/sections/IdentityVerified/IdentityVerified"), { ssr: false });
 const DownloadAndHireSection = dynamic(() => import("@/components/sections/DownloadAndHireSection"));
