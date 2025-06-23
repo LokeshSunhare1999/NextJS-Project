@@ -7,14 +7,16 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden bg-black mt-0 pt-0">
       {/* Background image */}
-      <div className="absolute inset-0 bg-white-300">
+      <div className="absolute inset-0 bg-white z-0">
         <Image
-          src="/herobg.avif"
+          src="/heroBg.avif"
           alt="Hero background"
           fill
           priority
+          quality={75}
           sizes="100vw"
           className="object-cover absolute inset-0 z-0"
+          style={{ backgroundColor: "#FFF" }}
         />
       </div>
 
