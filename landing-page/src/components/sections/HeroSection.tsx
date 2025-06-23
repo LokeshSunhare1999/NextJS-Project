@@ -9,14 +9,15 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 bg-white z-0">
         <Image
-          src="/heroBg.avif"
+          src="/heroBg.webp"
           alt="Hero background"
           fill
           priority
           quality={75}
+          placeholder="blur"
+          blurDataURL="/reelslogo.webp"
           sizes="100vw"
-          className="object-cover absolute inset-0 z-0"
-          style={{ backgroundColor: "#FFF" }}
+          className="object-cover z-[-1]"
         />
       </div>
 
