@@ -3,21 +3,29 @@
 import { Button } from "@/ui/button";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   return (
-    <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden bg-black mt-0 pt-0">
+    <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden  mt-0 pt-0">
       {/* Background image */}
       <div className="absolute inset-0">
+        {!isImageLoaded && (
+          <div className="w-full h-full flex items-center justify-center bg-black">
+            <span className="text-white text-sm animate-pulse">Loading background...</span>
+          </div>
+        )}
+
         <Image
           src="/herobg.webp"
           alt="Hero background"
           fill
           priority
           sizes="100vw"
-          placeholder="blur"
-          blurDataURL="/reelslogo.webp"
-          className="object-cover z-[-1]"
+          onLoad={() => setIsImageLoaded(true)}
+          className={`object-cover absolute inset-0 z-0 transition-opacity duration-700 ease-in ${isImageLoaded ? "opacity-100" : "opacity-0"
+            }`}
         />
       </div>
 
