@@ -1,31 +1,23 @@
 "use client";
 
-import { Button } from "@/ui/button";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
-import { useState } from "react";
 
 export default function HeroSection() {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   return (
-    <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden  mt-0 pt-0">
+    <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden bg-black mt-0 pt-0">
       {/* Background image */}
-      <div className="absolute inset-0">
-        {!isImageLoaded && (
-          <div className="w-full h-full flex items-center justify-center bg-black">
-            <span className="text-white text-sm animate-pulse">Loading background...</span>
-          </div>
-        )}
-
+      <div className="absolute inset-0 bg-white z-0">
         <Image
           src="/herobg.webp"
-          alt="Hero background"
+          alt="Hero-bg"
           fill
-          priority
+          priority={true}
+          quality={75}
+          // placeholder="blur"
+          // blurDataURL="/reelslogo.webp"
           sizes="100vw"
-          onLoad={() => setIsImageLoaded(true)}
-          className={`object-cover absolute inset-0 z-0 transition-opacity duration-700 ease-in ${isImageLoaded ? "opacity-100" : "opacity-0"
-            }`}
+          className="object-cover z-[-1]"
         />
       </div>
 
@@ -43,11 +35,6 @@ export default function HeroSection() {
           The Future of Hiring is Here
         </h1>
       </div>
-      {/* <div className="container min-h-[80vh] pb-20 relative z-10 px-4 sm:px-6 flex flex-col justify-end items-center text-white gap-3 sm:gap-5">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-3 text-center font-sans">
-          The Future of Hiring is Here
-        </h1>
-      </div> */}
     </section>
   );
 }
