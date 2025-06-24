@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
    <section id="hero" className="relative h-screen w-full flex flex-col items-center overflow-hidden bg-black mt-0 pt-0">
-      {/* Background image */}
+      {/* Background image*/}
       <div className="absolute inset-0">
         <Image
           src="/herobg_compressed.webp"
