@@ -323,7 +323,7 @@ const BusinessSubPage = () => {
                 }
                 gradientText={gradientText}
                 videoId="jobreel-video"
-                videoSrc="/videos/jobreels/jobreel-1.mp4"
+                videoSrc="https://prod-video-output-bucket.s3.ap-south-1.amazonaws.com/MISC_VIDEOS/jobreels/jobreel-1.mp4"
                 thumbnailSrc="/videos/thumbnails/jobreels/jobreel-1.webp"
                 isPlaying={playingVideo === "jobreel-video"}
                 onVideoClick={handleVideoClick}
@@ -342,7 +342,7 @@ const BusinessSubPage = () => {
                 }
                 gradientText={gradientText}
                 videoId="jobpost-video"
-                videoSrc="/videos/jobposts/jobpost-1.mp4"
+                videoSrc="https://prod-video-output-bucket.s3.ap-south-1.amazonaws.com/MISC_VIDEOS/jobposts/jobpost-1.mp4"
                 thumbnailSrc="/videos/thumbnails/jobposts/jobpost-1.webp"
                 isPlaying={playingVideo === "jobpost-video"}
                 onVideoClick={handleVideoClick}
@@ -361,7 +361,7 @@ const BusinessSubPage = () => {
                 }
                 gradientText={gradientText}
                 videoId="ai-video"
-                videoSrc="/videos/ai/ai-1.mp4"
+                videoSrc="https://prod-video-output-bucket.s3.ap-south-1.amazonaws.com/MISC_VIDEOS/ai/ai-1.mp4"
                 thumbnailSrc="/videos/thumbnails/ai/ai-1.webp"
                 isPlaying={playingVideo === "ai-video"}
                 onVideoClick={handleVideoClick}
