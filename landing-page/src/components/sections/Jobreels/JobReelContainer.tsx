@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef, ReactNode } from 'react';
-import "../../../../public/styles/JobReelContainer.css";
-import "../../../../public/styles/MobileScreenStyles.css";
+// import "../../../../public/styles/JobReelContainer.css";
+// import "../../../../public/styles/MobileScreenStyles.css";
 import JobReelHeader from './JobReelHeader';
+import { useLazyCSS } from '@/customHook/useLazyCSS';
 
 interface ProcessStep {
   number: string | ReactNode;
@@ -78,11 +79,13 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
   const mockupImagesRef = useRef<Array<HTMLImageElement | null>>([]);
   const currentIndexRef = useRef<number>(0);
 
-  // useEffect(() => {
-  //   // Lazy load CSS files
-  //   import('../../../../public/styles/JobReelContainer.css');
-  //   import('../../../../public/styles/MobileScreenStyles.css');
-  // }, []);
+  const cssModules = [
+    { href: '../../../../public/styles/JobReelContainer.css', priority: 'high' as const },
+    { href: '../../../../public/styles/MobileScreenStyles.css', priority: 'high' as const },
+  ];
+
+  useLazyCSS(cssModules);
+
 
   // Initialize intersection observer for animations
   useEffect(() => {
