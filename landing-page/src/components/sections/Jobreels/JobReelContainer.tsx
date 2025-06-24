@@ -1,8 +1,21 @@
 import React, { useEffect, useState, useRef, ReactNode } from 'react';
-// import "../../../../public/styles/JobReelContainer.css";
-// import "../../../../public/styles/MobileScreenStyles.css";
+import './JobReelContainer.css';
+import './MobileScreenStyles.css';
 import JobReelHeader from './JobReelHeader';
-import { useLazyCSS } from '@/customHook/useLazyCSS';
+
+// Adding custom styles to reduce gap between process items
+const customStyles = {
+  processItem: {
+    marginBottom: '0px', // Reduced further from 15px to 5px
+  },
+  progressionCircle: {
+    backgroundColor: 'rgb(75, 85, 99)', // gray-600
+    transition: 'all 0.3s ease',
+  },
+  activeCircle: {
+    backgroundColor: '#FFC01D', // Using a single color instead of gradient
+  }
+};
 
 interface ProcessStep {
   number: string | ReactNode;
@@ -27,7 +40,7 @@ const processSteps: ProcessStep[] = [
   {
     number: '',
     title: 'Watch.Listen.Apply',
-    description: <>Complex Job Descriptions become Simple Short Video Job Posts <br /> AI/ML algorithms for an Instant Match</>,
+    description: <>Complex Job Descriptions become Simple Short Video Job Posts <br/> AI/ML algorithms for an Instant Match</>,
     requirements: {
       title: "",
       items: []
@@ -66,26 +79,21 @@ const mockupImages: ResponsiveImage[] = [
     srcset: "",
     sizes: "(max-width: 767px) 100vw, (max-width: 991px) 95vw, 940px"
   },
-
+  
 ];
 
-const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false }) => {
+const JobReelContainer: React.FC<{showFrame?: boolean}> = ({ showFrame = false }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [prevStep, setPrevStep] = useState(-1);
   const stepsRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const mockupFrameRef = useRef<HTMLDivElement>(null);
   const processWrapperRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const mockupImagesRef = useRef<Array<HTMLImageElement | null>>([]);
+  const lastScrollYRef = useRef<number>(0);
+  const tickingRef = useRef<boolean>(false);
   const currentIndexRef = useRef<number>(0);
-
-  const cssModules = [
-    { href: '../../../../public/styles/JobReelContainer.css', priority: 'high' as const },
-    { href: '../../../../public/styles/MobileScreenStyles.css', priority: 'high' as const },
-  ];
-
-  useLazyCSS(cssModules);
-
 
   // Initialize intersection observer for animations
   useEffect(() => {
@@ -142,7 +150,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
         img.classList.remove('prev');
       }
     });
-
+    
     // Set initial mockup visibility (first item active)
     const firstImage = mockupImagesRef.current[0];
     if (firstImage) {
@@ -150,7 +158,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
       firstImage.style.transform = 'translateX(0%)';
       firstImage.style.opacity = '1';
     }
-
+    
     // Position other images off-screen
     for (let i = 1; i < mockupImagesRef.current.length; i++) {
       const img = mockupImagesRef.current[i];
@@ -159,26 +167,26 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
         img.style.opacity = '0';
       }
     }
-
+    
     // Initialize responsive images as well
     setTimeout(() => {
       const responsiveImages = document.querySelectorAll('.responsive-feature-image');
       if (responsiveImages.length > 0) {
         (responsiveImages[0] as HTMLElement).style.transform = 'translateX(0%)';
         (responsiveImages[0] as HTMLElement).style.opacity = '1';
-
+        
         for (let i = 1; i < responsiveImages.length; i++) {
           (responsiveImages[i] as HTMLElement).style.transform = 'translateX(100%)';
           (responsiveImages[i] as HTMLElement).style.opacity = '0';
         }
       }
     }, 100);
-
+    
     // Reset current index and active step
     currentIndexRef.current = 0;
     setActiveStep(0);
     setPrevStep(-1);
-
+      
     // Mark the first circle as active
     const circles = document.querySelectorAll('.progression-circle');
     circles.forEach((circle, i) => {
@@ -197,7 +205,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
       // Save previous step before updating
       setPrevStep(activeStep);
       setActiveStep(index);
-
+      
       // Update mockup image visibility with parallax effect
       mockupImagesRef.current.forEach((img, imgIndex) => {
         if (img) {
@@ -213,7 +221,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
           }
         }
       });
-
+      
       // Update progression circles
       const progressionCircles = document.querySelectorAll('.progression-circle');
       progressionCircles.forEach((circle, i) => {
@@ -227,17 +235,17 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
 
     // Initial sync
     updateActiveStep(currentIndexRef.current);
-
+    
     // Setup scroll observation for each process item
     const handleProcessStepVisibility = () => {
       if (!stepsRef.current) return;
-
+      
       const processItems = stepsRef.current.querySelectorAll('.process-item');
       processItems.forEach((item, index) => {
         const rect = item.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
         const itemTop = rect.top;
-
+        
         // Check if this item is in the middle of the viewport
         if (itemTop < viewportHeight * 0.6 && itemTop > -rect.height * 0.4) {
           if (currentIndexRef.current !== index) {
@@ -247,13 +255,13 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
         }
       });
     };
-
+    
     // Add scroll listener
     window.addEventListener('scroll', handleProcessStepVisibility, { passive: true });
-
+    
     // Initial check
     handleProcessStepVisibility();
-
+    
     return () => {
       window.removeEventListener('scroll', handleProcessStepVisibility);
     };
@@ -266,13 +274,13 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
 
       const processItems = stepsRef.current.querySelectorAll('.process-item');
       const progressBar = progressBarRef.current;
-
+      
       processItems.forEach((item, index) => {
         const rect = item.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
         const itemTop = rect.top;
         const itemHeight = rect.height;
-
+        
         // Calculate how far through the item we've scrolled (0 to 1) with enhanced easing
         const rawScrollProgress = Math.min(
           Math.max(
@@ -281,31 +289,31 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
           ),
           1
         );
-
+        
         // Apply advanced easing function for ultra-smooth transitions
         // This is a custom easing function that combines aspects of easeOutExpo and easeInOutQuint
         const easeOutExpo = (t: number): number => {
           if (t === 1) return 1;
           return 1 - Math.pow(2, -10 * t);
         };
-
+        
         const easeInOutQuint = (t: number): number => {
-          return t < 0.5
+          return t < 0.5 
             ? 16 * t * t * t * t * t
             : 1 - Math.pow(-2 * t + 2, 5) / 2;
         };
-
+        
         // Blend between two easing functions for a custom feel
         const blendedEase = (t: number): number => {
           // Get values from both easing functions
           const expo = easeOutExpo(t);
           const quint = easeInOutQuint(t);
-
+          
           // Blend based on progress (more exponential at start, more quintic at end)
           const blend = t < 0.5 ? t * 2 : (1 - t) * 2;
           return expo * (1 - blend) + quint * blend;
         };
-
+        
         const scrollProgress = blendedEase(rawScrollProgress);
 
         // Update progress bar with super-smooth animation
@@ -313,78 +321,78 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
           const progress = (currentIndexRef.current + scrollProgress) / processItems.length * 100;
           progressBar.style.height = `${progress}%`;
         }
-
+        
         // Apply parallax effect on the images based on scroll progress with enhanced smoothness
         if (index === currentIndexRef.current) {
           // Get all image references for the current index
           const currentImage = mockupImagesRef.current[index];
           const responsiveImages = document.querySelectorAll('.responsive-feature-image');
           const currentResponsiveImage = responsiveImages[index] as HTMLElement;
-
+          
           // Handle current active image with advanced easing
           if (currentImage) {
             // Simplified translation for current image
-            const translateY = scrollProgress < 0.5 ?
+            const translateY = scrollProgress < 0.5 ? 
               (0.5 - scrollProgress) * 50 : // Reduced movement range
               0;
-
+            
             currentImage.style.transform = `translateY(${translateY}%)`;
             currentImage.style.opacity = '1';
             currentImage.style.filter = 'blur(0px)';
           }
-
+          
           if (currentResponsiveImage) {
-            const translateY = scrollProgress < 0.5 ?
+            const translateY = scrollProgress < 0.5 ? 
               (0.5 - scrollProgress) * 50 : // Reduced movement range
               0;
-
+            
             currentResponsiveImage.style.transform = `translateY(${translateY}%)`;
             currentResponsiveImage.style.opacity = '1';
             currentResponsiveImage.style.filter = 'blur(0px)';
           }
-
+          
           // Next image - slide in from bottom
           if (index < processItems.length - 1) {
             const nextImage = mockupImagesRef.current[index + 1];
             const nextResponsiveImage = responsiveImages[index + 1] as HTMLElement;
-
+            
             if (nextImage) {
               const nextProgress = scrollProgress > 0.5 ? (scrollProgress - 0.5) * 2 : 0;
               const nextTranslateY = 100 * (1 - nextProgress); // Linear transition
-
+              
               nextImage.style.transform = `translateY(${nextTranslateY}%)`;
               nextImage.style.opacity = nextProgress.toString();
               nextImage.style.filter = 'blur(0px)';
             }
-
+            
             if (nextResponsiveImage) {
               const nextProgress = scrollProgress > 0.5 ? (scrollProgress - 0.5) * 2 : 0;
               const nextTranslateY = 100 * (1 - nextProgress); // Linear transition
-
+              
               nextResponsiveImage.style.transform = `translateY(${nextTranslateY}%)`;
               nextResponsiveImage.style.opacity = nextProgress.toString();
               nextResponsiveImage.style.filter = 'blur(0px)';
             }
           }
-
+          
           // Previous image - keep visible and slide up
           if (index > 0) {
             const prevImage = mockupImagesRef.current[index - 1];
             const prevResponsiveImage = responsiveImages[index - 1] as HTMLElement;
-
+            
             if (prevImage) {
               const prevProgress = scrollProgress < 0.5 ? (0.5 - scrollProgress) * 2 : 0;
               const prevTranslateY = -50 * prevProgress; // Reduced movement range
-
+              
               prevImage.style.transform = `translateY(${prevTranslateY}%)`;
               prevImage.style.opacity = (1 - prevProgress * 0.5).toString(); // Slower fade out
               prevImage.style.filter = 'blur(0px)';
             }
-
+            
             if (prevResponsiveImage) {
               const prevProgress = scrollProgress < 0.5 ? (0.5 - scrollProgress) * 2 : 0;
               const prevTranslateY = -50 * prevProgress; // Reduced movement range
-
+              
               prevResponsiveImage.style.transform = `translateY(${prevTranslateY}%)`;
               prevResponsiveImage.style.opacity = (1 - prevProgress * 0.5).toString(); // Slower fade out
               prevResponsiveImage.style.filter = 'blur(0px)';
@@ -398,11 +406,11 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
     let lastScrollY = window.scrollY;
     let animationFrameId: number | null = null;
     let lastTimestamp = 0;
-
+    
     const handleScroll = () => {
       const now = performance.now();
       const currentScrollY = window.scrollY;
-
+      
       // Only update if we have a meaningful scroll change or enough time has passed
       // This creates buttery-smooth animations even on rapid scrolling
       if (Math.abs(currentScrollY - lastScrollY) > 0.5 || now - lastTimestamp > 16) {
@@ -410,7 +418,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
         if (animationFrameId) {
           cancelAnimationFrame(animationFrameId);
         }
-
+        
         // Schedule the update in the next frame with high priority
         animationFrameId = requestAnimationFrame(() => {
           updateMockups();
@@ -423,7 +431,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
 
     // Use passive event listener for better performance
     window.addEventListener('scroll', handleScroll, { passive: true });
-
+    
     // Initial update
     updateMockups();
 

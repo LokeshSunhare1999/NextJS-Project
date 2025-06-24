@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../../public/styles/globals.css";
+import "./globals.css";
 import ClientBody from "./ClientBody";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Poppins } from 'next/font/google';
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     icon: "/Logo.svg",
   },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,95 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preload" href="/fonts/helvetica-255/helvetica.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/helvetica-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/helvetica-Oblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/helvetica-BoldOblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-
-        {/* <link rel="preload" href="/styles/globals.css" as="style" />
-        <link rel="preload" href="/styles/IdentityVerified.css" as="style"  />
-        <link rel="preload" href="/styles/JobReelContainer.css" as="style" />
-        <link rel="preload" href="/styles/MobileScreenStyles.css" as="style" /> */}
-
-        {/* <noscript>
-          <link rel="stylesheet" href="/styles/globals.css" />
-          <link rel="stylesheet" href="/styles/IdentityVerified.css" />
-          <link rel="stylesheet" href="/styles/JobReelContainer.css" />
-          <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
-        </noscript> */}
-        <Script
-          id="css-loader"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Function to load CSS asynchronously
-              function loadCSS(href, before, media) {
-                var doc = window.document;
-                var ss = doc.createElement("link");
-                var ref;
-                if (before) {
-                  ref = before;
-                } else {
-                  var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-                  ref = refs[refs.length - 1];
-                }
-                var sheets = doc.styleSheets;
-                ss.rel = "stylesheet";
-                ss.href = href;
-                ss.media = "only x";
-                function ready(cb) {
-                  if (doc.body) {
-                    return cb();
-                  }
-                  setTimeout(function() {
-                    ready(cb);
-                  });
-                }
-                ready(function() {
-                  ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
-                });
-                var onloadcssdefined = function(cb) {
-                  var resolvedHref = ss.href;
-                  var i = sheets.length;
-                  while (i--) {
-                    if (sheets[i].href === resolvedHref) {
-                      return cb();
-                    }
-                  }
-                  setTimeout(function() {
-                    onloadcssdefined(cb);
-                  });
-                };
-                function loadCB() {
-                  if (ss.addEventListener) {
-                    ss.removeEventListener("load", loadCB);
-                  }
-                  ss.media = media || "all";
-                }
-                if (ss.addEventListener) {
-                  ss.addEventListener("load", loadCB);
-                }
-                ss.onloadcssdefined = onloadcssdefined;
-                onloadcssdefined(loadCB);
-                return ss;
-              }
-
-              // Load non-critical CSS after page load
-              window.addEventListener('load', function() {
-                // Only load if not already loaded via preload
-                if (!document.querySelector('link[href="/styles/IdentityVerified.css"][rel="stylesheet"]')) {
-                  loadCSS('/styles/IdentityVerified.css');
-                }
-                if (!document.querySelector('link[href="/styles/JobReelContainer.css"][rel="stylesheet"]')) {
-                  loadCSS('/styles/JobReelContainer.css');
-                }
-                if (!document.querySelector('link[href="/styles/MobileScreenStyles.css"][rel="stylesheet"]')) {
-                  loadCSS('/styles/MobileScreenStyles.css');
-                }
-              });
-            `
-          }}
-        />
+        <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
+        <link rel="preload" href="/fonts/helvetica-255/Helvetica.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/Helvetica-Bold.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/Helvetica-Oblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/Helvetica-BoldOblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -136,7 +53,6 @@ export default function RootLayout({
         </noscript>
         <GoogleAnalytics />
         <ClientBody>{children}</ClientBody>
-
       </body>
     </html>
   );

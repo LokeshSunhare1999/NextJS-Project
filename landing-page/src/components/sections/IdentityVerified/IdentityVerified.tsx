@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import "../../../../public/styles/IdentityVerified.css";
-import "../../../../public/styles/MobileScreenStyles.css";
+import './IdentityVerified.css';
+import './MobileScreenStyles.css';
 import { CUSTOM_STYLES, EMPLOYER_BENEFITS, FEATURES, IDENTITY_MOCKUP_IMAGES, WORKER_BENEFITS } from '@/constants';
 import Image from 'next/image';
-import { useLazyCSS } from '@/customHook/useLazyCSS';
 
 // Adding custom styles to reduce gap between process items
 const sections = [
@@ -125,14 +124,9 @@ const IdentityVerified: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
   const processWrapperRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const mockupImagesRef = useRef<Array<HTMLImageElement | null>>([]);
+  const lastScrollYRef = useRef<number>(0);
+  const tickingRef = useRef<boolean>(false);
   const currentIndexRef = useRef<number>(0);
-
-  // const cssModules = [
-  //   { href: '../../../../public/styles/IdentityVerified.css', priority: 'high' as const },
-  //   { href: '../../../../public/styles/MobileScreenStyles.css', priority: 'high' as const },
-  // ];
-
-  // useLazyCSS(cssModules);
 
   // Initialize intersection observer for animations
   useEffect(() => {
