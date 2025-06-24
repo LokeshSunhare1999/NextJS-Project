@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import '../../../../public/styles/IdentityVerifiedcopy.css';
+import '../../../../public/styles/IdentityVerified.css';
 import '../../../../public/styles/MobileScreenStyles.css';
 import { CUSTOM_STYLES, EMPLOYER_BENEFITS, FEATURES, IDENTITY_MOCKUP_IMAGES, WORKER_BENEFITS } from '@/constants';
 import Image from 'next/image';

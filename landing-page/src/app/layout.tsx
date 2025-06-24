@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
-
+        
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

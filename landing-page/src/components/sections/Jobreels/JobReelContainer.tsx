@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, ReactNode } from 'react';
-import '../../../../public/styles/JobReelContainerCopy.css';
+import '../../../../public/styles/JobReelContainer.css';
 import '../../../../public/styles/MobileScreenStyles.css';
 import JobReelHeader from './JobReelHeader';
 
