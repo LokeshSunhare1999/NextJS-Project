@@ -70,12 +70,14 @@
 //     </html>
 //   );
 // }
+// ==========================================================================================
 
 import type { Metadata } from "next";
 import ClientBody from "./ClientBody";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Poppins } from 'next/font/google';
 import Script from 'next/script';
+import "../../public/styles/globals.css";
 
 const poppins = Poppins({
   subsets: ['latin'],
