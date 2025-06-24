@@ -30,15 +30,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica-Bold.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica-Oblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica-BoldOblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/helvetica.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/helvetica-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/helvetica-Oblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/helvetica-255/helvetica-BoldOblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         
-        <link rel="preload" href="/styles/globals.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
-        <link rel="preload" href="/styles/IdentityVerified.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
-        <link rel="preload" href="/styles/JobReelContainer.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
-        <link rel="preload" href="/styles/MobileScreenStyles.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
+        <link media="print" href="/styles/globals.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
+        <link media="print" href="/styles/IdentityVerified.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
+        <link media="print" href="/styles/JobReelContainer.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
+        <link media="print" href="/styles/MobileScreenStyles.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
+
         <noscript>
           <link rel="stylesheet" href="/styles/globals.css" />
           <link rel="stylesheet" href="/styles/IdentityVerified.css" />
