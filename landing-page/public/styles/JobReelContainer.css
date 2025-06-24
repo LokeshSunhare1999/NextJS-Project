@@ -1,4 +1,4 @@
-  * {
+  /* * {
     box-sizing: border-box;
   }
   
@@ -48,7 +48,7 @@
     font-weight: bold;
     display: block;
   }  
-  
+   */
   .w-container {
     max-width: 940px;
     margin-left: auto;
