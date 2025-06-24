@@ -44,9 +44,9 @@ export default function RootLayout({
           <link rel="stylesheet" href="/styles/JobReelContainer.css" />
           <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
         </noscript> */}
-<Script
+        <Script
           id="css-loader"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               // Function to load CSS asynchronously
