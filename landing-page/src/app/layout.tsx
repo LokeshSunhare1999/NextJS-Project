@@ -34,7 +34,7 @@
 //         <link rel="preload" href="/fonts/helvetica-255/helvetica-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
 //         <link rel="preload" href="/fonts/helvetica-255/helvetica-Oblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
 //         <link rel="preload" href="/fonts/helvetica-255/helvetica-BoldOblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        
+
 //         <link  rel="preload" href="/styles/globals.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
 //         <link  rel="preload" href="/styles/IdentityVerified.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
 //         <link  rel="preload" href="/styles/JobReelContainer.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
@@ -70,6 +70,7 @@
 //     </html>
 //   );
 // }
+
 import type { Metadata } from "next";
 import ClientBody from "./ClientBody";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -79,7 +80,7 @@ import Script from 'next/script';
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600'], // Only include weights you actually use
+  weight: ['400', '500', '600'], // Reduce font weights to only what you need
   variable: '--font-poppins',
   preload: true,
 });
@@ -102,28 +103,52 @@ export default function RootLayout({
       <head>
         {/* Critical resource preloads */}
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
-        
-        {/* Font preloads - only critical fonts */}
-        <link 
-          rel="preload" 
-          href="/fonts/helvetica-255/helvetica.ttf" 
-          as="font" 
-          type="font/ttf" 
-          crossOrigin="anonymous" 
+
+        {/* Font preloads - only preload critical fonts */}
+        <link
+          rel="preload"
+          href="/fonts/helvetica-255/helvetica.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
         />
-        <link 
-          rel="preload" 
-          href="/fonts/helvetica-255/helvetica-Bold.ttf" 
-          as="font" 
-          type="font/ttf" 
-          crossOrigin="anonymous" 
+        <link
+          rel="preload"
+          href="/fonts/helvetica-255/helvetica-Bold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
         />
-        
-        {/* Load all CSS synchronously for simplicity and reliability */}
+
+        {/* Critical CSS - Load synchronously for FCP */}
         <link rel="stylesheet" href="/styles/globals.css" />
-        <link rel="stylesheet" href="/styles/IdentityVerified.css" />
-        <link rel="stylesheet" href="/styles/JobReelContainer.css" />
-        <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
+
+        {/* Non-critical CSS - Load asynchronously */}
+        <link
+          rel="preload"
+          href="/styles/IdentityVerified.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet';"
+        />
+        <link
+          rel="preload"
+          href="/styles/JobReelContainer.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet';"
+        />
+        <link
+          rel="preload"
+          href="/styles/MobileScreenStyles.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet';"
+        />
+
+        {/* Fallback for no-JS */}
+        <noscript>
+          <link rel="stylesheet" href="/styles/IdentityVerified.css" />
+          <link rel="stylesheet" href="/styles/JobReelContainer.css" />
+          <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
+        </noscript>
 
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -138,10 +163,10 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        
+
         <GoogleAnalytics />
         <ClientBody>{children}</ClientBody>
-        
+
         {/* Move GTM to end of body for better FCP */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
