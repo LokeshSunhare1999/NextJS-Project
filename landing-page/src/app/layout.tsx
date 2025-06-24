@@ -70,7 +70,6 @@
 //     </html>
 //   );
 // }
-
 import type { Metadata } from "next";
 import ClientBody from "./ClientBody";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -80,7 +79,7 @@ import Script from 'next/script';
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600'], // Reduce font weights to only what you need
+  weight: ['400', '500', '600'], // Only include weights you actually use
   variable: '--font-poppins',
   preload: true,
 });
@@ -104,7 +103,7 @@ export default function RootLayout({
         {/* Critical resource preloads */}
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
         
-        {/* Font preloads - only preload critical fonts */}
+        {/* Font preloads - only critical fonts */}
         <link 
           rel="preload" 
           href="/fonts/helvetica-255/helvetica.ttf" 
@@ -120,47 +119,11 @@ export default function RootLayout({
           crossOrigin="anonymous" 
         />
         
-        {/* Critical CSS - Load synchronously for FCP */}
+        {/* Load all CSS synchronously for simplicity and reliability */}
         <link rel="stylesheet" href="/styles/globals.css" />
-        
-        {/* Non-critical CSS - Load asynchronously */}
-        <link 
-          rel="preload" 
-          href="/styles/IdentityVerified.css" 
-          as="style" 
-          onLoad={(e) => {
-            const target = e.target as HTMLLinkElement;
-            target.onload = null;
-            target.rel = 'stylesheet';
-          }}
-        />
-        <link 
-          rel="preload" 
-          href="/styles/JobReelContainer.css" 
-          as="style" 
-          onLoad={(e) => {
-            const target = e.target as HTMLLinkElement;
-            target.onload = null;
-            target.rel = 'stylesheet';
-          }}
-        />
-        <link 
-          rel="preload" 
-          href="/styles/MobileScreenStyles.css" 
-          as="style" 
-          onLoad={(e) => {
-            const target = e.target as HTMLLinkElement;
-            target.onload = null;
-            target.rel = 'stylesheet';
-          }}
-        />
-
-        {/* Fallback for no-JS */}
-        <noscript>
-          <link rel="stylesheet" href="/styles/IdentityVerified.css" />
-          <link rel="stylesheet" href="/styles/JobReelContainer.css" />
-          <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
-        </noscript>
+        <link rel="stylesheet" href="/styles/IdentityVerified.css" />
+        <link rel="stylesheet" href="/styles/JobReelContainer.css" />
+        <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
 
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
