@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     icon: "/Logo.svg",
   },
 };
-
+// import "../components/sections/IdentityVerified/IdentityVerified.css"
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,6 +29,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="preload"
+          href="/styles/IdentityVerified.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet';"
+        />
+        <link
+          rel="preload"
+          href="/styles/JobReelContainer.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet';"
+        />
+        <link
+          rel="preload"
+          href="/styles/MobileScreenStyles.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet';"
+        />
+        <noscript>
+          <link rel="stylesheet" href="/styles/IdentityVerified.css" />
+          <link rel="stylesheet" href="/styles/JobReelContainer.css" />
+          <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
+        </noscript>
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
         <link rel="preload" href="/fonts/helvetica-255/Helvetica.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/helvetica-255/Helvetica-Bold.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
