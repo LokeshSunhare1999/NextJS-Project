@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, ReactNode } from 'react';
-import './JobReelContainer.css';
-import './MobileScreenStyles.css';
+import '../../../../public/styles/JobReelContainerCopy.css';
+import '../../../../public/styles/MobileScreenStyles.css';
 import JobReelHeader from './JobReelHeader';
 
 // Adding custom styles to reduce gap between process items
