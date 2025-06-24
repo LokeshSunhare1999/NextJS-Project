@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     icon: "/Logo.svg",
   },
 };
-// import "../components/sections/IdentityVerified/IdentityVerified.css"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,22 +29,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" /> */}
         <link rel="preload" href="/fonts/helvetica-255/helvetica.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/helvetica-255/helvetica-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/helvetica-255/helvetica-Oblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/helvetica-255/helvetica-BoldOblique.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
 
-        <link  rel="preload" href="/styles/globals.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
-        <link  rel="preload" href="/styles/IdentityVerified.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
-        <link  rel="preload" href="/styles/JobReelContainer.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
-        <link  rel="preload" href="/styles/MobileScreenStyles.css" as="style" onLoad="this.onload=null;this.rel='stylesheet';" />
+        <link rel="preload" href="/styles/globals.css" as="style" />
+        {/* <link rel="preload" href="/styles/IdentityVerified.css" as="style"  />
+        <link rel="preload" href="/styles/JobReelContainer.css" as="style" />
+        <link rel="preload" href="/styles/MobileScreenStyles.css" as="style" /> */}
 
         <noscript>
           <link rel="stylesheet" href="/styles/globals.css" />
-          <link rel="stylesheet" href="/styles/IdentityVerified.css" />
+          {/* <link rel="stylesheet" href="/styles/IdentityVerified.css" />
           <link rel="stylesheet" href="/styles/JobReelContainer.css" />
-          <link rel="stylesheet" href="/styles/MobileScreenStyles.css" />
+          <link rel="stylesheet" href="/styles/MobileScreenStyles.css" /> */}
         </noscript>
 
       </head>
