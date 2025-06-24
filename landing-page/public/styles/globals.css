@@ -52,45 +52,6 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
-@font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/helvetica-255/Helvetica.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/helvetica-255/Helvetica-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/helvetica-255/Helvetica-Oblique.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/helvetica-255/Helvetica-BoldOblique.ttf') format('truetype');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Helvetica Light';
-  src: url('/fonts/helvetica-255/helvetica-light-587ebe5a59211.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
 
 @layer base {
   :root {
@@ -148,7 +109,7 @@ html {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-['helvetica'] antialiased;
+    @apply bg-background text-foreground  antialiased;
     margin: 0; /* Remove the default margin */
   }
 }

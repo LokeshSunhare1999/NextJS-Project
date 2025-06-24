@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../../public/styles/globals.css"
 import ClientBody from "./ClientBody";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Poppins } from 'next/font/google';
@@ -30,10 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica-Bold.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica-Oblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/helvetica-255/Helvetica-BoldOblique.ttf" as="font" type="font/helvetica-255" crossOrigin="anonymous" />
+
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
