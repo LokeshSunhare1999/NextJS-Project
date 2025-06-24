@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './IdentityVerified.css';
-import './MobileScreenStyles.css';
+// import './IdentityVerified.css';
+// import '../Jobreels/MobileScreenStyles.css';
 import { CUSTOM_STYLES, EMPLOYER_BENEFITS, FEATURES, IDENTITY_MOCKUP_IMAGES, WORKER_BENEFITS } from '@/constants';
 import Image from 'next/image';
 
@@ -127,6 +127,11 @@ const IdentityVerified: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
   const lastScrollYRef = useRef<number>(0);
   const tickingRef = useRef<boolean>(false);
   const currentIndexRef = useRef<number>(0);
+
+  useEffect(() => {
+    import('./IdentityVerified.css');
+    import('../Jobreels/MobileScreenStyles.css');
+  }, []);
 
   // Initialize intersection observer for animations
   useEffect(() => {

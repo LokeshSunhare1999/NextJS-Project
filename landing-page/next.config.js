@@ -2,11 +2,6 @@
 const nextConfig = {
   output: 'export',
   distDir: 'out',
-  compress: true,
-  poweredByHeader: false,
-  experimental: {
-    optimizePackageImports: ['@/components'],
-  },
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],

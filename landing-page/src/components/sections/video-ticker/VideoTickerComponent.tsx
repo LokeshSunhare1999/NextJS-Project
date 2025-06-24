@@ -20,7 +20,7 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
   const [isHovering, setIsHovering] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const tickerRef = useRef<HTMLDivElement>(null);
-  const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
+  const videoRefs = useRef<{[key: string]: HTMLVideoElement}>({});
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -172,7 +172,6 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                     fill
                     sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 468px"
                     className="object-cover"
-                    // priority
                     onError={(e) => {
                       // Fallback for missing images
                       const target = e.target as HTMLImageElement;
@@ -251,7 +250,6 @@ export default function VideoTickerComponent({ videos, title }: VideoTickerProps
                     alt={video.title}
                     width={360} // fallback width
                     height={200}
-                    loading="lazy"
                     sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 468px"
                     className="object-cover w-full h-full"
                     onError={(e) => {
