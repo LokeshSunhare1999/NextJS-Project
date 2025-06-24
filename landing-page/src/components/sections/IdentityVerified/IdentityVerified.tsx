@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-// import "../../../../public/styles/IdentityVerified.css";
-// import "../../../../public/styles/MobileScreenStyles.css";
+import "../../../../public/styles/IdentityVerified.css";
+import "../../../../public/styles/MobileScreenStyles.css";
 import { CUSTOM_STYLES, EMPLOYER_BENEFITS, FEATURES, IDENTITY_MOCKUP_IMAGES, WORKER_BENEFITS } from '@/constants';
 import Image from 'next/image';
 
@@ -126,11 +126,12 @@ const IdentityVerified: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
   const mockupImagesRef = useRef<Array<HTMLImageElement | null>>([]);
   const currentIndexRef = useRef<number>(0);
 
-  useEffect(() => {
-  // Lazy load CSS files
-  import('../../../../public/styles/IdentityVerified.css');
-  import('../../../../public/styles/MobileScreenStyles.css');
-}, []);
+  // useEffect(() => {
+  //   // Lazy load CSS files
+  //   import('../../../../public/styles/IdentityVerified.css');
+  //   import('../../../../public/styles/MobileScreenStyles.css');
+  // }, []);
+
   // Initialize intersection observer for animations
   useEffect(() => {
     // Setup intersection observer for triggering animations

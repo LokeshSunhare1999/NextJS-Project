@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, ReactNode } from 'react';
-// import './JobReelContainer.css';
-// import "../../../../public/styles/JobReelContainer.css";
-// import "../../../../public/styles/MobileScreenStyles.css";
+import "../../../../public/styles/JobReelContainer.css";
+import "../../../../public/styles/MobileScreenStyles.css";
 import JobReelHeader from './JobReelHeader';
 
 interface ProcessStep {
@@ -79,11 +78,11 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
   const mockupImagesRef = useRef<Array<HTMLImageElement | null>>([]);
   const currentIndexRef = useRef<number>(0);
 
-  useEffect(() => {
-    // Lazy load CSS files
-    import('../../../../public/styles/JobReelContainer.css');
-    import('../../../../public/styles/MobileScreenStyles.css');
-  }, []);
+  // useEffect(() => {
+  //   // Lazy load CSS files
+  //   import('../../../../public/styles/JobReelContainer.css');
+  //   import('../../../../public/styles/MobileScreenStyles.css');
+  // }, []);
 
   // Initialize intersection observer for animations
   useEffect(() => {
