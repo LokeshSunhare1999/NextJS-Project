@@ -37,8 +37,22 @@ export default function RootLayout({
           as="style"
           onLoad="this.onload=null;this.rel='stylesheet'"
         />
+        <link
+          rel="preload"
+          href="/styles/IdentityVerified.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <link
+          rel="preload"
+          href="/styles/JobReelContainer.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
         <noscript>
           <link rel="stylesheet" href="/styles/globals.css" />
+          <link rel="stylesheet" href="/styles/IdentityVerified.css" />
+          <link rel="stylesheet" href="/styles/JobReelContainer.css" />
         </noscript>
 
         <Script id="google-tag-manager" strategy="lazyOnload">
