@@ -12,7 +12,7 @@ export default function HeroSection() {
           src="/herobg.webp"
           alt="Team working in futuristic hiring environment"
           fill
-          priority={true}
+          priority
           sizes="100vw"
           className="object-cover"
         />

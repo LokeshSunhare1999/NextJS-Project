@@ -31,6 +31,16 @@ export default function RootLayout({
       <head>
         <link rel="preload" as="image" href="/herobg.webp" fetchPriority="high" />
         
+        <link
+          rel="preload"
+          href="/styles/globals.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+          <link rel="stylesheet" href="/styles/globals.css" />
+        </noscript>
+
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
