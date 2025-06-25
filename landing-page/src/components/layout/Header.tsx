@@ -96,7 +96,7 @@ const Header: React.FC<HeaderProps> = (): JSX.Element => {
             alt="saathi-logo"
             width={100}
             height={24}
-            priority // use priority only if this is above the fold
+            priority={true}
           />
         </a>
       </div>
@@ -114,14 +114,14 @@ const Header: React.FC<HeaderProps> = (): JSX.Element => {
         ))}
 
         {/* Business Button - Desktop */}
-        {!isMenuOpen && (
+        {!isMenuOpen ? (
           <button
             onClick={handleBusinessClick}
             className="flex items-center justify-center bg-gradient-to-r from-[#FFC01D] via-[#FFD955] to-[#FF9A01] text-black font-poppins text-xl font-semibold px-7 py-2 hover:from-[#FF9A01] hover:via-[#FFD955] hover:to-[#FFC01D] transition-colors rounded-[8px]"
           >
             <span>Business</span>
           </button>
-        )}
+        ) : null}
 
         {/* Desktop Burger Menu */}
         <button
