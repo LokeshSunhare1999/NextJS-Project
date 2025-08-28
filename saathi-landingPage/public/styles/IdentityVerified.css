@@ -160,7 +160,8 @@
 }
 
 .process-step-wrapper {
-  max-width: 80%
+  max-width: 80%;
+  padding-left: 30px;
 }
 
 .process-wrapper {
