@@ -503,7 +503,7 @@ const IdentityVerified: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
               <div key={index} className="process-item" style={CUSTOM_STYLES.processItem}>
                 <div className="process-center">
                 </div>
-                <div className="process-right">
+                <div className="process-verified-right">
                   <div className="process-step-wrapper">
                     <div className="process-detail-wrapper">
                       {sections[index] && sections[index].content}
