@@ -125,7 +125,8 @@
 .process-right {
   display: flex;
   flex-direction: column;
-  justify-content: center
+  justify-content: center;
+  padding-left: 35px;
 }
 
 .progress-bar {
