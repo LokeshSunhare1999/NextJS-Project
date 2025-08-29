@@ -310,7 +310,7 @@
    width: 100%;
  }
 
- .sliding-mockups-wrapper.scrolling  {
+ .sliding-mockups-wrapper.scrolling {
    flex: 1;
    position: relative;
    top: 40px;
@@ -2030,14 +2030,16 @@
  }
 
  @media screen and (max-height: 700px) {
-  .responsive-feature-image {
-    padding: 0 !important;
-    margin-top: 60px !important;
-  }
+   .responsive-feature-image {
+     padding: 0 !important;
+     margin-top: 64px !important;
+   }
+
    .responsive-image-container {
-   height: 120% !important;
+     height: 120% !important;
+     margin-top: 55px;
+   }
  }
-}
 
  .responsive-feature-image.active {
    transform: translate(-50%, -50%) translateY(0) scale(1) !important;
