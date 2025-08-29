@@ -1987,17 +1987,6 @@
    opacity: 0;
  }
 
- .responsive-feature-image.active {
-   transform: translateX(0);
-   opacity: 1;
-   z-index: 5;
- }
-
- .responsive-feature-image.prev {
-   transform: translateX(-100%);
-   opacity: 0.5;
-   z-index: 1;
- }
 
  @media screen and (max-width:767px) {
    .responsive-image-container {
@@ -2039,6 +2028,16 @@
    -webkit-backface-visibility: hidden !important;
    filter: blur(2px) !important;
  }
+
+ @media screen and (max-height: 700px) {
+  .responsive-feature-image {
+    padding: 0 !important;
+    margin-top: 60px !important;
+  }
+   .responsive-image-container {
+   height: 120% !important;
+ }
+}
 
  .responsive-feature-image.active {
    transform: translate(-50%, -50%) translateY(0) scale(1) !important;
