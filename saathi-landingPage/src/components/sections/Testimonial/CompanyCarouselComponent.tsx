@@ -15,7 +15,7 @@ export default function CompanyCarouselComponent({ testimonials }: CompanyCarous
   const tickerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="w-full overflow-hidden pt-10 pb-5">
+    <div className="w-full overflow-hidden pt-5 pb-5">
       <div className="relative overflow-hidden">
         <div
           ref={tickerRef}

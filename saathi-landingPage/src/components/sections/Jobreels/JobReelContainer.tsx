@@ -143,7 +143,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
               ))}
             </div>
           </div>
-          <div className="sliding-mockups-wrapper">
+          <div className="sliding-mockups-wrapper scrolling">
             <div className="responsive-image-container">
               {mockupImages.map((image, index) => (
                 <img
@@ -154,12 +154,6 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
                   sizes={image.sizes}
                   srcSet={image.srcset}
                   loading='lazy'
-                  style={{
-                    transform: 'translateY(0%)',
-                    opacity: '1',
-                    filter: 'blur(0px)',
-                    position: 'relative'
-                  }}
                 />
               ))}
             </div>

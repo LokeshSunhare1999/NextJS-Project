@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = (): JSX.Element => {
           <Image
             src="/assets/home/Logo.svg"
             alt="saathi-logo"
-            width={100}
+            width={130}
             height={24}
             priority // use priority only if this is above the fold
           />
