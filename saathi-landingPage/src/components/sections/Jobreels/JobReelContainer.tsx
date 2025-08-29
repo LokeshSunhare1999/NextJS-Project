@@ -150,7 +150,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
                   key={index}
                   src={image.src}
                   alt={`Feature ${index + 1}`}
-                  className="responsive-feature-image active"
+                  className="responsive-feature-image mt-12 active"
                   sizes={image.sizes}
                   srcSet={image.srcset}
                   loading='lazy'
