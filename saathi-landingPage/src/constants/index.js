@@ -64,16 +64,6 @@ export const SOCIAL_LINKS = [
 
 export const FEATURES = [
   {
-    icon: (
-      <span className="inline-block w-12 h-12 bg-[#FFC226] rounded-full flex items-center justify-center font-bold">
-        <Image
-          src="/assets/home/face_detection.svg"
-          alt="Live Photo Verified"
-          width={28}
-          height={28}
-        />
-      </span>
-    ),
     title: (
       <>
         <span className="text-white">Live Photo</span>{" "}
@@ -84,22 +74,12 @@ export const FEATURES = [
     desc: (
       <>
         <span className="text-gray-400 italic text-md md:text-[18px]">
-          Eliminating Fake Profiles
+          Short Video Reels of Job seekers Profile
         </span>
       </>
     ),
   },
   {
-    icon: (
-      <span className="inline-block w-12 h-12 bg-[#FFC226] rounded-full flex items-center justify-center font-bold">
-        <Image
-          src="/assets/home/id_card.svg"
-          alt="Aadhaar Verified"
-          width={28}
-          height={28}
-        />
-      </span>
-    ),
     title: (
       <>
         <span className="text-white">Adhaar</span>{" "}
@@ -116,16 +96,6 @@ export const FEATURES = [
     ),
   },
   {
-    icon: (
-      <span className="inline-block w-12 h-12 bg-[#FFC226] rounded-full flex items-center justify-center font-bold">
-        <Image
-          src="/assets/home/legal_2.svg"
-          alt="Legal Status Verified"
-          width={28}
-          height={28}
-        />
-      </span>
-    ),
     title: (
       <>
         <span className="text-white">Legal Status</span>{" "}
@@ -142,16 +112,6 @@ export const FEATURES = [
     ),
   },
   {
-    icon: (
-      <span className="inline-block w-12 h-12 bg-[#FFC226] rounded-full flex items-center justify-center font-bold">
-        <Image
-          src="/assets/home/experience 1.svg"
-          alt="Experience Verified"
-          width={28}
-          height={28}
-        />
-      </span>
-    ),
     title: (
       <>
         <span className="text-white">Experience</span>{" "}

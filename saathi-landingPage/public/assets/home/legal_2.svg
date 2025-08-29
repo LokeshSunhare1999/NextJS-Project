@@ -1,42 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
-<g>
-	<g>
-		<path style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;M380.609,228.417V25c0-5.523-4.477-10-10-10H25c-5.523,0-10,4.477-10,10v461.998c0,5.523,4.477,10,10,10L370.473,497"/>
-		
-			<line style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="85.482" y1="228.855" x2="201.262" y2="228.855"/>
-		
-			<line style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="85.482" y1="168.851" x2="201.262" y2="168.851"/>
-		
-			<line style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="85.482" y1="108.847" x2="309.181" y2="108.847"/>
-		
-			<line style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="85.482" y1="288.451" x2="201.262" y2="288.451"/>
-		
-			<line style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="85.482" y1="338.454" x2="201.262" y2="338.454"/>
-		
-			<line style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="85.482" y1="398.458" x2="201.262" y2="398.458"/>
-		<g>
-			<path style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;M496.995,333.544l-0.529-69.699c-25.165,0.186-46.961-14.341-57.012-35.427l-120.147,0.887&#10;&#9;&#9;&#9;&#9;c-9.73,21.232-31.304,36.08-56.468,36.265l0.529,69.699c0.445,58.63,32.271,112.661,83.685,142.072l34.363,19.657l34.061-20.162&#10;&#9;&#9;&#9;&#9;C466.438,446.669,497.44,392.174,496.995,333.544z"/>
-		</g>
-	</g>
-	<g>
-		
-			<polyline style="fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="&#10;&#9;&#9;&#9;344.128,355.168 369.858,386.774 424.128,329.07 &#9;&#9;"/>
-	</g>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_224_94)">
+<path d="M17 16.62C17.6186 16.62 18.12 16.1186 18.12 15.5C18.12 14.8814 17.6186 14.38 17 14.38C16.3814 14.38 15.88 14.8814 15.88 15.5C15.88 16.1186 16.3814 16.62 17 16.62Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17 17.5C16.27 17.5 14.81 17.86 14.76 18.58C15.26 19.29 16.08 19.75 17 19.75C17.92 19.75 18.74 19.29 19.24 18.58C19.19 17.86 17.73 17.5 17 17.5Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18 11.09V6.27L10.5 3L3 6.27V11.18C3 15.72 6.2 19.97 10.5 21C11.05 20.87 11.58 20.68 12.1 20.45C13.18 21.99 14.97 23 17 23C20.31 23 23 20.31 23 17C23 14.03 20.84 11.57 18 11.09ZM11 17C11 17.56 11.08 18.11 11.23 18.62C10.99 18.73 10.75 18.84 10.5 18.92C7.33 17.92 5 14.68 5 11.18V7.58L10.5 5.18L16 7.58V11.09C13.16 11.57 11 14.03 11 17ZM17 21C14.79 21 13 19.21 13 17C13 14.79 14.79 13 17 13C19.21 13 21 14.79 21 17C21 19.21 19.21 21 17 21Z" fill="black"/>
 </g>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<defs>
+<clipPath id="clip0_224_94">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
 </svg>

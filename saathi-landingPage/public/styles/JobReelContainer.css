@@ -2117,11 +2117,6 @@
    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
  }
 
- @media screen and (max-width:767px) {
-   .responsive-image-container {
-     height: 100vh !important;
-   }
- }
 
  @media screen and (max-width:479px) {
    .responsive-image-container {

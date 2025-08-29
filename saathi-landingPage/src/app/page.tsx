@@ -121,7 +121,9 @@ export default function Home() {
       <FastTrainSection />
 
       {/* Identity Verified section with scroll effect */}
-      <IdentityVerifiedHeader />
+      <div id="trueid">
+        <IdentityVerifiedHeader />
+      </div>
 
       <div className="hidden md:block">
         <IdentityVerified2 />

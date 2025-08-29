@@ -18,7 +18,7 @@ const sections = [
           {FEATURES.map((f, i) => (
             <li key={i} className="flex flex-row items-center gap-2 md:gap-3 px-2">
               <span className="inline-block w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-[#FFC226] rounded-full flex items-center justify-center font-bold shrink-0">
-                <Image src={['/assets/home/face_detection.svg', '/assets/home/id_card.svg', '/assets/home/legal_2.svg', '/assets/home/experience 1.svg'][i]} alt="icon" width={22} height={22}/>
+                <Image src={['/assets/home/face_detection.svg', '/assets/home/id_card.svg', '/assets/home/legal_2.svg', '/assets/home/experience.svg'][i]} alt="icon" width={22} height={22}/>
               </span>
               <div className="flex-1 min-w-0">
                 <span className="font-bold text-md sm:text-sm md:text-lg text-[#FFC226] text-left block break-words">
