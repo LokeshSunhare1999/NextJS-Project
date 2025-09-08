@@ -215,7 +215,7 @@ const BusinessSubPage = () => {
                   width={20}
                   height={20}
                 />
-                <span className="font-medium text-sm leading-[24px] tracking-normal text-right text-white/80">5 Job Posts FREE</span>
+                <span className="font-medium text-sm leading-[24px] tracking-normal text-right text-white/80">Unlimited Job Posts</span>
               </div>
 
               <div className="flex items-center gap-2 mt-1 ml-0.5">
@@ -225,7 +225,7 @@ const BusinessSubPage = () => {
                   width={16}
                   height={16}
                 />
-                <span className="ml-0.5 font-medium text-sm leading-[24px] tracking-normal text-right text-white/80">50 AI Interviews FREE</span>
+                <span className="ml-0.5 font-medium text-sm leading-[24px] tracking-normal text-right text-white/80">Finalize 50 Candidates for Free</span>
               </div>
             </div>
           </div>

@@ -130,7 +130,7 @@ const JobReelContainer: React.FC<{ showFrame?: boolean }> = ({ showFrame = false
                         {/* Pricing section */}
                         <div className="mt-8">
                           <h4 className="text-[#949BA6] text-lg font-medium mb-2 uppercase tracking-wider">
-                            ANNUAL SUBSCRIPTION OF ₹5,000 ONLY
+                            Sign up for Free & get 1000 Credits for free
                           </h4>
                           <p className="text-[#949BA6] text-base font-light">
                             Unlimited Job Posts

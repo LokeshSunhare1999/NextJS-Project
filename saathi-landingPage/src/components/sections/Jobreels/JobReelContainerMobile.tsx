@@ -110,7 +110,7 @@ const JobReelContainerMobile = memo(function JobReelContainerMobile({
               {/* Pricing section */}
               <div className="mt-4 pt-2 border-t border-gray-700">
                 <h4 className="text-white font-['Helvetica'] text-xs sm:text-sm font-medium mb-1 uppercase tracking-wider text-center">
-                  ANNUAL SUBSCRIPTION OF ₹5,000 ONLY
+                  Sign up for Free & get 1000 Credits for free
                 </h4>
                 <p className="text-gray-400 font-['Helvetica'] text-xs sm:text-sm font-light text-center">
                   Unlimited Job Posts
