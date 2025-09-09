@@ -257,7 +257,7 @@ const BusinessSubPage = () => {
           `}</style>
         </div>
         {/* Bottom Logo and T&C */}
-        <div className="hidden md:flex w-full flex-col items-start mt-8">
+        <div className="hidden md:flex w-full flex-col items-start mt-4">
           <span className="text-gray-400 text-xs">
             ©Saathi 2025. All rights reserved.
           </span>
