@@ -220,7 +220,7 @@ export default function FileUpload({ onFileLoad, isLoading }) {
           //   window.dispatchEvent(event)
           // }}
           onClick={() => {
-            window.open("/sample-books.csv", "_blank");
+            window.open("/sample_data.csv", "_blank");
           }}
           disabled={isLoading}
           className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-md transition-colors disabled:opacity-50"
