@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37" height="32.343" viewBox="0 0 37 32.343">
+  <g id="Completed" transform="translate(-4536 -1960.99)">
+    <g id="product" transform="translate(4531.5 1960.49)">
+      <path id="Path_4" data-name="Path 4" d="M9,20.25h7.086v2.362H9Z" transform="translate(0.224 0.783)" fill="#fe077c"/>
+      <path id="Path_5" data-name="Path 5" d="M9,24.75H20.809v2.362H9Z" transform="translate(0.224 1.007)" fill="#fe077c"/>
+      <path id="Path_6" data-name="Path 6" d="M30.481,4.5H6.862A2.364,2.364,0,0,0,4.5,6.862V30.481a2.364,2.364,0,0,0,2.362,2.362H30.481a2.364,2.364,0,0,0,2.362-2.362V6.862A2.364,2.364,0,0,0,30.481,4.5ZM21.033,6.862v4.724H16.309V6.862ZM6.862,30.481V6.862h7.086v7.086H23.4V6.862h7.086V30.481Z" fill="#fe077c"/>
+    </g>
+    <g id="Group_11809" data-name="Group 11809" transform="translate(-20 -18)">
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="6" cy="6" r="6" transform="translate(4578 1981.99)" fill="#fff"/>
+      <g id="check-circle-fill" transform="translate(4575 1978.99)">
+        <path id="Path_3839" data-name="Path 3839" d="M18,9A9,9,0,1,1,9,0a9,9,0,0,1,9,9ZM13.534,5.591a.844.844,0,0,0-1.215.024L8.411,10.594,6.057,8.238A.844.844,0,0,0,4.864,9.431l2.977,2.977a.844.844,0,0,0,1.214-.023l4.491-5.614a.844.844,0,0,0-.011-1.181Z" transform="translate(0 0)" fill="#fe077c" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>

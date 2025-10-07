@@ -1,0 +1,90 @@
+{
+  "name": "uep-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@react-pdf/font": "^3.0.0",
+    "@react-pdf/renderer": "^4.0.0",
+    "@syncfusion/ej2-react-calendars": "^19.3.46",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "antd": "^4.16.13",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
+    "chart.js": "^3.6.2",
+    "combine-reducers": "^1.0.0",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "file-saver": "^2.0.5",
+    "firebase": "^9.21.0",
+    "fontkit": "^2.0.4",
+    "js-cookie": "^3.0.1",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "node-sass": "^4.0.0",
+    "quagga": "^0.12.1",
+    "react": "^17.0.2",
+    "react-avatar": "^3.10.0",
+    "react-chartjs-2": "^3.3.0",
+    "react-dom": "^17.0.2",
+    "react-dropzone": "^11.4.2",
+    "react-icons": "^4.2.0",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "react-svg": "^14.1.1",
+    "react-to-print": "^2.14.7",
+    "react-toastify": "^7.0.4",
+    "react-zendesk": "^0.1.13",
+    "redux-thunk": "^2.3.0",
+    "web-vitals": "^1.1.2",
+    "yoga-layout": "^3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "npm run lint:js",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
+    "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --fix",
+    "lint:js": "npm run lint:eslint -- . "
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "eslint": "^7.30.0",
+    "husky": "^7.0.0"
+  },
+  "proxy": "https://storage.googleapis.com/syn-uep-viewer-176-bucket-dev"
+}

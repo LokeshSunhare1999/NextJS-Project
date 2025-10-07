@@ -1,0 +1,345 @@
+//Authentication Page css-------------------------------------------->
+
+.admin-dashboard {
+  background: #f3f4f9;
+  height: 100%;
+  .loginLoader{
+    padding-top: 185px;
+    margin-bottom: -223px;
+  }
+  .login_card {
+    background: #ffffff;
+    box-shadow: 0px 2px 14px #0000001a;
+    border-radius: 20px;
+    padding: 50px;
+    min-width: 430px;
+    max-width: 450px;
+    top: 240px;
+    height: fit-content;
+    position: relative;
+  }
+  .title {
+    text-align: center;
+    font-family: 'Roboto Bold';
+    color: #202020;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .login_card_header {
+    background: transparent;
+    color: #2a2f4d;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Roboto Regular";
+  }
+  .login_card_body {
+    padding: 0;
+  }
+}
+//notification-wrapper
+.notification-wrapper {
+  // .dropdown-menu {
+  //   width: 375px;
+  //   margin-left: -108px;
+  //   border-radius: 12px;
+  //   padding: 0;
+  //   max-height: 350px;
+  //   overflow-y: auto;
+  //   position: absolute;
+  //   // z-index: 1000;
+  //   /* display: none; */
+  //   min-width: 10rem;
+  //   // padding: 0.5rem 0;
+  //   margin: 0;
+  //   font-size: 1rem;
+  //   color: #212529;
+  //   text-align: left;
+  //   list-style: none;
+  //   background-color: #fff;
+  //   background-clip: padding-box;
+  //   border: 1px solid rgba(0,0,0,.15);
+  //   border-radius: 0.25rem;
+    .card-header {
+      position: fixed;
+      width: 350px;
+      background-color: #ffffff!important;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+    li:first-of-type{
+      margin-top: 45px;
+    }
+    li:last-of-type{
+      border: none;
+      a {
+        &:hover {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        }
+      }
+    }
+    li {
+      border-top: 1px solid #CCCCCC;
+      border-bottom: 1px solid #CCCCCC;
+      a {
+        margin: 0;
+      }
+    }
+    .dropdown-item {
+      line-height: 1;
+      padding: 10px 15px;
+      .notify-content {
+        color: #211F1F;
+        font-size: 13px;
+        font-family: 'Roboto Regular';
+        letter-spacing: 0;
+        line-height: 1;
+        white-space: break-spaces;
+      }
+      &:active, &:hover {
+        background-color: #e8f2fd;
+      }
+      .notify-time {
+        font-size: 12px;
+        font-family: 'Roboto Regular';
+        color: #d0d0d0;
+      }
+    }
+  // }
+  .card-header {
+    background-color: #ffffff00;
+  }
+}
+
+//Dashboard Header css---------------------------------------------------------------------------------------------------->
+.profile-name {
+  text-align: left;
+  letter-spacing: 0px;
+  color: #f3f4f9;
+  font-size: 12px;
+  margin-bottom: 0px;
+  min-width: 80px;
+  font-family: "Roboto Regular";
+}
+.profile-role {
+  text-align: left;
+  letter-spacing: 0px;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Roboto Medium';
+}
+.uep-auth-logo {
+  width: 170px;
+  height: auto;
+  float: left;
+}
+.dropdown_admin {
+  padding-left: 40px;
+}
+.dropdown-menu{
+  // width: 170px !important;
+  li{
+    line-height: 0.8;
+  }
+  a{
+    padding: 0;
+    margin-left: 6px;
+  }
+}
+.account_name {
+  padding-left: 15px;
+}
+.notify_icon {
+  padding: 12px 15px;
+  border-left: 2px solid #686767;
+  border-right: 2px solid #686767;
+  width: 50px;
+}
+.user{
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.user_img {
+  border-radius: 50%;
+}
+.heading_report {
+  color: #202020;
+  text-align: left;
+  font-family: "Roboto Medium";
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.heading_visual_report {
+  color: #202020;
+  text-align: left;
+  font-family: "Roboto Medium";
+  margin-top: 20px !important;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+.heading_quarterly_report {
+  color: #202020;
+  font-family: 'Roboto Medium';
+  font-size: 18px;
+  margin-top: 20px !important;
+  margin-left: 20px;
+}
+.dashboard_report_card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 12px #0000000f;
+  border-radius: 10px;
+  width: 225px;
+  height: 110px;
+  margin: 10px 25px 20px 0;
+  .card-body{
+    display: grid;
+    text-align: left;
+  }
+}
+.counts {
+  font-size: 26px;
+  font-family: "Roboto Bold";
+  float: left;
+}
+.count_name {
+  font-size: 16px;
+  float: left;
+  font-family: "Roboto Regular";
+  padding-bottom: 10px;
+}
+.pie_chart {
+  width: 100%;
+  box-shadow: 0px 2px 12px #0000000f;
+  border-radius: 10px;
+}
+.graph {
+  width: 100%;
+  box-shadow: 0px 2px 12px #0000000f;
+  border-radius: 10px;
+  height: 100%;
+}
+.arrow-up{
+  position: absolute;
+  display: none;
+  left: -53px !important;
+}
+.arrow-up::after {
+  position: absolute;
+  content: "";
+  border-left: 10px solid transparent !important;
+  border-right: 10px solid transparent !important;
+  border-bottom: 10px solid #fff !important;
+  top: -10px;
+  left: 50%;
+  transform: translate(-58%, 0);
+}
+.notify_heading{
+  color: #FE077C;
+  font-size: 14px;
+  font-family: 'Roboto Medium';
+  margin: 0;
+}
+.read_btn{
+  background: #EEEEEE;
+  border: 1px solid #EEEEEE;
+  border-radius: 6px;
+  color: #29292B;
+  font-size: 12px;
+  font-family: 'Roboto Regular';
+  padding: 4px 8px;
+}
+.update-profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown:hover .dropdown-menu {
+  // display: block;
+  box-shadow: 0px 1px 6px #0000001A;
+  margin-top: 8px; // remove the gap so it doesn't close
+}
+.dropdown-menu[data-bs-popper] {
+  margin-top: 8px !important;
+}
+.notify-loader {
+  width: 372px;
+  height: 100px;
+  margin: 45px 0 0px 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+.dashboard-header {
+  .navbar {
+    height: 82px;
+  }
+  // .dropdown:hover .dropdown-menu {
+  //   margin-top: 130px !important;
+  // }
+  .update-profile-dropdown {
+      .dropdown-menu-end[data-bs-popper] {
+        right: 12px !important;
+        top: -70px !important;
+      }
+      img.drop-arrow {
+        transition: all 0.3s ease;
+      }
+      &:hover img.drop-arrow {
+        transform: rotateZ(180deg);
+      }
+  }
+  .profile-dropdown {
+    margin-top: 125px !important;
+  }
+  .dropdown-menu {
+    a {
+      &:hover, &:focus, &:active {
+        background-color: #ffffff;
+        color: #3B3939;
+      }
+    }
+    li {
+      font-size: 14px;
+      font-family: 'Roboto Regular';
+      color: #3B3939;
+    }
+  }
+}
+
+.pirChart-wrapper {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 12px #0000000F;
+  border-radius: 10px;
+}
+.lineChart-wrapper {
+  padding: 15px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 14px #0000001A;
+  border-radius: 10px;
+  .heading {
+    color: #202020;
+    font-family: 'Roboto Medium';
+    font-size: 18px;
+  }
+  .dots {
+    cursor: pointer;
+  }
+  .notification-wrapper .dropdown-menu {
+    width: 6rem;
+    min-width: 6rem;
+    margin-left: 0;
+    li {
+      border-top: none;
+    }
+    li:first-of-type {
+      margin-top: 0px
+    }
+    .dropdown-item:active, .dropdown-item:hover {
+      background-color: #ffffff;
+    }
+  }
+}
+
+//Media query starts------------------------------------------------->
+@media screen and (max-width:700px) {
+  .uep-auth-logo {
+    margin-left: 30px;
+  }
+}

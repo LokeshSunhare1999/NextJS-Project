@@ -1,0 +1,10 @@
+<svg id="Component_31_5" data-name="Component 31 – 5" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Group_11350" data-name="Group 11350">
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="30" height="30" fill="#fff"/>
+    <g id="menu" transform="translate(2 12)">
+      <circle id="Oval_3" data-name="Oval 3" cx="2.5" cy="2.5" r="2.5" fill="#7d86a9"/>
+      <circle id="Oval_3-2" data-name="Oval 3" cx="2.5" cy="2.5" r="2.5" transform="translate(10)" fill="#7d86a9"/>
+      <circle id="Oval_3-3" data-name="Oval 3" cx="2.5" cy="2.5" r="2.5" transform="translate(20)" fill="#7d86a9"/>
+    </g>
+  </g>
+</svg>

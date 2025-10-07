@@ -1,0 +1,421 @@
+body, .dashboard-main-wrapper {
+    overflow: hidden;
+}
+.underline {
+    text-decoration: underline;
+}
+.box-shadow-none {
+    box-shadow: none !important;
+} 
+.ant-spin-dot-item {
+    background-color: #2c2a2a;
+}
+.spinner-grow-sm {
+    width: 0.7rem !important;
+    height: 0.7rem !important;
+}
+.edit-file-wrapper .ant-btn[disabled] {
+    color: #ffffffa3;
+}
+.ant-btn.ant-btn-button.modal-add.ant-btn[disabled] {
+    opacity: 0.65;
+    color: #ffffff;
+    font-size: 13px;
+}
+.ant-table {
+    .ant-table-column-sorter-up.active, .ant-table-column-sorter-down.active {
+        color: #FE077C;
+    }
+}
+.input-wrap {
+    .clear-filter-btn {
+        color: #ffffff;
+        margin: 9px 0 0 15px;
+    }
+    .clear-filter-btn[disabled] {
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
+}
+.fixed-top {
+    z-index: 5 !important;
+}
+.App textarea {
+    resize: none;
+}
+.font13 {
+    font-size: 13px;
+}
+.disabled-field {
+  background-color: #EEEEEE !important;
+  color: #888888;
+}
+.page-wrapper {
+    padding: 15px 35px 15px 35px;
+}
+//table scroll bar css
+.ant-table-body::-webkit-scrollbar {
+    width: 10px;
+}
+.ant-table-body::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}  
+.ant-table-pagination.ant-pagination {
+    margin: 10px 0 0 0;
+}
+.oders-page-wrapper, .file-page-wrapper {
+    .ant-table-wrapper .ant-table-body {
+        max-height: 375px !important;
+    }
+}  
+.event-main, .file-page-wrapper, .oders-page-wrapper {
+    height: 89vh;
+    overflow-y: auto; 
+    padding-left: 200px;
+    background: #f3f4f9;
+    font-family: 'Roboto Regular';
+}
+.delete-modal-wrapper {
+    .ant-modal-content > button:first-of-type {
+        display: none;
+    }
+    .ant-modal-body {
+        padding-top: 0;
+        padding-bottom: 10px;
+    }
+    .ant-modal-content {
+        border-radius: 12px !important;
+    }
+}
+.sendLink-modal-wrapper {
+    .ant-modal-content > button:first-of-type {
+        display: none;
+    }
+    .ant-modal-body {
+        padding-top: 0;
+        padding-top: 5px !important;
+        padding: 0px;
+    }
+    .ant-modal-content {
+        border-radius: 12px !important;
+    }
+}
+table .ant-switch {
+    height: 25px;
+    min-width: 44px;
+    .ant-switch-handle {
+        width: 20px;
+        height: 20px;
+        top: 2.5px;
+        left: 3px;
+    }
+}
+.ant-switch-checked .ant-switch-handle {
+    left: calc(100% - 18px  - 5px) !important;
+}
+.ant-table-container table > thead > tr:first-child th:first-child { 
+    border-top-left-radius: 0px !important;
+} 
+// Select option in dropdown 
+select:required:invalid {
+    color: #B0B7C3;
+    font-family: 'Roboto Regular';
+    font-size: 13px;  
+}
+option[value=""][disabled] {
+    display: none;
+}
+option {
+    color: #29292B;
+    font-family: 'Roboto Regular';
+    font-size: 16px;
+}
+//active inactive row color
+.table-row-light td, .table-row-light td .highlight-text{
+    color: #AAAAAA !important;
+}
+//To hide table header separation line
+.ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before{
+    display: none;
+} 
+//Placeholder CSS
+.add-customer, .create-event, .add-team-wrapper { 
+    input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder { 
+        color: #B0B7C3; 
+        font-family: 'Roboto Regular';
+        font-size: 13px;  
+    } 
+}
+.add-customer, .create-event { 
+    input:-moz-placeholder, 
+    textarea:-moz-placeholder { 
+        color: #B0B7C3; 
+        font-family: 'Roboto Regular';
+        font-size: 13px; 
+    }
+}
+.add-customer, .create-event { 
+    input::-moz-placeholder,
+    textarea::-moz-placeholder { 
+        color: #B0B7C3; 
+        font-family: 'Roboto Regular';
+        font-size: 13px; 
+    }
+}
+.add-customer, .create-event { 
+    input:-ms-input-placeholder,
+    textarea:-ms-input-placeholder { 
+        color: #B0B7C3; 
+        font-family: 'Roboto Regular';
+        font-size: 13px; 
+    }
+}
+//table content
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td { 
+    overflow-wrap: anywhere !important;
+    color: black !important;
+}
+// Pagination Next and Prev button CSS
+.ant-table-wrapper {
+    .ant-pagination {
+        .ant-pagination-prev:focus-visible .ant-pagination-item-link, .ant-pagination-next:focus-visible .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link, .ant-pagination-item-active, .ant-pagination-item:focus-visible, .ant-pagination-item:hover, .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+            border-color: #fe077c;
+        }
+        .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+            border-color: #fe077c;
+            box-shadow: 0 0 0 2px #fe077c40;
+        }
+        .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+            color: #fe077c;
+        }
+        .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link, .ant-pagination-disabled:focus-visible .ant-pagination-item-link { 
+            color: #ffffffad;
+            border-color: #d9d9d9;
+            background-color: #fe077ca1;
+        }
+        li[title="Next Page"] {
+            button { 
+                span:after {
+                    content: 'Next';
+                    font-size: 14px;
+                    font-family: "Roboto Regular";
+                }
+            }
+        }
+        li[title="Previous Page"] {
+            button { 
+                span:after {
+                    content: 'Prev';
+                    font-size: 14px;
+                    font-family: "Roboto Regular";
+                }
+            }
+        }
+        li[title="Previous Page"], li[title="Next Page"] { 
+            button {
+                background-color: #fe077c;
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                border-radius: 18px;
+                width: 65px;  
+            }
+            svg {
+                display: none;
+            }
+        }
+    }
+}
+// modal fields
+.ant-modal-body {
+    .modal-label {
+      font-family: 'Roboto Medium';
+      font-size: 12px;
+      color: #4e5d78;
+    }
+    .inputfield {
+      width: 375px;
+      height: 40px;
+      padding: 10px 12px;
+      background: #ffffff;
+      font-size: 13px;
+      border: 1px solid #E1E4E8;
+      border-radius: 5px;
+      .form-input {
+        border: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .textareafield {
+        width: 375px;
+        height: 80px;
+        padding: 4px 8px;
+        background: #ffffff;
+        font-size: 13px;
+        border: 1px solid #E1E4E8;
+        border-radius: 4px;
+        .form-input {
+          border: none;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          &:focus {
+            outline: none;
+          }
+        }
+    }
+} 
+//sidebar img
+.nav-left-sidebar .menu-list {
+    ul li a label {
+        margin-top: 1px;
+    }
+}
+.colored-img {
+    &:hover .black-img {
+        display: none;
+    }
+    &:hover label {
+        margin-left: 31px;
+    } 
+}
+.colored-img.active { 
+    label {
+        margin-left: 31px;
+    }
+    &:hover .colored-img {
+        background-size: 0 0;
+    }
+}
+.colored-img.active .black-img {
+    display: none; 
+}
+.order-BW, .zendesk-BW, .producer-BW, .staff-BW, .customer-BW, .events-BW, .files-BW, .sales-report-BW, .import-file-icon-BW {
+    background-repeat: no-repeat;
+    background-size: 18px 20px;
+    height: 21px;
+    width: 21px;
+    margin: 1px 8px 0 2px;
+}
+.order-color.active, .order-color:hover, .zendesk-color.active, .zendesk-color:hover, .producer-color.active, .producer-color:hover, .staff-color.active, .staff-color:hover, .customer-color.active, .customer-color:hover, .events-color.active, .events-color:hover, .files-color.active, .files-color:hover, .reports-color.active, .reports-color:hover, .sales-report-color.active, .sales-report-color:hover, .import-file-icon-color.active .import-file-icon-color:hover {
+    transition: 0s !important;
+    background-repeat: no-repeat;
+    background-size: 18px 20px;
+    background-position: 14px 11px; 
+    margin: 0 10px 0 0;
+}
+.reports-BW {
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 21px;
+    background-size: 19px 18px;
+    margin: 1px 8px 0 2px;
+}
+.reports-color.active, .reports-color:hover {
+    background-size: 19px 18px !important;
+}
+//reports
+.reports-BW {
+    background-image: url('../images/svg/home.png'); 
+}
+.reports-color.active, .reports-color:hover {  
+    background-image: url('../images/svg/homePink.png');  
+}  
+
+//Files 
+.files-BW {
+    background-image: url('../images/svg/file.svg'); 
+}
+.files-color.active, .files-color:hover {  
+    background-image: url('../images/svg/file-pink.svg');  
+}  
+
+//events
+.events-BW {
+    background-image: url('../images/svg/calender.svg'); 
+}
+.events-color.active, .events-color:hover {  
+    background-image: url('../images/svg/calender-pink.svg');  
+}  
+
+//customer
+.customer-BW {
+    background-image: url('../images/svg/customerAccount.svg'); 
+}
+.customer-color.active, .customer-color:hover {  
+    background-image: url('../images/svg/customerPinkAccount.svg');  
+}  
+
+//staff
+.staff-BW {
+    background-image: url('../images/svg/staff.svg'); 
+}
+.staff-color.active, .staff-color:hover {  
+    background-image: url('../images/svg/staffpink.svg');  
+}  
+
+//producer
+.producer-BW {
+    background-image: url('../images/svg/producer.svg'); 
+}
+.producer-color.active, .producer-color:hover {  
+    background-image: url('../images/svg/producerPink.svg');  
+}  
+
+//orders
+.order-BW {
+    background-image: url('../images/svg/order.svg'); 
+} 
+.order-color.active, .order-color:hover { 
+    background-image: url('../images/svg/orderPink.svg'); 
+}  
+
+//zendesk-chat
+.zendesk-BW { 
+    background-image: url('../images/svg/chat.svg');  
+} 
+.zendesk-color.active, .zendesk-color:hover {  
+    background-image: url('../images/svg/chatPink.svg');  
+}  
+
+//sales-report-chat
+.sales-report-BW { 
+    background-image: url('../images/svg/report.svg');  
+}
+.sales-report-color.active, .sales-report-color:hover {  
+    background-image: url('../images/svg/report-pink.svg');  
+}  
+.import-file-icon-BW { 
+    background-image: url('../images/import-file-icon-BW.svg');
+}
+.import-file-icon-color.active, .import-file-icon-color:hover {  
+    background-image: url('../images/import-report-pink.svg');
+    transition: 0s !important;
+    background-repeat: no-repeat;
+    background-size: 18px 20px;
+    background-position: 14px 11px; 
+    margin: 0 10px 0 0;
+}
+
+
+#scanner-container {
+    video {
+    width: 280px !important;
+    height: 280px !important;
+    position: absolute;
+    right: 25px;
+    }
+}
+
+canvas {
+    visibility: hidden;
+}

@@ -1,0 +1,292 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,900" rel="stylesheets" type="text/css');
+
+        .body {
+            width: 100%;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Open Sans", sans-serif;
+            margin-left: 0;
+            margin-top: 0;
+            // marginWidth="0"
+            // marginHeight="0"
+        }
+        .main-table {
+            border: 0;
+            width: 100%;
+            // cell-padding: 0
+            // cellSpacing="0"
+            background-color: #ffffff;
+        }
+        .floatLeft {
+            float: left;
+        }
+        .floatRight {
+            float: right;
+        }
+        .html {
+            width: 100%;
+        }
+        .d-flex {
+            display: flex;
+        }
+        .flex-column {
+            flex-direction: column;
+        }
+        .table-column{
+            display: block;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+        .table {
+            font-size: 14px;
+            border: 0;
+        }
+        .container-box {
+            margin-top: 75px;
+            border: 0;
+            align-self : center;
+            width: 660;
+            // cellPadding="0"
+            // cellSpacing="0"
+        }
+        .modal {
+            box-shadow: 0px 2px 4px #0000001a;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .content-modal {
+            margin: -50px 50px 20px;
+        }
+        .order-invoice-content{
+            margin: 25px 50px 25px;
+        }
+        .order-padding{
+            padding-top: 40px;
+        }
+        .footer-modal {
+            margin: 0px 50px 20px;
+            text-align: center;
+        }
+        .section-img {
+            background-color: #292828;
+            height: 150px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .order-invoice{
+            justify-content: space-around;
+            height: 95px;
+            padding-top: 45px;
+            display: block;
+        }
+        .receipt-label {
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            opacity: 1;
+            text-align: center;
+            padding-top: 15;
+        }
+        .bg-gray {
+            background-color: #EEEEEE;
+        }
+        .billing-wrapper{
+            display: flex;
+        }
+        .user-info {
+            color: #121212;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .billing-address {
+            color: #121212;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0px;
+            margin-bottom: 2px;
+        }
+        .billing-info {
+            color: #121212;
+            font-size: 12px;
+            letter-spacing: 0px;
+        }
+
+        .inv-table {
+            border-collapse: collapse;
+        }
+
+        .inv-table th {
+            background-color: #EEEEEE;
+            color: #121212;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .inv-table td {
+            border: 1px solid #CCCCCC;
+            padding: 4px;
+        }
+
+        .inv-table th {
+            border: 1px solid #CCCCCC;
+            padding: 6px;
+        }
+        .inv-table .tbl-desc {
+            font-size: 10px;
+            color: #121212;
+        }
+        .inv-table .tbl-img {
+            height: 40px;
+            width: 40px;
+            border: 1px solid #CCCCCC;
+        }
+        .inv-table .bold-text {
+            color: #121212;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .inv-table .bold-content td {
+            padding: 8px;
+        }
+        .ft-content-modal {
+            margin: 0px 50px 25px;
+        }
+        .ft-content-heading {
+            color: #121212;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .ft-content {
+            color: #121212;
+            font-size: 12px;
+        }
+        .amt-field {
+            width: 260px;
+        }
+        .bortop-none {
+            border-top: none !important;
+        }
+        .semiBold-text {
+            letter-spacing: 0px;
+            color: #121212;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        .content {
+            color: #121212;
+            margin-bottom: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0px;
+        }
+        .content a, .theme-color {
+            color: #EA377C;
+        }
+        .copy-rights {
+            text-align: center;
+            letter-spacing: 0px;
+            color: #121212;
+            font-size: 13px;
+            opacity: 0.45;
+            font-weight: 500;
+            margin: 0 50px 25px;
+        }
+        /* ----------- responsivity ----------- */
+        @media only screen and (max-width: 768px) {
+            .container-box {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
+            .container-box {
+                width: 90%;
+            }
+            .floatLeft{
+                text-align: center;
+                float:none
+            }
+            .receipt-label{
+                padding-top: 25px;
+                text-align: center;
+            }
+            .content-modal, .footer-modal, .ft-content-modal {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .modal {
+                padding: 25px;
+            }
+            .mobi-view {
+                overflow-x: auto;
+                margin: auto;
+                scroll-behavior: smooth;
+            }
+            .inv-table {
+                width: 525px;
+            }
+            .section-img {
+                flex-flow: column;
+                justify-content: space-evenly;
+                height: 200px
+            }
+        }
+
+        @media only screen and (max-width: 476px) {
+            .mobi-view {
+                scroll-behavior: smooth;
+            }
+            .receipt-label {
+                padding-top: 25px;
+                text-align: center;
+            }
+            .floatLeft{
+                text-align: center;
+                float:none
+            }
+            .floatRight{
+                float: none;
+            }
+            .billing-wrapper{
+                flex-flow: column;
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+            .mobi-view {
+                scroll-behavior: smooth;
+            }
+            .receipt-label {
+                padding-top: 25px;
+                text-align: center;
+            }
+            .floatLeft{
+                text-align: center;
+                float:none
+            }
+            .floatRight{
+                float: none;
+            }
+        }
