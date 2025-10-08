@@ -15,6 +15,7 @@ function DynamicPricingModal(props) {
     const [ isEdit, setIsEdit ] = useState(true)
     const [ validationErrors, setValidationErrors ] = useState({});
     const [ priceValidationErrors, setPriceValidationErrors ] = useState({});
+    console.warn('dynamicPriceData :>> ', dynamicPriceData);
     useEffect(() => {
         dispatch(getDynamicPriceAction (eventId)).then((res) => {
             if (res && res.statusCode === 200) {
@@ -24,6 +25,7 @@ function DynamicPricingModal(props) {
                     price: item.price.trim(),
                     is_personalised: item.is_personalised,
                     package_label: item.package_label,
+                    show_package: item.show_package || true // Initialize show_package, default to false if not present
                 }));
                 setDynamicPriceData(trimmedPriceData);
             }
@@ -35,6 +37,12 @@ function DynamicPricingModal(props) {
         newArr[ index ][ e.target.name ] = e.target.value;
         setDynamicPriceData(newArr)
     };
+    const handleShowPackageChange = (index) => (e) => {
+        const newArr = [ ...dynamicPriceData ];
+        newArr[ index ].show_package = e.target.checked;
+        setDynamicPriceData(newArr);
+    };
+
     const handleRoutineNameChange = (index) => (e) => {
         const trimmedValue = e.target.value.trim();
         const newArr = [ ...dynamicPriceData ];
@@ -92,7 +100,8 @@ function DynamicPricingModal(props) {
             const finalDynamicPriceData = dynamicPriceData.map((item) => ({
                 ...item,
                 routine_name: item.routine_name.trim(),
-                price: item.price.trim()
+                price: item.price.trim(),
+                show_package: item.show_package || true // Ensure show_package is included
             }));
             setIsEdit(true)
             const data = {
@@ -119,15 +128,18 @@ function DynamicPricingModal(props) {
             <div className="modal-wrapper">
                 <div className="row g-0">
                     <div className="col-2">
+                        <label className="ps-2">Show Pkg</label>
+                    </div>
+                    <div className="col-2">
                         <label className="ps-2">Products</label>
                     </div>
-                    <div className="col-4">
+                    <div className="col-3">
                         <label className="">Descriptions</label>
                     </div>
                     <div className="col-2">
                         <label>Personalised</label>
                     </div>
-                    <div className="col-4">
+                    <div className="col-3">
                         <label className="ms-4">Pricing</label>
                     </div>
                 </div>
@@ -139,9 +151,26 @@ function DynamicPricingModal(props) {
                                 <div className="pricing-body px-2" key={ item.id }>
                                     <div className="row g-0 py-2 d-flex align-items-center">
                                         <div className="col-2">
+                                            <input
+                                                style={ {
+                                                    opacity: 1,
+                                                    width: '20px',
+                                                    height: '20px',
+                                                    marginRight: '8px',
+                                                    backgroundColor: '#FFFFFFC7',
+                                                    zIndex: 2
+                                                } }
+                                                type="checkbox"
+                                                className="form-check-input mb-1"
+                                                checked={ item.show_package || false }
+                                                onChange={ handleShowPackageChange(index) }
+                                                disabled={ isEdit }
+                                            />
+                                        </div>
+                                        <div className="col-2">
                                             <label className="m-0 pe-2 prod-name" >{ item.package_label }</label>
                                         </div>
-                                        <div className="col-4">
+                                        <div className="col-3">
                                             { isEdit && <label className="m-0 pe-2 prod-name" >{ item.routine_name }</label>}
                                             {!isEdit && <input
                                                 type="text"
@@ -187,7 +216,7 @@ function DynamicPricingModal(props) {
                                                 </div>
                                             </Radio.Group>
                                         </div>
-                                        <div className="col-4 d-grid">
+                                        <div className="col-3 d-grid">
                                             <div className="d-flex event-dropdown float-end">
                                                 <input
                                                     type="text"

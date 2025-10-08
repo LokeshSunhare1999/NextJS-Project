@@ -219,6 +219,7 @@ function EditNewEvent(props) {
             // producer_id,
             id,
             is_free,
+            is_video_free,
             event_ad_url,
         } = editEventInput;
         const data = {
@@ -239,6 +240,7 @@ function EditNewEvent(props) {
             // event_ad_url: deleteUrl !== "" ? "" : downloadURL ? downloadURL : event_ad_url ? event_ad_url : "",
             event_ad_url: downloadURL ? downloadURL : deleteUrl !== "" ? "" : event_ad_url ? event_ad_url : "",
             is_free: is_free === 1 ? "1" : "0",
+            is_video_free: is_video_free === 1 ? "1" : "0",
         };
         if (validate()) {
             dispatch(updateEventDetails(data, id))
@@ -367,7 +369,7 @@ function EditNewEvent(props) {
         }
     }
     const dateFormat = 'MM/DD/YYYY';
-    const { event_code, event_description , event_name, is_internet_available, event_mode_id, is_active, is_onsite_sale_available, event_producer, producer_id, team_details, is_free } = editEventInput
+    const { event_code, event_description , event_name, is_internet_available, event_mode_id, is_active, is_onsite_sale_available, event_producer, producer_id, team_details, is_free, is_video_free } = editEventInput
     const { error_event_title, error_event_code } = inputError
     // const tableData = SearchTableData(team_details, searchValue)
     const tableData = useMemo(() => SearchTableData(team_details, searchValue), [ team_details, searchValue ]);
@@ -656,6 +658,39 @@ function EditNewEvent(props) {
                                             <label
                                                 className="form-check-label radio-label pointer"
                                                 htmlFor="No-option2"
+                                            >
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </Radio.Group>
+                            </div>
+                            <div className="align-items-center mt-4 mb-3">
+                                <label className="internet-check w-100">Video File Free</label>
+                                <Radio.Group  onChange={ handleChange } value={ is_video_free } name="is_video_free">
+                                    <div className="d-flex mt-3">
+                                        <div className="radio-options d-flex justify-content-start">
+                                            <Radio
+                                                className="radio-btn"
+                                                value={ 1 }
+                                                id="Yes-option3"
+                                            />
+                                            <label
+                                                className="form-check-label radio-label pointer"
+                                                htmlFor="Yes-option3"
+                                            >
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div className="radio-options d-flex justify-content-start">
+                                            <Radio
+                                                className="radio-btn"
+                                                value={ 0 }
+                                                id="No-option3"
+                                            />
+                                            <label
+                                                className="form-check-label radio-label pointer"
+                                                htmlFor="No-option3"
                                             >
                                                 No
                                             </label>

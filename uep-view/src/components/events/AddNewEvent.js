@@ -174,6 +174,7 @@ function AddNewEvent(props) {
             act_number,
             event_producer,
             is_free,
+            is_video_free,
             imageURL
         } = input;
         const data = {
@@ -191,8 +192,10 @@ function AddNewEvent(props) {
             team_details: addTeam && addTeam[ 0 ] && addTeam[ 0 ].team_name === '' ? teamDetails : addTeam,
             // event_ad_flag: imageURL !== "" ? "1" : "0",
             event_ad_url: imageURL || downloadURL,
-            is_free: is_free === 'Yes' ? "1" : "0"
+            is_free: is_free === 'Yes' ? "1" : "0",
+            is_video_free: is_video_free === 'Yes' ? "1" : "0"
         };
+        console.log('data', data);
         if (validate()) {
             dispatch(addEventAccount(data)).then((res)=> {
                 if(res && res.statusCode === 200 ){
@@ -619,6 +622,42 @@ function AddNewEvent(props) {
                                 {is_free && (
                                     <ErrorMessage message={ is_free || '' } />
                                 )}
+                            </div>
+                            <div className="align-items-center mt-4 mb-3">
+                                <label className="internet-check w-100">Video File Free</label>
+                                <Radio.Group  onChange={ handleChange } defaultValue='No' name="is_video_free">
+                                    <div className="d-flex mt-3">
+                                        <div className="radio-options d-flex justify-content-start">
+                                            <Radio
+                                                className="radio-btn"
+                                                value="Yes"
+                                                name="is_video_free"
+                                                id="Yes-option3"
+                                            />
+                                            <label
+                                                className="form-check-label radio-label pointer"
+                                                htmlFor="Yes-option3"
+                                            >
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div className="radio-options d-flex justify-content-start">
+                                            <Radio
+                                                className="radio-btn"
+                                                value="No"
+                                                name="is_video_free"
+                                                defaultChecked
+                                                id="No-option3"
+                                            />
+                                            <label
+                                                className="form-check-label radio-label pointer"
+                                                htmlFor="No-option3"
+                                            >
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </Radio.Group>
                             </div>
                             <div className="align-items-center mt-4 mb-3" >
                                 <label className="internet-check w-100">Upload an Advertisement</label>
