@@ -79,6 +79,8 @@ function Orders(props) {
     const [producerFilter, setProducerFilter] = useState(null);
     const [createdOn, setCreatedOn] = useState(null);
     const [status, setStatus] = useState(null);
+    const [isEditingShippingFee, setIsEditingShippingFee] = useState(false);
+    const [shippingFee, setShippingFee] = useState('');
 
     const openOrderDetails = (data) => {
         setIsOrderListing(!isOrderListing)
@@ -357,6 +359,67 @@ function Orders(props) {
             setAPIState({ first_parameter: page , second_parameter: undefined , third_parameter: undefined, sortBy: sortBy , sortType: sortType })
         }
     }
+    useEffect(() => {
+    // Fetch initial shipping fee from your API or state
+    // This is a placeholder - replace with your actual API call
+        const fetchShippingFee = async () => {
+            try {
+                // Replace with your actual API endpoint
+                // const response = await api.getShippingFee();
+                // setShippingFee(response.data.shippingFee);
+
+                // For now, using a placeholder value
+                setShippingFee('$10'); // update value
+            } catch (error) {
+                console.error('Error fetching shipping fee:', error);
+            }
+        };
+
+        fetchShippingFee();
+    }, []);
+
+    // Add this function to handle updating the shipping fee
+    const handleUpdateShippingFee = async () => {
+        try {
+            // Validate the shipping fee
+            if (!shippingFee) {
+                alert('Please enter a valid shipping fee');
+                return;
+            }
+
+            // Replace with your actual API endpoint and payload structure
+            // await api.updateShippingFee({ shippingFee: parseFloat(shippingFee) });
+
+            // For demonstration, we'll just log the action
+            console.log('Updating shipping fee to:', shippingFee);
+
+            // Exit edit mode
+            setIsEditingShippingFee(false);
+
+            // Show success message
+            alert('Shipping fee updated successfully!');
+        } catch (error) {
+            console.error('Error updating shipping fee:', error);
+            alert('Failed to update shipping fee');
+        }
+    };
+
+    const handleShippingFeeChange = (e) => {
+        let value = e.target.value;
+
+        // Allow only numbers and up to two decimals
+        const priceRegex = /^\$?\d{0,9}(\.\d{0,2})?$/;
+
+        // Always prefix with $
+        if (value && !value.startsWith('$')) {
+            value = '$' + value;
+        }
+
+        // If it matches our allowed pattern, update state
+        if (priceRegex.test(value) || value === '' || value === '$') {
+            setShippingFee(value);
+        }
+    };
 
     // Handle sorting feature in this function
     // -------------------------------------------------
@@ -664,6 +727,39 @@ function Orders(props) {
                                         >
                                             Refresh
                                         </button>
+                                        {/* Shipping Fee Component */}
+                                        <div className="d-flex align-items-center p-2">
+                                            {/* <label className="label me-2">Shipping Fee:</label> */}
+                                            <div className="d-flex event-dropdown">
+                                                <input
+                                                    type="text"
+                                                    autoComplete="off"
+                                                    placeholder="Enter Shipping Fee"
+                                                    className="input-field"
+                                                    name="shippingFee"
+                                                    disabled={!isEditingShippingFee}
+                                                    value={shippingFee}
+                                                    onChange={handleShippingFeeChange}
+                                                />
+                                                <span className="position-relative">
+                                                    <select
+                                                        className="form-control header_drop_down pointer price-dropdown-arrow"
+                                                        name="currency"
+                                                        disabled={true}
+                                                    >
+                                                        <option value="USD">USD</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                className="add-edit-btn edit-Shipping-btn"
+                                                disabled={!shippingFee}
+                                                onClick={isEditingShippingFee ? handleUpdateShippingFee : () => setIsEditingShippingFee(true)}
+                                            >
+                                                {isEditingShippingFee ? 'Update' : 'Edit'}
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="data-table">
                                         {isLoading && <div className="mt-5" ><Loader /></div>}
