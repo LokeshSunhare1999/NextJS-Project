@@ -92,14 +92,14 @@ function SideBarNavigation(props) {
                                     <label className="pointer">Orders</label>
                                 </a>
                             </li>
-                            <li className="nav-item text-left">
+                            {/* <li className="nav-item text-left">
                                 <a href
                                     onClick={  ()=>handlePath('/preorders') }
                                     className = { pathUrl === '/preorders' ? 'active nav-link d-flex align-items-center colored-img order-color' : 'nav-link d-flex align-items-center colored-img order-color' } >
                                     <span className="sidebar_icon black-img order-BW"></span>
                                     <label className="pointer">Pre Order</label>
                                 </a>
-                            </li>
+                            </li> */}
                             <li className="nav-item text-left">
                                 <a href
                                     onClick={  ()=>handlePath('/order-scanner') }

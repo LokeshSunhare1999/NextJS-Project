@@ -688,40 +688,40 @@ function Events(props) {
             sortOrder: sortType === 'date' ? sortBy==='asc'?'descend':'ascend' : null,
             width: '12%',
         },
-        {
-            title: 'Internet',
-            dataIndex: '',
-            width: '5%',
-            align: 'left',
-            render: (key) => {
-                return (
-                    <Switch
-                        onChange={ (checked) => onToggleChange(checked, key , '1') }
-                        checked={ key && key.is_internet_available }
-                        className={
-                            key && key.is_internet_available ? 'toggle-green' : 'toggle-red'
-                        }
-                    />
-                );
-            },
-        },
-        {
-            title: 'Kiosk',
-            dataIndex: '',
-            width: '5%',
-            align: 'left',
-            render: (key) => {
-                return (
-                    <Switch
-                        onChange={ (checked) => onToggleChange(checked, key, '2') }
-                        checked={ key && key.is_kiosk_mode }
-                        className={
-                            key && key.is_kiosk_mode ? 'toggle-green' : 'toggle-red'
-                        }
-                    />
-                );
-            },
-        },
+        // {
+        //     title: 'Internet',
+        //     dataIndex: '',
+        //     width: '5%',
+        //     align: 'left',
+        //     render: (key) => {
+        //         return (
+        //             <Switch
+        //                 onChange={ (checked) => onToggleChange(checked, key , '1') }
+        //                 checked={ key && key.is_internet_available }
+        //                 className={
+        //                     key && key.is_internet_available ? 'toggle-green' : 'toggle-red'
+        //                 }
+        //             />
+        //         );
+        //     },
+        // },
+        // {
+        //     title: 'Kiosk',
+        //     dataIndex: '',
+        //     width: '5%',
+        //     align: 'left',
+        //     render: (key) => {
+        //         return (
+        //             <Switch
+        //                 onChange={ (checked) => onToggleChange(checked, key, '2') }
+        //                 checked={ key && key.is_kiosk_mode }
+        //                 className={
+        //                     key && key.is_kiosk_mode ? 'toggle-green' : 'toggle-red'
+        //                 }
+        //             />
+        //         );
+        //     },
+        // },
         {
             title: 'Active',
             dataIndex: '',
