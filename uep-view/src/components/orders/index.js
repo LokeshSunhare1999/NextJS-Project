@@ -743,7 +743,7 @@ function Orders(props) {
                                                 />
                                                 <span className="position-relative">
                                                     <select
-                                                        className="form-control header_drop_down pointer price-dropdown-arrow"
+                                                        className="form-control header_drop_down price-dropdown-arrow"
                                                         name="currency"
                                                         disabled={true}
                                                     >
