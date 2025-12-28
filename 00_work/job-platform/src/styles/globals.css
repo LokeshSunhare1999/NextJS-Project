@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ant-popover-arrow {
+  display: none !important;
+}
+
+.ant-pagination {
+  align-items: center;
+}
+.ant-pagination-item-active {
+  color: #fff !important;
+  border-color: #3b2b8c !important;
+}
+
+.ant-pagination-item-active a {
+  color: inherit !important;
+}
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #3b2b8c !important;
+  border-color: #3b2b8c !important;
+}
+.ant-steps-item-finish .ant-steps-item-icon svg {
+  fill: #fff !important;
+}
+.ant-steps-item-finish .ant-steps-item-title {
+  color: #3b2b8c !important;
+}
+.ant-steps-item-title::after {
+  height: 2px !important;
+}
+.ant-steps-item-title {
+  font-weight: 600;
+}
+
+.ant-table-cell {
+  padding: 12px 20px !important;
+  border-bottom: 1px solid #eaeaea !important;
+  border-right: none !important;
+}
+
+.ant-table-cell:last-child {
+  text-align: right !important;
+}
+td.ant-table-cell:last-child span {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.bgBase {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.externalBannerBg {
+  background-image: url("/assets/membershipBanner.webp");
+}
+
+.externalMwebBannerBg {
+  background-image: url("/assets/mwebMembershipBanner.webp");
+}
+
+.bannerCtaBg {
+  background-image: url("../assets/images/bannerCtaBg.png");
+}
+
+.bannerOfferBg {
+  background-image: url("../assets/images/bannerOfferBg.png");
+}
+
+.paymentBannerBg {
+  background-image: url("../assets/images/mwebPaymentBannerBg.png");
+}
+
+.internalLayoutBanner {
+  background-image: url("/assets/images/internalLayoutBanner.webp");
+}
+
+.internalLayoutMwebBanner {
+  background-image: url("/assets/images/internalLayoutMwebBanner.webp");
+}
+
+.membershipBannerBg {
+  background-image: url("../assets/images/membershipBg.webp");
+}
+.membershipBgMweb {
+  background-image: url("../assets/images/membershipBgMweb.webp");
+}
+.greenBg {
+  background-image: url("../assets/images/greenBg.png");
+}
+
+.whiteBg {
+  background-image: url("../assets/images/whiteBg.png");
+}
+.finaliseCreditsBannerBg {
+  background-image: url("../assets/images/finaliseCreditsBanner.webp");
+}
+
+.upgradeModalBg {
+  background-image: url("../assets/images/upgradeModalBg.png"),
+    radial-gradient(
+      87.16% 145.56% at 50% 0%,
+      #f7dfff 0%,
+      #d5d4ff 50%,
+      #ffffff 100%
+    );
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, 100% 70%;
+  background-position: center top, top center;
+  border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+  .paymentBannerBg {
+    background-image: url("../assets/images/paymentBannerBg.png");
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

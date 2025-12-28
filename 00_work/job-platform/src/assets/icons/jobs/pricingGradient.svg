@@ -1,0 +1,19 @@
+<g>
+<path
+  d="M-179.831 0H1119.83V245.512C1119.83 245.512 883.378 391 470 391C56.6214 391 -179.831 245.512 -179.831 245.512V0Z"
+  fill="url(#paint0_linear_54_4292)"
+/>
+<defs>
+  <linearGradient
+    id="paint0_linear_54_4292"
+    x1="-179.831"
+    y1="0"
+    x2="1126.26"
+    y2="22.7965"
+    gradientUnits="userSpaceOnUse"
+  >
+    <stop stop-color="#F4F0FF" />
+    <stop offset="1" stop-color="#AEE1FF" />
+  </linearGradient>
+</defs>
+</g>

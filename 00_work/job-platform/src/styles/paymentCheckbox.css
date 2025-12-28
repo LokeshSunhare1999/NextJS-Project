@@ -1,0 +1,25 @@
+.ant-checkbox-inner {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner {
+  border-color: #20247e !important; /* your custom hover border color */
+}
+.ant-checkbox-inner::after {
+  /* Adjust the checkmark size if needed */
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #20247e !important;
+  border-color: #20247e !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: white !important; /* tick color */
+}

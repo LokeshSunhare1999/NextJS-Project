@@ -1,0 +1,26 @@
+.floatLabel {
+  position: relative;
+}
+
+.label {
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 11px;
+  font-size: 14px;
+  transition: 0.2s ease all;
+}
+
+.asPlaceholder {
+  color: #c1c1c1;
+}
+
+.asLabel {
+  top: 0px;
+  font-size: 12px !important;
+  background: white;
+  padding: 0 4px;
+  margin-left: -4px;
+}

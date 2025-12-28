@@ -1,0 +1,9 @@
+.banner-img {
+  background-image: url("../../assets/icons/payments/banner.png");
+  background-size: cover;
+  background-position: top;
+}
+
+.shadow-text {
+  text-shadow: 1px 0px 0px rgba(255, 234, 197, 1);
+}

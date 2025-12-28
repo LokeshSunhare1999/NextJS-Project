@@ -1,0 +1,13 @@
+/* styles.css or globals.css */
+.shadow-text {
+  text-shadow: 1px 0px 0px rgba(255, 234, 197, 1);
+}
+
+.buy-credits-bg {
+  background: linear-gradient(
+    301.71deg,
+    #8e6218 -43.67%,
+    #f9ddab 26.17%,
+    #9c7228 96.01%
+  );
+}

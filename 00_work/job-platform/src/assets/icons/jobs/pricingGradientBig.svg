@@ -1,0 +1,11 @@
+<g>
+    <path d="M0 0H1180V222.907C1180 222.907 965.318 355 590 355C214.682 355 0 222.907 0 222.907V0Z"
+        fill="url(#paint0_linear_366_10889)" />
+    <defs>
+        <linearGradient id="paint0_linear_366_10889" x1="0" y1="0" x2="1185.83" y2="20.6976"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F4F0FF" />
+            <stop offset="1" stop-color="#AEE1FF" />
+        </linearGradient>
+    </defs>
+</g>

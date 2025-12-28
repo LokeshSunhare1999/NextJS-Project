@@ -1,0 +1,45 @@
+{
+  "name": "job-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.2",
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.0.1",
+    "@next/third-parties": "^15.3.2",
+    "@qwik.dev/partytown": "^0.11.2",
+    "@svgr/webpack": "^8.1.0",
+    "@tanstack/react-query": "^5.71.3",
+    "antd": "^5.24.6",
+    "axios": "^1.8.4",
+    "dayjs": "^1.11.13",
+    "jwt-decode": "^4.0.0",
+    "moment-timezone": "^0.5.48",
+    "next": "15.2.4",
+    "next-pwa": "^5.6.0",
+    "nookies": "^2.5.2",
+    "notistack": "^3.0.2",
+    "postcss": "^8.5.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
+    "react-intersection-observer": "^9.16.0",
+    "shaka-player": "^4.14.6",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.4",
+    "tailwindcss": "^4"
+  }
+}

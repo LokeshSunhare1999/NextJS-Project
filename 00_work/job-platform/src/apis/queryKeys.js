@@ -1,0 +1,18 @@
+export const QUERY_KEYS = Object.freeze({
+  GET_EMPLOYER_JOBS: "getEmployerJobs",
+  GET_JOB_BY_ID: "getJobById",
+  GET_JOB_APPLICATIONS: "getJobApplications",
+  GET_JOB_CATEGORIES: "getJobCategories",
+  GET_EMPLOYER_DETAILS: "getEmployerDetails",
+  GET_PAYMENT_STATUS: "getPaymentStatus",
+  GET_CREDIT_ACTIVITY_DETAILS: "getCreditActivityDetails",
+  GET_CREDITS_PACKAGES: "getCreditsPackages",
+  GET_EMPLOYER_SUBSCRIPTION: "getEmployerSubscription",
+  GET_CITY_STATE: "getCityState",
+  GET_AVAILABLE_JOB_STATUS: "getAvailableJobStatus",
+  GET_AVAILABLE_JOB_CATEGORIES: "getAvailableJobCategories",
+  GET_AVAILABLE_JOB_LOCATIONS: "getAvailableJobLocations",
+  GET_AVAILABLE_BRAND_NAMES: "getAvailableBrandNames",
+  GET_FILTERED_JOBS: "getFilteredJobs",
+  GET_INVOICES_DATA: "getInvoicesData",
+});
