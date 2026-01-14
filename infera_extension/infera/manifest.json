@@ -1,0 +1,43 @@
+{
+    "name": "Infera - Athena",
+    "version": "3.7",
+    "description": "This Chrome extension provides a streamlined workflow between athenaNet EHR and Infera CDS.",
+    "default_locale": "en",
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "content_scripts": [{
+        "all_frames": true,
+        "run_at": "document_idle",
+        "css": ["css/main.css","css/newUI.css"],
+        "js": ["js/lib/jquery.js","css/bootstrap5/dist/js/bootstrap.bundle.min.js", "js/contexts/default.js", "js/contexts/dashboard.js", "js/contexts/exam.js", "js/contexts/intake.js", "js/athena.js","js/caregap.js"],
+        "matches": ["https://athenanet.athenahealth.com/*", "https://preview.athenahealth.com/*"],
+		"include_globs": ["*/ax/*"]
+    }, {
+        "all_frames": true,
+        "run_at": "document_start",
+        "js": ["js/lib/jquery.js", "js/infera.js"],
+        "matches": ["https://*.inferscience.com/*","https://preview.athenahealth.com/*"]
+    }],
+    "manifest_version": 3,
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "36": "icons/icon36.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "36": "icons/icon36.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        },
+        "default_popup": "html/popup.html"
+    },
+    "permissions": ["notifications", "storage"],
+    "host_permissions": ["https://*.athenahealth.com/*", "https://sso.connect.pingidentity.com/*", "https://*.inferscience.com/*"],
+    "web_accessible_resources": [{ "resources": ["html/container.html","html/newUI.html","html/caregap.html", "icons/*.png","icons/*.svg", "icons/*"], "matches": ["https://athenanet.athenahealth.com/*", "https://preview.athenahealth.com/*", "<all_urls>"] }]
+}
