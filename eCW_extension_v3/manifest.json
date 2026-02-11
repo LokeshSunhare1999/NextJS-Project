@@ -1,0 +1,49 @@
+{
+    "name": "Infera - Ubiquity",
+    "version": "2.10.0",
+    "description": "This Chrome extension provides a streamlined workflow between electronic health records and HCC Assistant by Inferscience, Inc.",
+    "default_locale": "en",
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "content_scripts": [ {
+      "all_frames": true,
+      "run_at": "document_idle",
+      "css": [ "css/main.css","css/caregap.css"],
+      "js": [ "js/lib/jquery.js", "js/contexts/default.js", "js/contexts/dashboard.js", "js/contexts/exam.js", "js/contexts/intake.js", "js/select2.js", "js/print.js","js/caregap.js","js/athena.js"],
+      "matches": [ "https://*.ecwcloud.com/*", "https://*.chartwire.com/*" ]
+    }, {
+      "all_frames": true,
+      "run_at": "document_idle",
+      "css": [ "css/bootstrap.css", "css/main_elation.css","css/elation_caregap.css"],
+      "js": [ "js/lib/jquery.js", "js/contexts/default.js", "js/contexts/dashboard.js", "js/contexts/exam.js", "js/contexts/intake.js", "js/select2.js", "js/print.js", "js/elation_caregap.js", "js/elation.js"],
+      "matches": [ "https://*.elationemr.com/patient/*" ]
+    }, {
+      "all_frames": true,
+      "run_at": "document_start",
+	  "css": [ "css/main.css" ],
+      "js": [ "js/lib/jquery.js", "js/infera.js" ],
+      "matches": [ "https://*.inferscience.com/*", "https://*.ecwcloud.com/*", "https://*.chartwire.com/*", "https://*.elationemr.com/patient/*" ]
+    } ],
+    "manifest_version": 3,
+    "icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "36": "icons/icon36.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+  	},
+  	"action": {
+      "default_icon": {
+         "16": "icons/icon16.png",
+         "32": "icons/icon32.png",
+         "36": "icons/icon36.png",
+         "48": "icons/icon48.png",
+         "128": "icons/icon128.png"
+      },
+      "default_popup": "html/popup.html"
+   },
+   "permissions": [ "notifications", "storage" ],
+   "host_permissions": ["https://*.inferscience.com/*", "https://*.ecwcloud.com/*", "https://*.chartwire.com/*", "https://*.elationemr.com/*" ],
+   "web_accessible_resources": [ {"resources":["html/container.html","html/caregap.html", "icons/*.png"],"matches":["https://*.ecwcloud.com/*", "https://*.chartwire.com/*", "https://*.elationemr.com/*"] } ]
+}

@@ -1,6 +1,6 @@
 {
     "name": "Infera - Athena",
-    "version": "3.7",
+    "version": "3.8.1",
     "description": "This Chrome extension provides a streamlined workflow between athenaNet EHR and Infera CDS.",
     "default_locale": "en",
     "background": {

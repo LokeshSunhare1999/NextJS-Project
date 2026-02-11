@@ -10,18 +10,28 @@
     z-index: 5001;
     position: fixed;
     top: 0;
-    right: -100%;
-    left: 100%;
+    right: -1097px; /* Hide off-screen initially */
+    width: 1097px;
     bottom: 0;
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
-
+#infera-container .overlay-icon{
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAoCAYAAAAG0SEsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGWSURBVHgB7ZhPSwJBGMaf0S4RaEF1ULvULQuCupgVeYgKolvZB5AKAsHIDlG4RjehDp0KITsVdgyCumT0x0NdAvUSdQitw1KUBHVq2hlQDCq3hF3IeWDYnXl35/e8M8PuMMRa56fQSpTGQN83Mw/LEVY1QEsR0guDccNSOxPgVU0zL/RBqUvbzAtECQnoBlfUpie8Wk84BFzABVzAyxw+4m7/NmZvscDWUIO/yGiqckrFHjo49HED2edXZLNvvOQ0Nz+IlVU3N5C+fYQsv0CtVMHjZzcwmyvhmezBlNfFQcnEHTeRUq6p5D1Gxzp4zNHZyN9hbcX0652MZ7wL0tIwv7fVz36KOZxNkBaHYG+1wueNYmf74se+KqBSLKNpfx+fY5ZxeO04H2Nt/QPN8Ex0w6SMEBup+Ol10T5VwVNXwXyngYVd7O8l8vPODLGSM8RK4ZooGc6g4fWTL7Nhi1BSDEW3zlVDc9Jt98okvnACLuACLuD/Dn6kJzyiC5wQEszIoYjqnUzJQOBJ+XdfKgdBUloOxVjbB7/+jWTlGvemAAAAAElFTkSuQmCC') !important;
+  transform: rotate(0deg) !important;
+  background-color: #1B1575 !important;
+  width: 29px !important;
+  left: auto !important;
+  height: 43px !important;
+  top: auto !important;
+  border-top-left-radius: 10px !important; 
+  border-bottom-left-radius: 10px !important;
+}
 #infera-container.open {
     right: 0;
-    left: 79px;
+    /* left: 79px; */
 }
 
 .infera-container__content-body {
@@ -43,12 +53,12 @@
 }
 
 #infera-container.open.infera-container--left-panel-open {
-    left: 422px;
+    left: 0;
 }
 
 @media only screen and (min-width: 1440px) {
     #infera-container.open.infera-container--left-panel-open {
-        left: 472px;
+        left: 0;
     }
 }
 
@@ -211,52 +221,63 @@ div.position{
     border-color: #aadbcf !important;
 }
 @media (max-width:1400px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 62%;
+  #infera-container-1 .container {
+    width: 500px !important;
+  }
+
+  #infera-container.open-bg {
+    background: #F9F9F9;
+    right: 0;
     overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	.modal-area-lg{
-		margin-left: 64% !important;
-		margin-top: 10% !important;
-	}
+    overflow-x: hidden;
+  }
+
+  div.position {
+    position: absolute !important;
+    left: 97%;
+  }
+
+  .modal-area {
+    margin-left: auto !important;
+    margin-right: 10% !important;
+  }
+
+  .modal-area-lg {
+    margin-left: 64% !important;
+    margin-top: 10% !important;
+  }
 
 }
 @media (min-width:1400px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 70%;
-    overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	.modal-area-lg{
-		margin-left: 74.5% !important;
-		margin-top: 6% !important;
-	}
+  #infera-container-1 .container {
+    width: 500px !important;
+  }
 
-  #caregap-v2-modal-info{
-    margin-left:70% !important;
+  #infera-container.open-bg {
+    background: #F9F9F9;
+    right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  div.position {
+    position: absolute !important;
+    left: 97.7%;
+  }
+
+  .modal-area {
+    /* margin-left: 76% !important; */
+    margin-left: auto !important;
+    margin-right: 10% !important;
+  }
+
+  .modal-area-lg {
+    margin-left: 74.5% !important;
+    margin-top: 6% !important;
+  }
+
+  #caregap-v2-modal-info {
+    margin-left: 70% !important;
   }
 
 }
@@ -734,10 +755,10 @@ display: block !important;
     height: 100vh !important;
   } */
 #infera-container2.open-bg {
-background: #F9F9F9;
-left: 62%;
+  background: white;
+  right: 0;
   overflow-y: auto;
-overflow-x: hidden;
+  overflow-x: hidden;
 }
 div.position2{
   position: absolute !important;
@@ -832,8 +853,8 @@ div.position2{
   z-index: 1;
   position: fixed;
   top: 0;
-  right: -100%;
-  left: 100%;
+  right: -1097px;
+  width: 1097px;
   bottom: 0;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -844,12 +865,13 @@ div.position2{
 
 #infera-container2.open {
   right: 0;
-  left: 79px;
+  /* left: 79px; */
 }
 
 #infera-container2.open-full {
-background: white;
-left: 1%;
+  background: white;
+  width: 99%; /* Full width variant */
+  right: 0;
   overflow-y: auto;
 }
 
@@ -1046,8 +1068,8 @@ div input[type="radio"] + label { /* To align the rejection reasons correctly*/
 
 .overlay-icon.overlay-icon-validator {
   display: inline-block !important;
-  left: 5px !important;
-  top: 0px !important;
+  /* left: 5px !important;
+  top: 0px !important; */
 }
 
 /* .infera-checkbox{

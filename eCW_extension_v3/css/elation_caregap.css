@@ -1,0 +1,293 @@
+:root {
+    --infera-tab-bg-color: #f9d853;
+    --infera-tab-fg-color: #006f9d;
+}
+
+
+/* infera-container main */
+
+#infera-container2 {
+    z-index: 5001;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    left: 100%;
+    bottom: 0;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    border-left: 2px solid #c6c6c6;
+}
+
+#infera-container2.open {
+    right: 0;
+    left: 79px;
+}
+
+#infera-container2.open-full {
+	background: white;
+	left: 1%;
+    overflow-y: auto;
+}
+
+
+.infera-container__content-body2 {
+    height: 100%;
+}
+
+.infera-container__frame-container2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #D8D8D8;
+    border-left: 1px solid #909091;
+}
+
+.infera-container__content-body--error .infera-container__frame-container2 {
+    top: 44px;
+}
+
+#infera-container2.open.infera-container--left-panel-open {
+    left: 422px;
+}
+
+@media only screen and (min-width: 1440px) {
+    #infera-container2.open.infera-container--left-panel-open {
+        left: 472px;
+    }
+}
+
+#infera-container2.open.infera-container--expose {
+    transform: translateX(96%);
+    cursor: pointer;
+}
+
+.infera-container--expose .infera-container__content-body2 {
+    pointer-events: none;
+}
+
+.infera-container__content-body2 {
+    pointer-events: initial;
+    position: relative;
+    border: 0;
+    border-left: 1px solid #e0dfe1;
+}
+
+.infera-container__tab-container2 {
+    display: none;
+    z-index: 1;
+    margin-left: -27px;
+    position: absolute;
+    left: 0;
+    overflow: visible;
+    top: 247px;
+    padding-left: 27px;
+    float: left;
+    pointer-events: none;
+	left: -2.2%;
+	display: block;
+}
+.open-left{
+	left: -29px;
+}
+
+.infera-container__tab-container2 .infera-button--close2 {
+    pointer-events: initial;
+	left: 0px;
+    width: 20px;
+    height: 44px;
+}
+
+.infera-container__tab-container2 .infera-button--close2.bg-yellow {
+    background-color: #f9d853 !important;
+}
+
+#infera-container2.open .infera-container__tab-container2 {
+    display: block;
+}
+
+#infera-container2 iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* end main*/
+
+
+div.infera-overlay-tab2 {
+    height: 160px !important;
+    margin-bottom: 4px !important;
+	width: 45px;
+    /* height: 250px; */
+    position: relative;
+    background-color: #e0e9f0;
+    border: 1px solid #006f9d;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid #e0e9f0;
+    z-index: 3;
+    cursor: pointer;
+	display: block;
+    left: calc(-1 * (35px - 3px));
+    height: 95px;
+
+
+}
+
+div.infera-overlay-tab2.bg-yellow2 {
+    background-color: #f9d853 !important;
+}
+
+div.infera-overlay-tab2 div.overlay-tab-label2 {
+    top: 10px !important;
+    white-space: nowrap !important;    
+}
+
+div.position2{
+	position: absolute !important;
+	left: 97%;
+    top: 48% !important;
+}
+
+.text-label2{
+	transform: rotate(270deg);
+    font-size: 15px;
+}
+
+.top{
+	top: -100%;
+	position: relative
+}
+.middle{
+	top: -50%;
+	position: relative
+}
+.bg-white{
+	background: white;
+}
+.ml-l{
+    margin-left: 10px;
+    left: -30px;
+	background: #f9d853 !important;
+}
+.mt-10p{
+	margin-top: -21%;
+}
+.display{
+	display: contents !important;
+}
+.loading-text{
+	position: absolute !important;
+	margin-left: 27% !important;
+}
+
+/* carepag.html style */
+
+@media (max-width:1400px) {
+    #infera-container-2 .container {
+        width: 500px !important;
+    }
+	#infera-container2.open-bg {
+	background: white;
+	left: 62%;
+    overflow-y: auto;
+	overflow-x: hidden;
+	}
+	div.position2{
+		position: absolute !important;
+		left: 97%;
+	}
+	.modal-area{
+		margin-left: 66% !important;
+	}
+	.modal-area-lg{
+		margin-left: 64% !important;
+		margin-top: 10% !important;
+	}
+
+
+}
+@media (min-width:1400px) {
+    #infera-container-2 .container {
+        width: 500px !important;
+    }
+	#infera-container2.open-bg {
+	background: white;
+	left: 73%;
+    overflow-y: auto;
+	overflow-x: hidden;
+	}
+	div.position2{
+		position: absolute !important;
+		left: 97.7%;
+	}
+	.modal-area{
+		margin-left: 76% !important;
+	}
+	.modal-area-lg{
+		margin-left: 74.5% !important;
+		margin-top: 6% !important;
+	}
+
+}
+
+.popover {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.hideTab{
+    display: none;
+}
+
+.show_results2{
+	/* background: #f9d853 !important;
+    color: #059198 !important; */
+	display: block !important;
+}
+
+.hide_results2{
+	display: none !important;
+}
+
+/* .caregap-print-button text-center{
+    display: none !important;
+} */
+
+/* .pull-right.text-center{
+    display: none !important;
+} */
+
+
+.loading-modal2 .modal-content {
+    padding: 50px 50px 100px;
+    text-align: center;
+}
+  
+.loading-modal2 .modal-content .modal-body .loading-spinner {
+    width: auto;
+    height: 250px;
+    background: url('https://prm.qa.svc.inferscience.com/assets/images/logo-image.png') center no-repeat;
+    background-size: 107px 70px;
+}
+
+/* div.DialogContent__container.react-draggable {
+    opacity:0
+} */
+
+/* .mr-dropdown el8ActionsMenuDialog padb10{
+    display: block !important;
+} */
+
+
+  

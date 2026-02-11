@@ -1,0 +1,23 @@
+{
+  "welcome": {
+    "message": "Welcome to the Infera Chrome extension for athenaClinicals!"
+  },
+  "options_title": {
+    "message": "Infera CDS Options"
+  },
+  "options_header": {
+    "message": "Options"
+  },
+  "option_notifications": {
+    "message": "Enable Chrome Notifications"
+  },
+  "option_alert_on_empty": {
+    "message": "Enable Alert When No Result"
+  },
+  "notification_action_required": {
+    "message": "Additional information is required to proceed."
+  },
+  "notification_execution_result": {
+    "message": "A new recommendation is available from Infera."
+  }
+}
