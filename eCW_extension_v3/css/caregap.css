@@ -5,6 +5,7 @@
 
 
 /* infera-container main */
+
 #infera-container2 {
     z-index: 5001;
     position: fixed;
@@ -132,8 +133,7 @@ div.infera-overlay-tab2 {
     cursor: pointer;
 	display: block;
     left: calc(-1 * (35px - 3px));
-    height: 95px;
-    margin-top:-2% !important
+    
 
 
 }
@@ -150,7 +150,7 @@ div.infera-overlay-tab2 div.overlay-tab-label2 {
 div.position2{
 	position: absolute !important;
 	left: 97%;
-    top: 40%;
+    top: 55%;
 }
 
 .text-label2{
@@ -235,7 +235,7 @@ div.position2{
 
 }
 
-.popover {
+/* .popover {
     display: none;
     position: absolute;
     background-color: #fff;
@@ -244,40 +244,37 @@ div.position2{
     width: 200px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-}
-
-.hideTab{
-    display: none;
-}
-
-.show_results2{
-	/* background: #f9d853 !important;
-    color: #059198 !important; */
-	display: block !important;
-}
-
-.hide_results2{
-	display: none !important;
-}
-
-/* .caregap-print-button text-center{
-    display: none !important;
 } */
-
-/* .pull-right.text-center{
-    display: none !important;
-} */
-
 
 .loading-modal2 .modal-content {
     padding: 50px 50px 100px;
     text-align: center;
-}
-  
-.loading-modal2 .modal-content .modal-body .loading-spinner {
+  }
+ 
+  .loading-modal2 .modal-content .modal-body .loading-spinner {
     width: auto;
     height: 250px;
     background: url('https://prm.qa.svc.inferscience.com/assets/images/logo-image.png') center no-repeat;
     background-size: 107px 70px;
+  }
+
+
+  .loading-spinner .spinner  {
+    background: none !important;
+    height: 0px;
+   
 }
-  
+div input[type="radio"] + label { /* To align the rejection reasons correctly*/
+    padding-top: 5px;
+}
+.col-md-12 input[type="radio"] + label { /* To align the other rejection reasons correctly*/
+    padding-top: 7px;
+}
+
+.mt-40{
+    margin-top:26% !important;
+}
+/* .spinner {
+    height: 0px;
+} */
+

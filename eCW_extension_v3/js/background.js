@@ -1,6 +1,6 @@
-// console.log('background');
 chrome.runtime.onInstalled.addListener(function() {
-    // console.log(chrome.i18n.getMessage('welcome'));
+
+    console.log(chrome.i18n.getMessage('welcome'));
 
 	// Initialize the options
 	chrome.storage.sync.get('options', function (items) {
@@ -11,6 +11,7 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+
 	let sendMessage = true,
 		notificationMessage = '';
 
@@ -55,13 +56,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		case 'Infera:message':
 			break;
 	}
-	// console.log('background 1')
+
 	if (sendMessage) {
 		chrome.tabs.sendMessage(sender.tab.id, request);
 	}
-	// console.log('background 2')
+
 	if (sendResponse) {
-		// console.log('background 3')
 		sendResponse({ success: true, data: request.data });
 	}
 });

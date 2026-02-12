@@ -1,4 +1,3 @@
-// console.log('dashboard');
 class DashboardContext extends Context
 {
     constructor() {
@@ -8,6 +7,7 @@ class DashboardContext extends Context
     }
 
     listenOn(el, callback) {
+
         let $el = $(el),
             $schedule = $('.dashboard-schedule', $el);
 

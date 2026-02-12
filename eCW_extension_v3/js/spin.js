@@ -128,7 +128,7 @@ function drawLines(el, opts) {
             background: getColor(opts.color, i),
             borderRadius: borderRadius,
             boxShadow: normalizeShadow(shadows, degrees),
-            animation: 1 / opts.speed + "s linear " + delay + "s infinite " + opts.animation,
+            // animation: 1 / opts.speed + "s linear " + delay + "s infinite " + opts.animation,
         });
         backgroundLine.appendChild(line);
         el.appendChild(backgroundLine);

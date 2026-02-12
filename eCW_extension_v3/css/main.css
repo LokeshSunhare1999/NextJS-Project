@@ -1,7 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --infera-tab-bg-color: #f9d853;
+    --infera-tab-bg-color: #F9D852;
     --infera-tab-fg-color: #006f9d;
 }
+
 #infera-container {
     z-index: 5001;
     position: fixed;
@@ -13,20 +17,12 @@
     -moz-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
     transition: all 0.25s ease;
-    border-left: 2px solid #c6c6c6;
 }
 
 #infera-container.open {
     right: 0;
     left: 79px;
 }
-
-#infera-container.open-full {
-	background: white;
-	left: 1%;
-    overflow-y: auto;
-}
-
 
 .infera-container__content-body {
     height: 100%;
@@ -83,22 +79,20 @@
     padding-left: 27px;
     float: left;
     pointer-events: none;
-	left: -2.2%;
-	display: block;
-}
-.open-left{
-	left: -29px;
 }
 
 .infera-container__tab-container .infera-button--close {
     pointer-events: initial;
-	left: 0px;
-    width: 20px;
-    height: 44px;
 }
 
 .infera-container__tab-container .infera-button--close.bg-yellow {
-    background-color: #f9d853 !important;
+    background-color: var(--infera-tab-bg-color) !important;
+}
+
+.infera-container__tab-container .infera-button--close.bg-green-extension {
+    background-color: #aadbcf !important;
+    color: #059198 !important;
+    display: block !important;
 }
 
 #infera-container.open .infera-container__tab-container {
@@ -126,37 +120,29 @@
 }
 
 div.infera-overlay-tab {
-  height: 160px !important;
-  margin-bottom: 4px !important;
-  width: 45px;
-  height: 160px;
-  position: relative;
-  background-color: #e0e9f0;
-  border: 1px solid #006f9d;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-right: 1px solid #e0e9f0;
-  z-index: 3;
-  cursor: pointer;
-  display: block;
-  left: calc(-1 * (35px - 3px));
-  height: 95px;
-  top: 15% !important
-  /* margin-top: 5% !important; */
-  /* margin-bottom: 30% !important; */
+    height: 160px !important;
+    margin-bottom: 4px !important;
 }
 
 div.infera-overlay-tab.bg-yellow {
-    background-color: #f9d853 !important;
+    background-color: var(--infera-tab-bg-color) !important;
+}
+
+div.infera-overlay-tab.bg-green-extension {
+    background-color: #aadbcf !important;
+    color: #059198 !important;
+    display: block !important;
 }
 
 div.infera-overlay-tab div.overlay-tab-label {
     top: 80px !important;
     white-space: nowrap !important;
 }
+
+/* extra codes */
 div.position{
 	position: absolute !important;
-	left: 97%;
+	left: 50%;
 }
 .text-label{
 	transform: rotate(270deg);
@@ -173,14 +159,16 @@ div.position{
 .bg-white{
 	background: white;
 }
-.ml-l{
+.caregap-ml-l{
     margin-left: 10px;
     left: -30px;
-	background: #f9d853 !important;
+	background: #1B1575 !important;
 }
-.mt-10p{
-	margin-top: -21%;
-}
+/* .mt-10p{
+	margin-top: -30%;
+  border-radius: 5px;
+  cursor: pointer;
+} */
 .display{
 	display: contents !important;
 }
@@ -191,6 +179,7 @@ div.position{
 .pb-100{
 	padding-bottom: 100% !important;
 }
+
 .wd-70{
 	width: 100% !important;
 	display: block !important;
@@ -211,158 +200,24 @@ div.position{
 	padding-top: 8% !important;
 }
 .toast-msg{
-	z-index: 0 !important;
-  position: relative !important;
-  width: 95% !important;
-  margin-top: -8% !important;
-  margin-bottom: 10% !important;
+	z-index: 10001 !important;
+    position: absolute !important;
+    width: 95% !important;
+	margin-top: -7% !important;
 }
 .btn-info{
 	color: #fff !important;
     background-color: #aadbcf !important;
     border-color: #aadbcf !important;
 }
-@media (min-width: 800px) and (max-width: 900px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 42%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 44% !important;
-		margin-top: 10% !important;
-	}
-}
-
-@media (min-width: 900px) and (max-width: 1000px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 44%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 46% !important;
-		margin-top: 10% !important;
-	}
-}
-@media (min-width: 1000px) and (max-width: 1050px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 50%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 52% !important;
-		margin-top: 10% !important;
-	}
-}
-@media (min-width: 1050px) and (max-width: 1200px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 54%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 56% !important;
-		margin-top: 10% !important;
-	}
-}
-@media (min-width: 1200px) and (max-width: 1250px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 58%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 60% !important;
-		margin-top: 10% !important;
-	}
-}
-@media (min-width: 1250px) and (max-width: 1300px) {
-    #infera-container-1 .container {
-        width: 500px !important;
-    }
-	#infera-container.open-bg {
-	background: white;
-	left: 60%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97%;
-	}
-	.modal-area{
-		margin-left: 66% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 62% !important;
-		margin-top: 10% !important;
-	}
-}
-@media (min-width: 1300px) and (max-width: 1400px) {
+@media (max-width:1400px) {
     #infera-container-1 .container {
         width: 500px !important;
     }
 	#infera-container.open-bg {
 	background: white;
 	left: 62%;
-  overflow-y: auto;
+    overflow-y: auto;
 	overflow-x: hidden;
 	}
 	div.position{
@@ -372,86 +227,20 @@ div.position{
 	.modal-area{
 		margin-left: 66% !important;
 	}
-	#infera-container .modal-area-lg{
+	.modal-area-lg{
 		margin-left: 64% !important;
 		margin-top: 10% !important;
 	}
-}
-@media (min-width: 1400px) and (max-width: 1500px) {
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 64%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 66% !important;
-		margin-top: 6% !important;
-	}
-}
-@media (min-width: 1500px) and (max-width: 1600px) {
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 67%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 69% !important;
-		margin-top: 6% !important;
-	}
-}
-@media (min-width: 1600px) and (max-width: 1650px) {
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 68%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 70% !important;
-		margin-top: 6% !important;
-	}
-}
 
-@media (min-width: 1650px) and (max-width: 1730px) {
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
+}
+@media (min-width:1400px) {
+    #infera-container-1 .container {
+        width: 500px !important;
+    }
+	#infera-container.open-bg {
 	background: white;
 	left: 70%;
-  overflow-y: auto;
+    overflow-y: auto;
 	overflow-x: hidden;
 	}
 	div.position{
@@ -461,106 +250,26 @@ div.position{
 	.modal-area{
 		margin-left: 76% !important;
 	}
-	#infera-container .modal-area-lg{
-		margin-left: 72% !important;
+	.modal-area-lg{
+		margin-left: 74.5% !important;
 		margin-top: 6% !important;
 	}
+
+  #caregap-v2-modal-info{
+    margin-left:70% !important;
+  }
+
 }
 
-@media (min-width: 1730px) and (max-width: 1800px) {
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 71%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 72% !important;
-		margin-top: 6% !important;
-	}
-}
-@media (min-width: 1800px) and (max-width: 2000px){
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 73%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 74% !important;
-		margin-top: 6% !important;
-	}
-}
-@media (min-width: 2000px) and (max-width: 2200px){
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 76%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 77% !important;
-		margin-top: 6% !important;
-	}
-}
-@media (min-width: 2200px){
-  #infera-container-1 .container {
-      width: 500px !important;
-  }
-  #infera-container.open-bg {
-	background: white;
-	left: 78.5%;
-  overflow-y: auto;
-	overflow-x: hidden;
-	}
-	div.position{
-		position: absolute !important;
-		left: 97.7%;
-	}
-	.modal-area{
-		margin-left: 76% !important;
-	}
-	#infera-container .modal-area-lg{
-		margin-left: 80% !important;
-		margin-top: 6% !important;
-	}
-}
-.dropdown-menu::before {
+/* Caregap media query */
+
+
+/* .dropdown-menu::before {
     border-bottom: 7px solid rgba(0,0,0,0.2) !important;
     border-left: 7px solid transparent !important;
     border-right: 7px solid transparent !important;
     content: "";
-    display: inline-block !important;
+    display: none !important;
     left: 127px !important;
     position: absolute !important;
     top: -7px !important;
@@ -570,11 +279,11 @@ div.position{
     border-left: 7px solid transparent !important;
     border-right: 7px solid transparent !important;
     content: "";
-    display: inline-block !important;
+    display: none !important;
     left: 127px !important;
     position: absolute !important;
     top: -7px !important;
-}
+} */
 .asmtItems:hover, .selected {
 	color: black !important;
 }
@@ -623,7 +332,7 @@ div.position{
     background-color: #f8ae37 !important;
     border-color: #f8ae37 !important;
 }
-.btn-primary:active,
+/* .btn-primary:active,
 .btn-primary:hover{
 	color: #fff !important;
     background-color: #f39909 !important;
@@ -634,7 +343,7 @@ div.position{
     color: #fff !important;
     background-color: #d18407 !important;
     border-color: #aa6b06 !important;
-}
+} */
 
 .btn-default{
     color: #404041 !important;
@@ -657,7 +366,7 @@ div.position{
 
 .show_results{
 	background: #f9d853 !important;
-  color: #059198 !important;
+    color: #059198 !important;
 	display: block !important;
 }
 .green_show_results{
@@ -677,52 +386,6 @@ div.position{
 .pointer_events_null{
 	pointer-events: none !important
 }
-
-/* help icon popver start */
-.custom-popover {
-    position: absolute;
-    background: #ffffff;
-    border-radius: 6px;
-    padding: 0;
-    border: 1px solid #ddd;
-    max-width: 260px;
-    z-index: 99999;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    font-size: 12px;
-    line-height: 1.4;
-}
-.custom-popover .popover-inner {
-    padding: 12px 15px;
-    font-weight: 400 !important;
-}
-/* Outer border triangle */
-.custom-popover .popover-arrow {
-    position: absolute;
-    bottom: -11px; /* slightly lower so border shows */
-    left: 45%;
-    width: 0;
-    height: 0;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    border-top: 11px solid #ddd;  /* border color */
-}
-/* Inner white triangle */
-.custom-popover .popover-arrow::after {
-    content: "";
-    position: absolute;
-    left: -10px;
-    top: -11px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #fff; /* same as popover background */
-}
-/* Optional: hover cursor */
-.help-icon {
-    cursor: pointer;
-}
-/* help icon popover end */
 
 
 .popover__content0 {
@@ -1042,4 +705,621 @@ div.position{
 	padding-left: 20px !important;
 }
 
+.hideTab{
+  display: none;
+}
 
+.show_results2{
+/* background: #f9d853 !important;
+  color: #059198 !important; */
+display: block !important;
+}
+
+.hide_results2{
+  display: none !important;
+}
+
+.popover__message_1_reject_caregap{
+  font-size: 11px;
+}
+/*
+
+
+
+@media (max-width:1400px) {
+  #infera-container-2 .container {
+      width: 550px !important;
+  }  
+  /* .caregaps-container{
+    height: 100vh !important;
+  } */
+#infera-container2.open-bg {
+background: #F9F9F9;
+left: 62%;
+  overflow-y: auto;
+overflow-x: hidden;
+}
+div.position2{
+  position: absolute !important;
+  left: 97%;
+}
+.modal-area{
+  margin-left: 66% !important;
+}
+.modal-area-lg{
+  margin-left: 64% !important;
+  margin-top: 10% !important;
+}
+
+@media (max-width:1600px) {
+  #infera-container-2 .container {
+      width: 500px !important;
+  }
+#infera-container2.open-bg {
+background: #F9F9F9;
+left: 62%;
+  overflow-y: auto;
+overflow-x: hidden;
+}
+div.position2{
+  position: absolute !important;
+  left: 97%;
+}
+.modal-area{
+  margin-left: 66% !important;
+}
+.modal-area-lg{
+  margin-left: 64% !important;
+  margin-top: 10% !important;
+}
+
+}
+@media (max-width:1500px) {
+  #infera-container-2 .container {
+      width: 500px !important;
+  }
+#infera-container2.open-bg {
+background: #F9F9F9;
+left: 62%;
+  overflow-y: auto;
+overflow-x: hidden;
+}
+div.position2{
+  position: absolute !important;
+  left: 97%;
+}
+.modal-area{
+  margin-left: 66% !important;
+}
+.modal-area-lg{
+  margin-left: 64% !important;
+  margin-top: 10% !important;
+}
+}
+@media (min-width:1400px) {
+  #infera-container-2 .container {
+      width: 550px !important;
+  }
+#infera-container2.open-bg {
+background: #F9F9F9;
+left: 70% !important;
+/* left: 64% !important; 
+use this if screen need to big size
+*/
+  overflow-y: auto;
+overflow-x: hidden;
+}
+div.position2{
+  position: absolute !important;
+  left: 97.7%;
+}
+.modal-area{
+  margin-left: 76% !important;
+}
+.modal-area-lg{
+  margin-left: 74.5% !important;
+  margin-top: 6% !important;
+}
+
+}
+
+
+
+/* CARE GAP CSS */
+/* infera-container main */
+
+#infera-container2 {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  left: 100%;
+  bottom: 0;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  background: #F9F9F9;
+}
+
+#infera-container2.open {
+  right: 0;
+  left: 79px;
+}
+
+#infera-container2.open-full {
+background: white;
+left: 1%;
+  overflow-y: auto;
+}
+
+
+.infera-container__content-body2 {
+  height: 100%;
+}
+
+.infera-container__frame-container2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #D8D8D8;
+  border-left: 1px solid #909091;
+}
+
+.infera-container__content-body--error .infera-container__frame-container2 {
+  top: 44px;
+}
+
+#infera-container2.open.infera-container--left-panel-open {
+  left: 422px;
+}
+
+.infera-container--expose .infera-container__content-body2 {
+  pointer-events: none;
+}
+
+/* .infera-container__content-body2 {
+  pointer-events: initial;
+  position: relative;
+  border: 0;
+  border-left: 1px solid #e0dfe1;
+} */
+
+/* .infera-container__tab-container2 {
+  display: none;
+  z-index: 1;
+  margin-left: -27px;
+  position: absolute;
+  left: 0;
+  overflow: visible;
+  top: 247px;
+  padding-left: 27px;
+  float: left;
+  pointer-events: none;
+left: -2.2%;
+display: block;
+}
+.open-left{
+left: -29px;
+}
+
+.infera-container__tab-container2 .infera-button--close2 {
+  pointer-events: initial;
+  left: 0px;
+  width: 19px;
+  height: 34px;
+} */
+
+/* .infera-container__tab-container2 .infera-button--close2.bg-yellow {
+  background-color: #1B1575 !important;
+} */
+
+/* #infera-container2.open .infera-container__tab-container2 {
+  display: block;
+} */
+
+#infera-container2 iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* end main*/
+
+
+div.infera-overlay-tab2 {
+  height: 160px !important;
+  margin-bottom: 4px !important;
+  width: 45px;
+  /* height: 250px; */
+  position: relative;
+  background-color: #e0e9f0;
+  border: 1px solid #006f9d;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 1px solid #e0e9f0;
+  z-index: 3;
+  cursor: pointer;
+  display: block;
+  left: calc(-1 * (35px - 3px));
+  
+
+
+}
+
+/* div.infera-overlay-tab2.bg-yellow2 {
+  background-color: #1B1575 !important;
+} */
+
+div.infera-overlay-tab2 div.overlay-tab-label2 {
+  top: 10px !important;
+  white-space: nowrap !important;    
+}
+
+div.position2{
+  position: absolute !important;
+  /* left: 97%; */
+  top: 100%;
+}
+
+.text-label2{
+transform: rotate(270deg);
+  font-size: 15px;
+}
+
+.top{
+top: -100%;
+position: relative
+}
+.middle{
+top: -50%;
+position: relative
+}
+.bg-white{
+background: white;
+}
+/* .ml-l{
+  margin-left: 10px;
+  left: -30px;
+background: #1B1575 !important;
+} */
+/* .mt-10p{
+  margin-top: -30%;
+} */
+.display{
+display: contents !important;
+}
+.loading-text{
+position: absolute !important;
+margin-left: 27% !important;
+}
+
+.caregaps-container{
+  box-shadow: none !important;
+}
+
+/* carepag.html style */
+/* .popover {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+} */
+
+.loading-modal2 .modal-content {
+  padding: 50px 50px 100px;
+  text-align: center;
+}
+
+.loading-modal2 .modal-content .modal-body .loading-spinner {
+  width: auto;
+  height: 250px;
+  background: url('https://prm.qa.svc.inferscience.com/assets/images/logo-image.png') center no-repeat;
+  background-size: 107px 70px;
+}
+
+
+.loading-spinner .spinner  {
+  background: none !important;
+  height: 0px;
+ 
+}
+div input[type="radio"] + label { /* To align the rejection reasons correctly*/
+  padding-top: 5px;
+}
+.col-md-12 input[type="radio"] + label { /* To align the other rejection reasons correctly*/
+  padding-top: 7px;
+}
+
+.mt-40{
+  margin-top:26% !important;
+}
+/* .spinner {
+  height: 0px;
+} */
+
+.overlay-icon.overlay-icon-validator {
+  display: inline-block !important;
+  left: 5px !important;
+  top: 0px !important;
+}
+
+/* .infera-checkbox{
+  width: 20px !important;
+  height: 20px !important;
+} */
+
+/* .drawer-btn{
+  visibility: visible !important;
+} */
+
+#caregap-results{
+  margin-top: -2px !important;
+  /* max-width: fit-content; */
+}
+
+#infera-drawer-btn:hover{
+  background-color: #1B1575 !important;  
+  color: white !important;
+}
+
+.infera-caregap-info-icon,
+.infera-caregap-action-icon {
+    cursor: pointer !important;
+    z-index: 100 !important;
+    position: relative !important;
+}
+/* caregap v2 styles 
+*  for athena extension
+*/
+
+/* custom tooltip css*/
+.custom-tooltip .tooltip-inner {
+  font-size: 10px !important;
+  max-width: 260px !important;
+  /* background-color: #444 !important; */
+  /* color: white !important; */
+}
+
+
+/* V2 caregap css  for modal*/
+.selected-measure {
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.code-row {
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  margin-bottom: 4px;
+  display: flex;
+  gap: 12px;
+}
+
+.code {
+  font-weight: 500;
+  min-width: 60px; /* Adjust based on your needs */
+}
+
+.definition {
+  color: #333;
+}
+
+/* V2 caregap title css*/
+#caregap-results > div.card-body.px-4 > p{
+    font-family: Roboto;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 36px !important;
+    letter-spacing: 0px !important;
+}
+
+.caregap-dropdown .dropdown-menu{
+  min-width: 146px !important;
+}
+
+.caregap-dropdown .dropdown-menu::before {
+  display: none !important;
+}
+
+/* Athena UI fixed dropdown menu and button css*/
+.infera-checkbox-disabled:checked {
+  background: #969696 !important; /* Change background when checked */
+  border-color: #969696 !important; /* Optional: Change border color */
+}
+
+button, .button, input[type="submit"]{
+  border-radius: 3px !important;
+} 
+/* Accept and Reject Button Css */
+.caregap-reject-btn, .caregap-accept-btn{
+  border-radius: 20px !important;
+}
+.caregap-reject-btn {
+  background: #ffffff !important;
+  border: 1px solid #78767C !important;
+  color: #1B1575 !important;
+  padding: 7px 20px !important;
+  font-size: 12px !important;
+}
+.caregap-accept-btn {
+  background: #1B1575 !important;
+  color: #ffffff !important;
+  padding: 7px 20px !important;
+  font-size: 12px !important;
+  
+}
+/* caregap drawer css  */
+.infera-drawer-btn{
+  border-radius: 0 3px 3px 0px !important;
+}
+
+
+/* Info button css */
+#description-tab{
+  background: none;
+  border: none;  
+}
+#caregap-v2-modal > div > div > div > div.modal-header.border-0.px-4.pt-4 > ul > li:nth-child(1) > button{
+  background-color: none !important;
+}
+
+.reject-modal-bg{
+  background-color: rgba(240, 240, 240, 1) !important;
+}
+
+/* Popover css */
+.rejection-popover{
+  font-family: "Roboto", sans-serif !important;
+  font-size: 14px !important;
+  margin-left: 120px !important;
+  background-color: rgba(240, 240, 240, 1)!important;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09) !important;
+}
+/* .rejection-popover button {
+  background-color: none !important;
+  color: rgba(101, 85, 143, 1)!important;
+}
+
+.rejection-popover button :hover {
+  background-color: none !important;
+  color: rgba(101, 85, 143, 1)!important;
+} */
+
+.rejection-popover .remove-rejection-btn {
+  background-color: none !important;
+  /* color: rgba(101, 85, 143, 1) !important; */
+  color: #2F2C87 !important;
+  border: none !important;
+  padding: 5px 10px !important;
+  transition: all 0.3s ease !important;  
+  font-size: 14px !important;
+  margin-left: -10px !important;
+}
+
+.rejection-popover .remove-rejection-btn:hover {  
+  /* color: rgba(101, 85, 143, 1) !important;   */
+  color: #2F2C87 !important;
+  background: none!important;
+  background-color: none!important;    
+}
+
+/* Remove arrow and after element for rejection popover */
+.rejection-popover .popover-arrow,
+.rejection-popover.popover:after,
+.rejection-popover.popover:before {
+  display: none !important;
+}
+
+/* rejection img icon */
+.caregap-rejected-measure img.caregap-rejected-icon {
+  max-width: none !important;
+}
+
+
+.selected-codes-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 55px !important;
+  margin-left: 44px !important; /* Align with the text after checkbox */
+  left: -20px !important;
+}
+
+.selected-code-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  background-color: rgba(232, 222, 248, 1) !important;
+  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  color: #49454F !important;
+  line-height: 20px !important;
+}
+
+.selected-code-tag .remove-code {
+  margin-left: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 2px !important;
+  font-size: 26px !important;
+  font-weight: 400 !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.selected-code-tag .remove-code:hover {
+  opacity: 0.8 !important;
+}
+
+#caregap-confirm-btn:focus{
+  background-color: rgba(47, 44, 135, 1) !important;
+  color: #ffffff !important;
+}
+#caregapAcceptModal{
+  overflow: hidden !important;
+}
+
+
+#caregapRejectModal .form-select:hover{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  /* background-position: right 0.75rem center !important; */
+  /* background-size: 16px 12px !important; */
+}
+#caregapRejectModal .form-select:focus{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  /* background-position: right 0.75rem center !important; */
+  /* background-size: 16px 12px !important; */
+}
+
+
+/* toast message in caregap */
+.toast-body2{
+  font-size: 12px !important;
+}
+
+.toast-container-resize{
+  padding-left: 8rem !important;
+  margin-top: 5.5rem!important;
+  left: 30px !important;
+}
+
+
+/* .infera-checkbox-disabled:checked::after {
+  content: url(chrome-extension://__MSG_@@extension_id__/icons/infera-checkbox.svg) !important;
+} */
+.infera-primary-btn{
+  border:1px solid #2F2C87 !important;
+}
+.infera-primary-btn:hover{
+  border:1px solid #2F2C87 !important;
+}
+
+.force-margin-left{
+  margin-left: -38px!important;
+}
+
+.scrollable-content{
+  height: 80% !important;
+}
+
+
+#caregap-v2-modal #associated-codes > * {
+  font-weight: 400 !important;
+}
+
+/* #associated-codes > div{
+  overflow-y: scroll !important;
+  height: 350px !important;
+} */

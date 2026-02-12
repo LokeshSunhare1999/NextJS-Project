@@ -1,4 +1,3 @@
-// // console.log('default');
 class Context
 {
 	appName = null;

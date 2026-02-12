@@ -37,38 +37,20 @@ athena = {
 	timeout: 30,
 
 	init: function() {
-		//default checkbox flag logic 6810
-		chrome.storage.sync.get('flag', function (result) {
-            const flagValue = result.flag !== undefined ? result.flag : null;
-            console.log('result Flag value:', result.flag);
-            console.log('Flag value:', flagValue);
-            if (flagValue == undefined || flagValue == null || flagValue == 0) {
-                // Set default options
-                const defaultOptions = {
-                  alertOnEmpty: true,
-                //   notifications: true
-                };
-           
-                chrome.storage.sync.set({
-                  flag: 1,
-                  options: defaultOptions
-                }, function () {
-                  console.log('Default options and flag set.');
-                });
-            }
-        });
 		flag=0;		
 		// localStorage.setItem("caregap-sso-status", flag);
 		// console.log("working.......update.");
-		console.log("init called update");
+		console.log("init called");
 		
 		chrome.runtime.onMessage.addListener(function(request) {
 
 			let messageKey = request.message + ':' + request.data._id;
 			// console.log("messageKey",messageKey);
 			if (athena.messages.indexOf(messageKey) !== -1) {
-				console.log("inside messageKey if");				
+				console.log("inside messageKey if");
+				
 				return;
+
 			} else {
 				console.log("inside messageKey else");
                 athena.messages.push(messageKey);
@@ -87,21 +69,9 @@ athena = {
 						break;
 
 					case 'execution-request':
-						console.log("execution-request called...");
-						// console.log("data.url",request.data.url);
-						console.log("data",request.data);
-						// console.log("data.src",request.data.src);
 						try {
 							athena.handleExecutionRequest(request.data._id, request.data);
-							if (request.data.src == 'DATASUM') {
-								// console.log("execution-request called...inside if");
-								// console.log("inside data.id",request.data._id);
-								// console.log("inside data.src",request.data.url);
-								// data = {type: 'execution-result', src: 'DATASUM', url: 'http://dev-inferscience-lb-376623547.us-east-1.elb.amazonaws.com:81/patient/patient_6_butlerpamela_pdf', count: 10, _id: 'c32fdccd-6929-4d56-a91f-621ddd338cf1'}
-								athena.handleExecutionResult(request.data._id, request.data);
-							}
-							request.data.table_data == has_flag && viwed 
-						}catch (error) {
+						} catch (error) {
 							// New Relic Error Logs
 							newRelicObject.user = null;
 							newRelicObject.category = newRelicLogCategory;
@@ -116,16 +86,9 @@ athena = {
 					case 'execution-request-validator':
 						athena.handleExecutionRequestValidator(request.data._id, request.data);
 						break;
-					
-					case 'execution-request-summarization':
-						athena.handleExecutionRequestSummarization(request.data._id, request.data);
-						break;	
 						
 					case 'execution-result':
 						try {
-							console.log("execution-result called...");
-							console.log("data",request.data);
-							
 							athena.handleExecutionResult(request.data._id, request.data);
 						} catch (error) {
 							// New Relic Error Logs
@@ -185,7 +148,7 @@ athena = {
         if (token) {
             return Promise.resolve(token);
         }
-		return token;
+
         // Otherwise, log in and get a new token
         return fetch('https://api.svc.inferscience.com/api/generate-token', {
             method: 'POST',
@@ -250,7 +213,7 @@ athena = {
         console.log("athenaLog called");
 
         // Ensure we're authenticated before logging
-        /* athena.authenticate().then(() => {
+        athena.authenticate().then(() => {
             athena.getUuid().then(uuid => {
                 console.log("type", type, "message", JSON.stringify(message), "uuid", uuid);
                 athena.apiCallWithRetry('POST', 'https://api.svc.inferscience.com/api/audit-logs-extension', { type, message, uuid, ehr: 'athena' });
@@ -259,7 +222,7 @@ athena = {
             });
         }).catch(error => {
             console.error("Error during authentication:", error);
-        }); */
+        });
     },
 
     apiCallWithRetry: function(method, url, body) {
@@ -367,7 +330,9 @@ athena = {
                             id: 'infera-container',
                             'infera-context': athena.context.getAppName()
                         }).appendTo($(document.body));
-																		
+						
+						// athena.container().handleNewUiTray();
+						
 						$container.load(chrome.runtime.getURL('html/container.html'), null, function() {						
 							// console.log('Infera results frame loaded.');
 							$container.on('click', '.infera-button--close', function() {
@@ -427,14 +392,15 @@ athena = {
         };
     },
 
+
 	getUrlForSSO: function()
 	{
 		let data = this.context.getData();	
 		url  = this.context.getMetadata('context-url');
 
-		// console.log("Inside getUrlForSSO");
-		// console.log("getUrlForSSO data - " + data);
-		// console.log("getUrlForSSO url - " + url);
+		console.log("Inside getUrlForSSO");
+		console.log("getUrlForSSO data - " + data);
+		console.log("getUrlForSSO url - " + url);
 
 		if (url !== null) { // Build dynamically from context data.
 			console.log("getUrlForSSO if case");
@@ -767,12 +733,6 @@ athena = {
 									console.log('No existing extension found for validator');
 								}
 							});
-							// Enable the HCC validator tab in the product tray
-							let $validatorTab = $('.product-tabs-container .hcc-validator-tab');
-							if ($validatorTab.length) {
-								$validatorTab.removeClass('disabled-tab');
-								$('#tab-item-name-hcc-valid').text('HCC Validator');
-							}
 							// Trigger the chrome extension here
 							athena.handleExecutionRequest(id, data);
 						} catch (error) {
@@ -893,20 +853,52 @@ athena = {
 		updateAppointment(data.data);
 	},
 
-    handleExecutionRequest: function(id, data) {		
-		console.log("handleExecutionRequest called...");
-		// Call the new UI tray handler
-		athena.handleNewUiTray(data);
-		flag = 0;
-		console.log("data.active",data.active_product);
+    handleExecutionRequest: function(id, data) {
 
-		if(data.active_product.includes("care_gaps")){
-			console.log('entered in caregaps');
-			flag = 1;
+		if(data.src == 'HCC' || data.src== "HCC_Validator") {
+			let $newContainer = $("div.exam-sections-wrapper");
+			if ($newContainer.length && !$newContainer.find('.product-tabs-container').length) {
+				console.log('Loading new UI frame...');
+				$('<div>').load(chrome.runtime.getURL('html/newUI.html'), function() {
+					console.log('Another new UI frame loaded.');
+					$newContainer.prepend($(this).html()); // Append the new UI frame at the beginning
+					console.log('New UI frame marked as loaded.');
+
+					// Dynamically update the src attributes for all images in the loaded HTML
+					$newContainer.find('.product-tabs-container img').each(function() {
+						const srcMap = {
+							'icon32.png': 'icons/icon32.png',
+							'HCC Assistant.png': 'icons/HCC Assistant.png',
+							'HCC Validator.png': 'icons/HCC Validator.png',							
+							'Care Gaps.png': 'icons/Care Gaps.png',
+							'Data Summarization.png': 'icons/Data Summarization.png',
+							'Infera CDS.png': 'icons/Infera CDS.png'
+						};
+
+						// Get the current src of the image
+						let imgSrc = $(this).attr('src');
+
+						// Extract the filename from the src
+						let fileName = imgSrc.split('/').pop();
+
+						// Update the src attribute with the dynamically generated URL
+						if (srcMap[fileName]) {
+							$(this).attr('src', chrome.runtime.getURL(srcMap[fileName]));
+						}
+					});
+
+				});
+			}
 		}
+
+		// call this method to check the product status and add enable and disable tab color
+		setTimeout(() => {
+			athena.checkProductStatus(data);
+		}, 10);
+
+		console.log("handleExecutionRequest called...");
+		flag = 1;
 		localStorage.setItem("caregap-sso-status", flag);
-		console.log("data",data.active_product);
-		
 		if(data.caregap !=null)
 		{
 			// console.log("handleExecutionRequest called...");
@@ -923,7 +915,7 @@ athena = {
 			//append user_id in caregapJson
 			caregapJson.user_id = user_id;	
 			caregapJson.accessToken = accessToken;	
-			caregapJson.practice_id = practice_id;		
+			// caregapJson.practice_id = practice_id;		
 			caregapJson.enc_id = enc_id;		
 			caregapJson.provider_id = provider_id;		
 			let caregapData = caregapJson;
@@ -931,6 +923,7 @@ athena = {
 
 		}
 		
+
 		let $iframe = athena.container().frame();
 
         $iframe.clone()
@@ -939,198 +932,18 @@ athena = {
 			.attr('src', data.url)
 			.appendTo($iframe.parent());
     },
-
-	handleNewUiTray: function(data) {
-		console.log("handleNewUiTray called...", data);			
-		if (data.active_product !== null) {
-			let $newContainer = $("div.exam-sections-wrapper");			
-			// Ensure the UI frame is not already appended
-			if ($newContainer.length && !$newContainer.hasClass('ui-frame-loaded')) {
-				console.log('Loading new UI frame...');
-				$('<div>').load(chrome.runtime.getURL('html/newUI.html'), function() {
-					// Ensure the main-container is not appended again								
-				if (!$newContainer.find('.main-container').length) {
-                    $newContainer.prepend($(this).html());
-                    
-                    // Make product tray draggable
-                    const productTabsContainer = document.querySelector('.product-tabs-container');
-                    let isDragging = false;
-                    let offsetY;
-
-                    // Use object structure instead of array for better performance
-                    const storageKey = 'inferaProductTrayPositions';
-                    try {
-                        // Get saved position for current user
-                        const positions = JSON.parse(localStorage.getItem(storageKey) || '{}');
-                        const userKey = `user_${data.user_id}`;
-                        const initialTop = positions[userKey]?.top || '267px';
-
-                        // Set initial position
-                        productTabsContainer.style.right = '0px';
-                        productTabsContainer.style.top = initialTop;
-
-                        // Dragging handlers
-                        productTabsContainer.addEventListener('mousedown', (e) => {
-                            isDragging = true;
-                            offsetY = e.clientY - productTabsContainer.offsetTop;
-                            productTabsContainer.style.cursor = 'move';
-                        });
-
-                        document.addEventListener('mousemove', (e) => {
-                            if (!isDragging) return;
-                            const y = e.clientY - offsetY;
-                            const maxY = window.innerHeight - productTabsContainer.offsetHeight;
-                            const boundedY = Math.min(Math.max(0, y), maxY);
-                            productTabsContainer.style.top = boundedY + 'px';
-                        });
-
-                        document.addEventListener('mouseup', () => {
-                            if (isDragging) {
-                                isDragging = false;
-                                productTabsContainer.style.cursor = 'move';
-                                
-                                try {
-									// Save position without timestamp
-									const positions = JSON.parse(localStorage.getItem(storageKey) || '{}');
-									positions[userKey] = {
-										top: productTabsContainer.style.top
-									};
-									localStorage.setItem(storageKey, JSON.stringify(positions));
-                                } catch (error) {
-                                    console.error('Error saving tray position:', error);
-                                }
-                            }
-                        });
-
-                        productTabsContainer.addEventListener('dragstart', (e) => {
-                            e.preventDefault();
-                        });
-                    } catch (error) {
-                        console.error('Error initializing tray position:', error);
-                        // Fallback to default position
-                        productTabsContainer.style.top = '267px';
-                    }
-                }else {
-					console.log('Main-container already exists, skipping append.');
-				}
-
-					// Mark the container to prevent further loading
-					$newContainer.addClass('ui-frame-loaded');
-	
-					// Dynamically update the src attributes for all images in the loaded HTML
-					
-					$newContainer.find('.product-tabs-container img').each(function() {
-						const srcMap = {
-							'Infera logo.png': 'icons/Infera logo.png',
-							// 'hcc.svg': 'icons/hcc.svg',
-							// 'hcc-validator.svg': 'icons/hcc-validator.svg',							
-							// 'caregap.svg': 'icons/caregap.svg',
-							// 'infera-ai.svg': 'icons/infera-ai.svg',
-							// 'Infera CDS.png': 'icons/Infera CDS.png'
-						};
-	
-						// Get the current src of the image
-						let imgSrc = $(this).attr('src');
-	
-						// Extract the filename from the src
-						let fileName = imgSrc.split('/').pop();
-	
-						// Update the src attribute with the dynamically generated URL
-						if (srcMap[fileName]) {
-							$(this).attr('src', chrome.runtime.getURL(srcMap[fileName]));
-						}
-					}); 
-					
-					$newContainer.find('.tab-item-custom').each(function() {
-						const $tabItem = $(this);
-						const $iconContainer = $tabItem.find('.icon-container');
-						const iconName = $iconContainer.attr('data-icon');
-						setTimeout(() => {
-							if (iconName) {
-								const normalIconUrl = chrome.runtime.getURL(`icons/${iconName}.svg`);
-								const hoverIconUrl = chrome.runtime.getURL(`icons/${iconName}-white.svg`);
-								const disabledIconUrl = chrome.runtime.getURL(`icons/${iconName}-disabled.svg`);
-
-								// Set initial background image based on disabled state
-								if ($tabItem.hasClass('disabled-tab')) {
-									console.log("entered disabled tab");
-									$iconContainer.css('backgroundImage', `url('${disabledIconUrl}')`);
-									$iconContainer.addClass('disabled-icon');
-								} else {
-									console.log(".entered else");
-									$iconContainer.css('backgroundImage', `url('${normalIconUrl}')`);
-									$iconContainer.removeClass('disabled-icon');
-								}
-							}
-						}, 1000);
-						if (iconName) {
-							const normalIconUrl = chrome.runtime.getURL(`icons/${iconName}.svg`);
-							const hoverIconUrl = chrome.runtime.getURL(`icons/${iconName}-white.svg`);
-							const disabledIconUrl = chrome.runtime.getURL(`icons/${iconName}-disabled.svg`);
-
-							// Add hover handlers to the parent tab
-							$tabItem.hover(
-								function() {
-									// Only change if tab is not disabled
-									if (!$tabItem.hasClass('disabled-tab')) {
-										$iconContainer.css('backgroundImage', `url('${hoverIconUrl}')`);
-									}
-								},
-								function() {
-									// Revert based on disabled state
-									if ($tabItem.hasClass('disabled-tab')) {
-										$iconContainer.css('backgroundImage', `url('${disabledIconUrl}')`);
-									} else {
-										$iconContainer.css('backgroundImage', `url('${normalIconUrl}')`);
-									}
-								} 
-							);
-						}
-					});
-					
-				});
-			} else {
-				console.log('UI frame already loaded, skipping.');
-			}
-	
-			// Call this method to check the product status and add enable and disable tab color
-			setTimeout(() => {
-				athena.checkProductStatus(data);
-			}, 100);
-		}
-	},
-	
 	handleExecutionRequestValidator: function(id, data) {
 		athena.addValidatorButton2(id, data);
-		
-		// Call the new UI tray handler
-		athena.handleNewUiTray(data);
-		// Set the HCC validator button in tray to disabled state initially
     },
-
-	handleExecutionRequestSummarization: function(id, data) {
-		athena.handleNewUiTray(data);
-	},
-
 	handleExecutionResult: function(id, data) {
-		console.log("handleExecutionResult called updated...");						
+		
+		console.log("handleExecutionResult",data);
 		chrome.storage.sync.get('options', function (items) {
-            // if (!items.options.alertOnEmpty && data.count === 0) {
- 
-			// 	athena.addChartNavItem(data);
-			// 	athena.addOverlayTab(data, items.options);
-			// 	setTimeout(() => {
-			// 		$('#tab-item-name-hcc').text('No new codes available at the moment');
-			// 	}, 1000);
-            //     // $container.find('.tab-column').append('<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab drawer-tab" data-src="' + data.src + '" data-tab-priority="3"><span class="icon overlay-icon"></span><div class="overlay-tab-label"><img alt="" src="' + chrome.runtime.getURL('icons/icon32.png') + '" />' + tabLabel + '</div></div>');
-            // }
-			// if (data.count !== 0 || items.options.alertOnEmpty ) {
-				if(data.src === "HCC")
-				{
-					athena.addChartNavItem(data);
-				}
+			if (data.count !== 0 || items.options.alertOnEmpty ) {
+
+				athena.addChartNavItem(data);
 				athena.addOverlayTab(data, items.options);
-			// }
+			}
 		});
 	},
 
@@ -1199,6 +1012,9 @@ athena = {
 		athena.container().frames().hide();
 		athena.container().frame(data.src).show();
 		athena.container().open();
+		console.log("openSlider click",data);
+
+		
 
 		data.type = 'execution-view';
 
@@ -1213,32 +1029,33 @@ athena = {
 
 		athena.dispatchResponse(data._id, data);
 	},
-	/*
-	 * This method is used to add the overlay tab for the old UI 
-	 * only using this to add the hcc validator Button in the old UI and check the
-	 * data.src !== 'action-required' to remove the existing action required tab
-	*/
-	addOverlayTab: function(data, options = null) {		
+
+	addOverlayTab: function(data, options = null) {
+		
 		let $tabContainer = $('.pulltab-container.autostart');		
 		$tabContainer.each(function (i, containerElement) {
 
 			let $container = $(containerElement),
-			selector = 'div.infera-overlay-tab[data-src="' + data.src + '"]';						
-			
-			if (! $container.has(selector).length) {								
+				selector = 'div.infera-overlay-tab[data-src="' + data.src + '"]';		
+				
+			console.log("selector below", selector);
+			console.log("container below", $container);
+			console.log("data.src below", data.src);
+			console.log($container.has(selector).length);
+
+			if (! $container.has(selector).length) {
+				console.log("first if condition");
+				
 				let tabLabel = '  Infera';
+
 				switch (data.src) {
 
-					case 'DATASUM':
-					tabLabel = ' ' + data.src;
-					break;
 					case 'HCC Validator':
 						tabLabel = ' ' + data.src;
 						var container = $('div.assessment-and-plan-header-action-buttons-container');
 						var newButton = container.find('button[data-role="assessment-and-plan-validator-button"]');
 						newButton.text('Run HCC Validator');
 						newButton.prop('disabled', false);
-						
 						break;
 					case 'CDS':
 					case 'HCC':
@@ -1246,161 +1063,28 @@ athena = {
 						tabLabel += ' ' + data.src;
 						break;
 				}
+				/**logs  for extension tabs*/
 				myObject.PatientID = PatientID;		
 				myObject.EncounterID = EncounterID;		
-				console.log('type of viewed');
-				console.log(typeof(data.viewedDataValue));
-				
 				if (data.src == "HCC Validator") {
-					// $container.find('.tab-column').append(`<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab bg-yellow drawer-tab" data-src="${data.src}" data-tab-priority="3"><span class="icon overlay-icon overlay-icon-validator"></span><div class="overlay-tab-label"><img alt="" src="${chrome.runtime.getURL('icons/icon32.png')}" /><span class="tab-label-text">${tabLabel}</span></div></div>`);
-					// $('.infera-container__tab-container .infera-button--close').addClass('bg-yellow');
-					// $('.infera-container__tab-container .infera-button--close').addClass('bg-yellow');
+					$container.find('.tab-column').append(`<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab bg-yellow drawer-tab" data-src="${data.src}" data-tab-priority="3"><span class="icon overlay-icon overlay-icon-validator"></span><div class="overlay-tab-label"><img alt="" src="${chrome.runtime.getURL('icons/icon32.png')}" /><span class="tab-label-text">${tabLabel}</span></div></div>`);
+					$('.infera-container__tab-container .infera-button--close').addClass('bg-yellow');
+					$('.infera-container__tab-container .infera-button--close').addClass('bg-yellow');
+				} else if (options.alertOnEmpty && data.count === 0) {
+					$container.find('.tab-column').append('<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab drawer-tab" data-src="' + data.src + '" data-tab-priority="3"><span class="icon overlay-icon"></span><div class="overlay-tab-label"><img alt="" src="' + chrome.runtime.getURL('icons/icon32.png') + '" />' + tabLabel + '</div></div>');
+					athena.athenaLog('23',myObject);					
+				} else if(data.viewedDataValue === "1") {
+					$container.find('.tab-column').append('<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab bg-green-extension drawer-tab" data-src="' + data.src + '" data-tab-priority="3"><span class="icon overlay-icon"></span><div class="overlay-tab-label"><img alt="" src="' + chrome.runtime.getURL('icons/icon32.png') + '" />' + tabLabel + '</div></div>');
+					$('.infera-container__tab-container .infera-button--close').addClass('bg-green-extension');
+					athena.athenaLog('21',myObject);
+				} else {
+					$container.find('.tab-column').append('<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab bg-yellow drawer-tab" data-src="' + data.src + '" data-tab-priority="3"><span class="icon overlay-icon"></span><div class="overlay-tab-label"><img alt="" src="' + chrome.runtime.getURL('icons/icon32.png') + '" />' + tabLabel + '</div></div>');
+					$('.infera-container__tab-container .infera-button--close').addClass('bg-yellow');
+					$('.infera-container__tab-container .infera-button--close').addClass('bg-yellow');
+					athena.athenaLog('22',myObject);
 				}
-				if(data.src == "HCC"){
-					console.log('hcc entered');
-					console.log('data.count');
-					console.log(data.count);
-					console.log('options.alertOnEmpty');
-					console.log(options.alertOnEmpty);
-					/* if(!options.alertOnEmpty && data.count === 0){
-						} */
-					$hccTab = $('#infera-iframe > div > div.tab-item-custom.hcc-assistant-tab');
-					if (data.count === 0 && $hccTab.data('is-disabled') == false) {
-						$('#tab-item-name-hcc').text('No new codes available at the moment');
-						// $container.find('.tab-column').append('<div class="overlay-tab display-overlay pulltab-overlay-tab infera-overlay-tab drawer-tab" data-src="' + data.src + '" data-tab-priority="3"><span class="icon overlay-icon"></span><div class="overlay-tab-label"><img alt="" src="' + chrome.runtime.getURL('icons/icon32.png') + '" />' + tabLabel + '</div></div>');
-						athena.athenaLog('23', myObject);
-					} else if (data.viewedDataValue === "1") {
-						console.log('view data value 1');
+				
 
-						// const $iconContainer = $('#infera-iframe > div > div.tab-item-custom.hcc-assistant-tab > div.icon-container');
-						const $hccIconOuterContainer = $('#infera-iframe > div > div.tab-item-custom.hcc-assistant-tab');
-						$hccIconOuterContainer.attr('style',
-							'background-color: #D7FFDF !important; ' +
-							'border-radius: 50px !important; ' +
-							'width: 40px !important; ' +
-							'height: 40px !important; ' +
-							'margin: 4px 0 5px 4px !important;'
-						);
-						// Remove background color on hover
-						$hccIconOuterContainer.hover(
-							function () {
-								$(this).attr('style', '');
-							},
-							function () {
-								$(this).attr('style',
-									'background-color: #D7FFDF !important; ' +
-									'border-radius: 50px !important; ' +
-									'width: 40px !important; ' +
-									'height: 40px !important; ' +
-									'margin: 4px 0 5px 4px !important;'
-								);
-							}
-						);
-						athena.athenaLog('21', myObject);
-					} else if (data.viewedDataValue === "0") {
-						console.log('viewed 0');
-
-						// const $iconContainer = $('#infera-iframe > div > div.tab-item-custom.hcc-assistant-tab > div.icon-container');
-						const $hccIconOuterContainer = $('#infera-iframe > div > div.tab-item-custom.hcc-assistant-tab');
-
-						$hccIconOuterContainer.attr('style',
-							'background-color: #FFF2B7 !important; ' +
-							'border-radius: 50px !important; ' +
-							'width: 40px !important; ' +
-							'height: 40px !important; ' +
-							'margin: 4px 0 5px 4px !important;'
-						);
-						// Remove background color on hover  
-						$hccIconOuterContainer.hover(
-							function () {
-								$(this).attr('style', '');
-							},
-							function () {
-								$(this).attr('style',
-									'background-color: #FFF2B7 !important; ' +
-									'border-radius: 50px !important; ' +
-									'width: 40px !important; ' +
-									'height: 40px !important; ' +
-									'margin: 4px 0 5px 4px !important;'
-								);
-							}
-						);
-						athena.athenaLog('22', myObject);
-					}
-				}
-				//color logic for data summarization
-				// if(data.src == 'DATASUM'){
-				// 	console.log('enteredn in to data su,mmm');
-					
-				// 	// const $dataSumIconContainer = $('#infera-iframe > div > div.tab-item-custom.data-summarization-tab > div.icon-container');
-				// 	const $dataSumOuterContainer = $('#infera-iframe > div > div.tab-item-custom.data-summarization-tab');
-					
-				// 	if (data.report_data) {
-				// 		console.log('entered into datasum coclor');
-
-				// 		// Default state - has_content = 0
-				// 		if (data.report_data.has_content === 0) {
-				// 			console.log('entered into datasum coclor has content 0');
-				// 		}
-				// 		// has_content = 1 and viewed = 0
-				// 		else if (data.report_data.has_content === 1 && data.report_data.viewed === 0) {
-				// 			console.log('entered into datasum coclor has content 1');
-
-				// 			$dataSumOuterContainer.attr('style',
-				// 				'background-color: #FFF2B7 !important; ' +
-				// 				'border-radius: 50px !important; ' +
-				// 				'width: 50px !important; ' +
-				// 				'height: 50px !important; ' +
-				// 				'margin: 4px 0 5px 0px !important;'
-				// 			);
-
-				// 			// Remove background color on hover
-				// 			$dataSumOuterContainer.hover(
-				// 				function () {
-				// 					$(this).attr('style', '');
-				// 				},
-				// 				function () {
-				// 					$(this).attr('style',
-				// 						'background-color: #FFF2B7 !important; ' +
-				// 						'border-radius: 50px !important; ' +
-				// 						'width: 50px !important; ' +
-				// 						'height: 50px !important; ' +
-				// 						'margin: 4px 0 5px 0px !important;'
-				// 					);
-				// 				}
-				// 			);
-				// 		}
-				// 		// has_content = 1 and viewed = 1
-						
-				// 		else if (data.report_data.has_content === 1 && data.report_data.viewed === 1) {
-				// 			console.log('entered into datasum coclor has content 1 viewed 1');
-
-				// 			$dataSumOuterContainer.attr('style', 
-				// 				'background-color: #D7FFDF !important; ' +
-				// 				'border-radius: 50px !important; ' +
-				// 				'width: 50px !important; ' +
-				// 				'height: 50px !important; ' +
-				// 				'margin: 4px 0 5px 0px !important;'
-				// 			);
-
-				// 			// Remove background color on hover
-				// 			$dataSumOuterContainer.hover(
-				// 				function () {
-				// 					$(this).attr('style', '');
-				// 				},
-				// 				function () {
-				// 					$(this).attr('style', 
-				// 						'background-color: #D7FFDF !important; ' +
-				// 						'border-radius: 50px !important; ' +
-				// 						'width: 50px !important; ' +
-				// 						'height: 50px !important; ' +
-				// 						'margin: 4px 0 5px 0px !important;'
-				// 					);
-				// 				}
-				// 			);
-				// 		}
-				// 	}
-				// }
 				if (data.src !== 'action-required') {
 
 					let $arTab = $container.find(selector.replace(data.src, 'action-required'));
@@ -1410,7 +1094,9 @@ athena = {
 						$arTab.remove();
 					}
 				}
+
 				let $tab = $container.find(selector);
+
 				if ($tab.length) {
 
 					$tab.off('click').on('click', function() {
@@ -1426,80 +1112,75 @@ athena = {
 
 	//Using this method to load the result for new UI
 	addOverlayNewTab: function(data, options = null) {
-			let $tabContainer = $('.main-container');
+		
+		let $tabContainer = $('.main-container');
+		console.log("tabcontainer below", $tabContainer);		
 			$tabContainer.each(function (i, containerElement) {
-			let $container = $(containerElement);
+			let $container = $(containerElement),
+			selector = 'div.tab-item-custom.hcc-assistant-tab.active-tab';
 
-			// setTimeout(() => {
-			// 	athena.handleNewUiTray(data);
-			// 	athena.checkProductStatus(data);
-			// }, 100);
-			
-			if(data.src == "HCC") {	
-				selector = 'div.tab-item-custom.hcc-assistant-tab.active-tab';
-			} else if(data.src == "HCC Validator"){ 	
-				selector = 'div.tab-item-custom.hcc-validator-tab.active-tab';
-			}
-			else if(data.src == "DATASUM"){ 	
-				console.log("inside Infera AI tab");				
-				selector = 'div.tab-item-custom.data-summarization-tab.active-tab';
-			}
+			console.log("selector below", selector);
+			console.log("container below", $container);
 
-			// console.log("selector below", selector);
-			// console.log("container below", $container);
-
-			// console.log("data.src below", data.src);
-			// console.log($container.has(selector).length);
+			console.log("data.src below", data.src);
+			console.log($container.has(selector).length);
 
 			if (! $container.has(selector).length) {
-					// console.log(data);													
+				console.log('first if condition');
+				
+				let tabLabel = '  Infera';
+
+				switch (data.src) {
+
+					case 'HCC Validator':
+						tabLabel = ' ' + data.src;
+						var container = $('div.assessment-and-plan-header-action-buttons-container');
+						var newButton = container.find('button[data-role="assessment-and-plan-validator-button"]');
+						newButton.text('Run HCC Validator');
+						newButton.prop('disabled', false);
+						break;
+					case 'CDS':
+					case 'HCC':
+					case 'QM':
+						tabLabel += ' ' + data.src;
+						break;
+				}
+				console.log("data....",data.src);
+							
 				if(data.src == "HCC") {	
+					console.log("inside hcc tab");										
 					let $hccTab = $container.find('.product-tabs-container .hcc-assistant-tab');
-					if($hccTab.data('is-disabled') == false){
-						console.log("inside hcc tab");										
-						$hccTab.addClass('active-tab');
-						//to change the text if 0 codes are available
-						// if(!options.alertOnEmpty && data.count === 0){
-						// 	$('#tab-item-name-hcc').text('No new codes available at the moment');
-						// }else {					
-							// Remove the `tab-item-name` class from the specific element and add the `tab-item-name-hide` class to hide the text.
-							$('#tab-item-name-hcc').text('HCC Assistant');
-						// }
-						
-						// Remove the hidden class from the iframe
-						athena.removeHiddenClass();
-					}
+					$hccTab.addClass('active-tab');
+					console.log('active-tab class added to HCC tab.');
+	
+					// Remove the `tab-item-name` class from the specific element and add the `tab-item-name-hide` class to hide the text.
+					$('#tab-item-name-hcc').removeClass('tab-item-name').addClass('tab-item-name-hide');			
 				}
 
-				if(data.src == "HCC Validator") {
-					// console.log("inside hcc validator tab");										
-
-					let $hccValidTab = $container.find('.product-tabs-container .hcc-validator-tab');										
-					$hccValidTab.addClass('active-tab');	
-					// Remove the `tab-item-name` class from the specific element and add the `tab-item-name-hide` class to hide the text.
-					$('#tab-item-name-hcc-valid').text('HCC Validator')
-					
-					// Remove the hidden class from the iframe
-					athena.removeHiddenClass();
-				}	
+				if(data.src == "HCC Validator") {	
+					$container.find('.product-tabs-container').find('.hcc-validation-tab').addClass('active-tab');
+				}
 				
-				if(data.src == "DATASUM") {			
-					// console.log("inside data summarization tab");
-								
-					let $hccValidTab = $container.find('.product-tabs-container .data-summarization-tab');										
-					$hccValidTab.addClass('active-tab');	
-					// Remove the `tab-item-name` class from the specific element and add the `tab-item-name-hide` class to hide the text.
-					$('#tab-item-name-data-sum').text('Infera AI')
-					athena.removeHiddenClass();
-				}	
-							
+
+				// if (data.src !== 'action-required') {
+
+				// 	let $arTab = $container.find(selector.replace(data.src, 'action-required'));
+				// 	console.log("below arTab", $arTab);
+					
+				// 	if ($arTab.length) {
+
+				// 		$arTab.remove();
+				// 	}
+				// }
+
+				console.log("below ......");
+				
+
 				let $tab = $container.find(selector);
-				// console.log("tab below", $tab);
+				console.log("tab below", $tab);
 								
 				if ($tab.length) {
-					$tab.off('click').on('click', function() {			
-						// console.log("click...");
-															
+					$tab.off('click').on('click', function() {												
 						athena.openSlider(data);
 					});								
 				}
@@ -1552,80 +1233,42 @@ athena = {
 		}, 1000);
 	},
 
+	/**This method i will used for removing the 
+	 * Loading message on hover of active tab
+	 */
+	checkProductResult: function(data) {		
+		console.log("checkProductResult called...");		
+	},
+
 	/**
 		* Sets an interval to check for the presence of tab elements and update their status based on the active product data.
-		* The interval runs every second until the tabs are found or the retry count exceeds the timeout limit.		
+		* The interval runs every second until the tabs are found or the retry count exceeds the timeout limit.
+		* 
 		* @constant {number} intervalId - The ID of the interval timer that can be used to clear the interval.
 	*/
-
-	checkProductStatus: function(data) {										
+	checkProductStatus: function(data) {								
+		console.log("checkProductStatus called...", data.active_product);		
 		let retryCount = 0;
+
 		let intervalId = setInterval(function() {
-			let tabs = $(".product-tabs-container .tab-item-custom");
-			if (tabs.length > 0) {				
-				tabs.each(function() {					
-					let tab = $(this);					
-					let tabName = tab.data('name').toLowerCase();
-					tab.data('is-disabled',true);
+			let tabs = $("#page-container .tab-item-custom");
+			if (tabs.length > 0) {
+				console.log("checkProductStatus called...tabs", tabs);
+
+				tabs.each(function() {
+					console.log("checkProductStatus called...tabs each");					
+					let tab = $(this);
+					console.log("checkProductStatus called...tabs each tab", tab);
 					
-					//Remove the disabled-tab class from logo
+					let tabName = tab.data('name').toLowerCase();
+
+					console.log(tabName);
+					
 					if (data.active_product.includes(tabName) || tabName === 'logo') {
 						tab.removeClass('disabled-tab');
-						tab.data('is-disabled',false);
-
-						// Special handling for HCC validator - keep it disabled until button is clicked
-						if (tabName === 'hcc_validator' && data.active_product.includes(tabName)) {
-							tab.removeClass('disabled-tab');
-							$('#tab-item-name-hcc-valid').text('Loading HCC Validator... Please check back soon!').css('color', '#595757');
-						}
-					}				
-					// if product is not enable then add the disabled-tab class and change the text to show the subscription message 					
-					else if (!data.active_product.includes(tabName)) {	
+					} else {
 						tab.addClass('disabled-tab');
-						tab.data('is-disabled',true);
-						const $tabItem = tab;
-						const $iconContainer = $tabItem.find('.icon-container');
-						const iconName = $iconContainer.attr('data-icon');
-						setTimeout(() => {
-							if (iconName) {
-								const normalIconUrl = chrome.runtime.getURL(`icons/${iconName}.svg`);
-								const hoverIconUrl = chrome.runtime.getURL(`icons/${iconName}-white.svg`);
-								const disabledIconUrl = chrome.runtime.getURL(`icons/${iconName}-disabled.svg`);
-
-								// Set initial background image based on disabled state
-								if ($tabItem.hasClass('disabled-tab')) {
-									console.log("entered disabled tab");
-									$iconContainer.css('backgroundImage', `url('${disabledIconUrl}')`);
-									$iconContainer.addClass('disabled-icon');
-								} else {
-									console.log(".entered else");
-									$iconContainer.css('backgroundImage', `url('${normalIconUrl}')`);
-									$iconContainer.removeClass('disabled-icon');
-								}
-							}
-						}, 1000);	
-						
-						// if product is not enable then remove the tab
-						tab.remove();
-						// if (tabName === 'hcc') {
-						// 	$('#tab-item-name-hcc').text('Unlock HCC Assistant with a subscription').css('color', '#595757');
-						// } else if (tabName === 'care_gaps') {
-						// 	console.log("caregap tab found");							
-						// 	$('#tab-item-name-caregap').text('Unlock Care Gaps with a subscription').css('color', '#595757');
-						// } else if (tabName === 'hcc_validator') {
-						// 	$('#tab-item-name-hcc-valid').text('Unlock HCC Validator with a subscription').css('color', '#595757');
-						// } else if (tabName === 'data_summarization') {							
-						// 	$('#tab-item-name-data-sum').text('Unlock Infera AI with a subscription').css('color', '#595757');							
-						// } else if (tabName === 'infera_cds') {													
-						// 	$('#tab-item-name-cds').text('Unlock Infera CDS with a subscription').css('color', '#595757');							
-						// 	tab.addClass('disabled-tab');	
-						// }else{
-						// 	console.log("No tab found");							
-						// }
-
-
-
-					}				
+					}
 				});
 
 				clearInterval(intervalId);
@@ -1640,16 +1283,13 @@ athena = {
 
 		// Stop retrying after 30 seconds
 		setTimeout(function() {
-			clearInterval(intervalId);			
+			clearInterval(intervalId);
+			console.log("Stopped retrying after 30 seconds");
 		}, 30000);
 		
-	},
-
-	removeHiddenClass: function() {			
-		if ($("#infera-iframe").hasClass("hidden2")) {
-			$("#infera-iframe").removeClass("hidden2");
-		}
 	}
+
+
 };
 
 athena.init();

@@ -1,49 +1,135 @@
 {
-    "name": "Infera - Ubiquity",
-    "version": "2.10.0",
-    "description": "This Chrome extension provides a streamlined workflow between electronic health records and HCC Assistant by Inferscience, Inc.",
+    "name": "Infera - Unified",
+    "version": "3.7",
+    "description": "This Chrome extension provides a streamlined workflow between electronic health records (athenaNet, eClinicalWorks, Elation) and Infera CDS.",
     "default_locale": "en",
     "background": {
-      "service_worker": "js/background.js"
+        "service_worker": "js/background.js"
     },
-    "content_scripts": [ {
-      "all_frames": true,
-      "run_at": "document_idle",
-      "css": [ "css/main.css","css/caregap.css"],
-      "js": [ "js/lib/jquery.js", "js/contexts/default.js", "js/contexts/dashboard.js", "js/contexts/exam.js", "js/contexts/intake.js", "js/select2.js", "js/print.js","js/caregap.js","js/athena.js"],
-      "matches": [ "https://*.ecwcloud.com/*", "https://*.chartwire.com/*" ]
-    }, {
-      "all_frames": true,
-      "run_at": "document_idle",
-      "css": [ "css/bootstrap.css", "css/main_elation.css","css/elation_caregap.css"],
-      "js": [ "js/lib/jquery.js", "js/contexts/default.js", "js/contexts/dashboard.js", "js/contexts/exam.js", "js/contexts/intake.js", "js/select2.js", "js/print.js", "js/elation_caregap.js", "js/elation.js"],
-      "matches": [ "https://*.elationemr.com/patient/*" ]
-    }, {
-      "all_frames": true,
-      "run_at": "document_start",
-	  "css": [ "css/main.css" ],
-      "js": [ "js/lib/jquery.js", "js/infera.js" ],
-      "matches": [ "https://*.inferscience.com/*", "https://*.ecwcloud.com/*", "https://*.chartwire.com/*", "https://*.elationemr.com/patient/*" ]
-    } ],
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "run_at": "document_idle",
+            "css": ["css/main.css", "css/newUI.css"],
+            "js": [
+                "js/lib/jquery.js",
+                "css/bootstrap5/dist/js/bootstrap.bundle.min.js",
+                "js/contexts/default.js",
+                "js/contexts/dashboard.js",
+                "js/contexts/exam.js",
+                "js/contexts/intake.js",
+                "js/athena.js",
+                "js/caregap.js"
+            ],
+            "matches": [
+                "https://athenanet.athenahealth.com/*",
+                "https://preview.athenahealth.com/*"
+            ],
+            "include_globs": ["*/ax/*"]
+        },
+        {
+            "all_frames": true,
+            "run_at": "document_idle",
+            "css": ["css/main.css", "css/caregap.css"],
+            "js": [
+                "js/lib/jquery.js",
+                "js/contexts/default.js",
+                "js/contexts/dashboard.js",
+                "js/contexts/exam.js",
+                "js/contexts/intake.js",
+                "js/select2.js",
+                "js/print.js",
+                "js/fhir_interceptor.js",
+                "js/fhir_handler.js",
+                "js/caregap.js",
+                "js/athena.js"
+            ],
+            "matches": [
+                "https://*.ecwcloud.com/*",
+                "https://*.chartwire.com/*"
+            ]
+        },
+        {
+            "all_frames": true,
+            "run_at": "document_idle",
+            "css": [
+                "css/bootstrap.css",
+                "css/main_elation.css",
+                "css/elation_caregap.css"
+            ],
+            "js": [
+                "js/lib/jquery.js",
+                "js/contexts/default.js",
+                "js/contexts/dashboard.js",
+                "js/contexts/exam.js",
+                "js/contexts/intake.js",
+                "js/select2.js",
+                "js/print.js",
+                "js/elation_caregap.js",
+                "js/elation.js"
+            ],
+            "matches": ["https://*.elationemr.com/patient/*"]
+        },
+        {
+            "all_frames": true,
+            "run_at": "document_start",
+            "js": ["js/lib/jquery.js", "js/infera.js"],
+            "matches": [
+                "https://*.inferscience.com/*",
+                "https://preview.athenahealth.com/*",
+                "https://*.ecwcloud.com/*",
+                "https://*.chartwire.com/*",
+                "https://*.elationemr.com/patient/*"
+            ]
+        }
+    ],
     "manifest_version": 3,
     "icons": {
-      "16": "icons/icon16.png",
-      "32": "icons/icon32.png",
-      "36": "icons/icon36.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-  	},
-  	"action": {
-      "default_icon": {
-         "16": "icons/icon16.png",
-         "32": "icons/icon32.png",
-         "36": "icons/icon36.png",
-         "48": "icons/icon48.png",
-         "128": "icons/icon128.png"
-      },
-      "default_popup": "html/popup.html"
-   },
-   "permissions": [ "notifications", "storage" ],
-   "host_permissions": ["https://*.inferscience.com/*", "https://*.ecwcloud.com/*", "https://*.chartwire.com/*", "https://*.elationemr.com/*" ],
-   "web_accessible_resources": [ {"resources":["html/container.html","html/caregap.html", "icons/*.png"],"matches":["https://*.ecwcloud.com/*", "https://*.chartwire.com/*", "https://*.elationemr.com/*"] } ]
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "36": "icons/icon36.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "36": "icons/icon36.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        },
+        "default_popup": "html/popup.html"
+    },
+    "permissions": ["notifications", "storage", "offscreen"],
+    "host_permissions": [
+        "https://*.athenahealth.com/*",
+        "https://sso.connect.pingidentity.com/*",
+        "https://*.inferscience.com/*",
+        "https://*.ecwcloud.com/*",
+        "https://*.chartwire.com/*",
+        "https://*.elationemr.com/*"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "html/container.html",
+                "html/newUI.html",
+                "html/caregap.html",
+                "html/fhir_loader.html",
+                "icons/*.png",
+                "icons/*.svg",
+                "icons/*"
+            ],
+            "matches": [
+                "https://athenanet.athenahealth.com/*",
+                "https://preview.athenahealth.com/*",
+                "https://*.ecwcloud.com/*",
+                "https://*.chartwire.com/*",
+                "https://*.elationemr.com/*",
+                "https://*.inferscience.com/*",
+                "<all_urls>"
+            ]
+        }
+    ]
 }

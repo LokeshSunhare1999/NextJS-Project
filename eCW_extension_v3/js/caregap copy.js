@@ -731,7 +731,6 @@ athena2 = {
       let sendCareGapCodes4 = {
         ID: mydata.patientId,
         main_user: mydata.user_id,
-        provider_id: mydata.provider_id,
         FIRST_NAME: mydata.firstname,
         LAST_NAME: mydata.lastname,
         DATE_OF_BIRTH: mydata.dob,
@@ -773,7 +772,7 @@ athena2 = {
 										'border-radius: 50px !important; ' +
                     'width: 40px !important; ' +
                     'height: 40px !important; ' +
-                    'margin: 4px 0 5px 3px !important;'
+                    'margin: 4px 0 5px 4px !important;'
 									);
 									// Remove background color on hover
 									$iconOuterContainer.hover(
@@ -786,7 +785,7 @@ athena2 = {
 												'border-radius: 50px !important; ' +
                         'width: 40px !important; ' +
                         'height: 40px !important; ' +
-                        'margin: 4px 0 5px 3px !important;'
+                        'margin: 4px 0 5px 4px !important;'
 											);
 										}
 									);
@@ -799,7 +798,7 @@ athena2 = {
 										'border-radius: 50px !important; ' +
                     'width: 40px !important; ' +
                     'height: 40px !important; ' +
-                    'margin: 4px 0 5px 3px !important;'
+                    'margin: 4px 0 5px 4px !important;'
 									);
 									$iconOuterContainer.hover(
 										function () {
@@ -811,7 +810,7 @@ athena2 = {
 												'border-radius: 50px !important; ' +
                         'width: 40px !important; ' +
                         'height: 40px !important; ' +
-                        'margin: 4px 0 5px 3px !important;'
+                        'margin: 4px 0 5px 4px !important;'
 											);
 										}
 									);
@@ -1040,7 +1039,6 @@ athena2 = {
                     let payload = {
                       ID: mydata.patientId,
                       main_user: mydata.user_id,
-                      provider_id: mydata.provider_id,
                       FIRST_NAME: mydata.firstname,
                       LAST_NAME: mydata.lastname,
                       DATE_OF_BIRTH: mydata.dob,
@@ -1207,8 +1205,7 @@ athena2 = {
                     accepted: rowType,
                     uuid: rowUuid,
                     "caregap-remove-rejection": true,
-                    main_user: mydata.user_id,
-                    provider_id: mydata.provider_id,
+                    main_user: mydata.provider_id ?? mydata.user_id,
                     LastEncId: null,
                   };
                   getRejected = JSON.stringify(getRejected);
@@ -1264,8 +1261,7 @@ athena2 = {
                     accepted: rowType,
                     uuid: rowUuid,
                     "caregap-remove-rejection": true,
-                    main_user: mydata.user_id,
-                    provider_id: mydata.provider_id,
+                    main_user: mydata.provider_id ?? mydata.user_id,
                     LastEncId: null,
                   };
                 getRejected = JSON.stringify(getRejected);
@@ -1781,8 +1777,7 @@ athena2 = {
 
       const requestData = {
         arrayInfo: formData,
-        main_user: mydata.user_id,
-        provider_id: mydata.provider_id,
+        main_user: mydata.provider_id ?? mydata.user_id,
         encounter_id: mydata.enc_id,
       };
 
@@ -2420,25 +2415,46 @@ athena2 = {
       console.log("Selected codes:", selectedCodes);
 
       // Update the display
-      if (selectedCodes.length > 0) {
+      if (selectedCodes.length > 5) {
         selectedCodesContainer.innerHTML = selectedCodes
           .map(
             (code) => `
                <span class="selected-code-tag">
-					${code.code}
-					<span class="remove-code" data-abbreviation="${abbreviation}" data-code="${code.code}">×</span>
-				</span>
+                    ${code.code}
+                    <span class="remove-code" data-abbreviation="${abbreviation}" data-code="${code.code}">×</span>
+                </span>
+            `
+          )
+          .join("");
+        selectedCodesContainer.style.display = "flex";
+        selectedCodesContainer.style.setProperty("margin-top", "100px", "important");
+        careGapItem.style.paddingBottom = "76px";
+        console.log("Updated container with codes");
+      }
+      else if (selectedCodes.length > 0) {
+        selectedCodesContainer.innerHTML = selectedCodes
+          .map(
+            (code) => `
+               <span class="selected-code-tag">
+                    ${code.code}
+                    <span class="remove-code" data-abbreviation="${abbreviation}" data-code="${code.code}">×</span>
+                </span>
             `
           )
           .join("");
         selectedCodesContainer.style.display = "flex";
         careGapItem.style.paddingBottom = "40px";
+        selectedCodesContainer.style.setProperty("margin-top", "", "important");
         console.log("Updated container with codes");
-      } else {
+      }
+      
+      else {
         selectedCodesContainer.style.display = "none";
         careGapItem.style.paddingBottom = "";
+        selectedCodesContainer.style.setProperty("margin-top", "", "important");
         console.log("No codes to display");
       }
+
 
       // Add event listeners to all remove buttons
       const removeButtons =
@@ -2687,8 +2703,7 @@ athena2 = {
               // Create payload using mydata
               let sendCareGapCodes = {
                 ID: mydata.patientId,
-                main_user: mydata.user_id,
-                provider_id: mydata.provider_id,
+                main_user: mydata.provider_id ?? mydata.user_id,
                 selectedValues: selectedValues,
                 selectedValues2: selectedValues,
                 selectedValues3: selectedValues3,
@@ -3097,3 +3112,6 @@ athena2 = {
 };
 
 athena2.init();
+
+
+
