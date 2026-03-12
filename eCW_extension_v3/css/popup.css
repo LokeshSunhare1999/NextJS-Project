@@ -1,0 +1,20 @@
+body {
+    min-width: 200px;
+}
+
+table th, td {
+    padding: 5px;
+}
+
+table th {
+    background-color: #d6ede8;
+    font-size: 14px !important;
+}
+
+table th img {
+    vertical-align: middle;
+}
+
+table td {
+    font-size: 12px !important;
+}

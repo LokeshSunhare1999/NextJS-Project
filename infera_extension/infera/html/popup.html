@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <title data-message="options_title"></title>
+    <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+<form id="options-form">
+    <div class="center">
+        <table>
+            <thead>
+            <tr>
+                <th data-message="options_header"><img alt="Infera" src="../icons/icon16.png" />&nbsp;</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>
+                    <input id="options[notifications]" name="options[notifications]" data-role="options" data-value="notifications" type="checkbox" value="1" />
+                    <label for="options[notifications]" data-message="option_notifications"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="options[alertOnEmpty]" name="options[alertOnEmpty]" data-role="options" data-value="alertOnEmpty" type="checkbox" value="1" />
+                    <label for="options[alertOnEmpty]" data-message="option_alert_on_empty"></label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+</body>
+<script type="text/javascript" src="../js/lib/jquery.js"></script>
+<script type="text/javascript" src="../js/messages.js"></script>
+<script type="text/javascript" src="../js/popup.js"></script>
+</html>

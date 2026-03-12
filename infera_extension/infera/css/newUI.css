@@ -1,0 +1,141 @@
+.main-container{
+    z-index: 10000;
+    position: absolute;
+    margin-left: 94.5%;
+    margin-top: 6%
+}
+/* Parent Tray Styles */
+.product-tabs-container {
+    width: 48px;
+    /* height: 234px; */
+    height: auto;
+    background-color: #E8E7F1;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+}
+
+/* Individual Tab Item */
+.tab-item-custom {
+    width: 48px;
+    height: 48px;
+    background-color: #E8E7F1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0px !important;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-bottom-left-radius: 8px !important;
+}
+
+.icon-container {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tab-item-first {
+    width: 48px;
+    height: 42px;
+    border-top-left-radius: 15px !important;
+    padding: 8px 0px !important;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Tab Name Display */
+.tab-item-name {
+    position: absolute;
+    right: 48px;
+    color: #2F2C87;
+    background-color:#E8E7F1;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.tab-item-custom:hover {
+    background-color: #1B1575;    
+    /* color: #fff !important; */
+    border-bottom-left-radius: 0 !important;
+}
+
+.tab-item-custom:hover .tab-item-name {
+    display: block; /* Show the text */
+}
+
+/* Add border radius to last tab item */
+.tab-item-custom:last-child {
+    border-bottom-left-radius: 8px;
+}
+/* Also apply to last child on hover to maintain consistency */
+.tab-item-custom:last-child:hover {
+    border-bottom-left-radius: 8px !important;
+}
+
+
+/* disable tab */
+.disabled-tab {
+    background-color: #F1F1F2;
+    /* pointer-events: none; Optional: disable click events */    
+}
+
+.tab-item-custom.disabled-tab:hover {
+    background-color: #f1f1f2;
+}
+
+
+.tab-item-name-space{
+    /* position: absolute;
+    right: 55px;
+    color: #1B1575;
+    background-color: #f8f9fa;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); */
+    margin-top: 60px;
+}
+
+
+
+.active-tab{
+    /* background-color: #1B1575;
+    color: #fff; */
+    cursor: pointer;    
+}
+
+
+/* hide the loading message from tab */
+.tab-item-name-hide{
+    display: none !important;
+}
+
+/* make the product tray draggable */
+.product-tabs-container {
+    position: fixed !important;    
+    /* left: 12px !important; */
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 1000;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+/* .tab-item-last{
+    border-bottom-left-radius: 8px !important;
+} */
+
+/* .tab-item-last:hover{
+    border-bottom-left-radius: none !important;
+} */
