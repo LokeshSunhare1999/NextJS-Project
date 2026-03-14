@@ -10,12 +10,13 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
       authorization: {
-        params: {
-          scope: 'read:user user:email repo',
-        },
+        params: { scope: 'read:user user:email repo' },
       },
     }),
   ],
+  session: {
+    strategy: 'database',
+  },
   callbacks: {
     session: async ({ session, user }) => {
       if (session?.user) {
@@ -23,9 +24,14 @@ export const authOptions: NextAuthOptions = {
       }
       return session
     },
+    redirect: async ({ url, baseUrl }) => {
+      if (url.startsWith('/')) return `${baseUrl}${url}`
+      if (url.startsWith(baseUrl)) return url
+      return `${baseUrl}/dashboard`
+    },
   },
   pages: {
-    signIn: '/',
+    signIn: '/signin',
     error: '/auth/error',
   },
   debug: process.env.NODE_ENV === 'development',

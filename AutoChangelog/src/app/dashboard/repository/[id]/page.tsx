@@ -5,9 +5,9 @@ import RepositoryDetailClient from '@/components/RepositoryDetailClient'
 
 export default async function RepositoryDetailPage({ params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
-  
+
   if (!session) {
-    redirect('/')
+    redirect('/signin')
   }
 
   return <RepositoryDetailClient repositoryId={params.id} />

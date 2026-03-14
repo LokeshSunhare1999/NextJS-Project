@@ -16,6 +16,7 @@ export default function RepositoryDetailClient({ repositoryId }: RepositoryDetai
   const [repository, setRepository] = useState<any>(null)
   const [activeTab, setActiveTab] = useState<'commits' | 'releases'>('commits')
   const [loading, setLoading] = useState(true)
+  console.log(">>> repositoryId",repositoryId)
 
   useEffect(() => {
     fetchRepository()
