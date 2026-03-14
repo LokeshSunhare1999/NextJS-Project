@@ -15,12 +15,21 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   session: {
-    strategy: 'database',
+    strategy: 'jwt', // JWT so middleware can read the token
   },
   callbacks: {
-    session: async ({ session, user }) => {
-      if (session?.user) {
-        session.user.id = user.id
+    jwt: async ({ token, user, account }) => {
+      if (user) {
+        token.id = user.id
+      }
+      if (account) {
+        token.accessToken = account.access_token
+      }
+      return token
+    },
+    session: async ({ session, token }) => {
+      if (session?.user && token) {
+        session.user.id = token.id as string
       }
       return session
     },
@@ -34,5 +43,4 @@ export const authOptions: NextAuthOptions = {
     signIn: '/signin',
     error: '/auth/error',
   },
-  debug: process.env.NODE_ENV === 'development',
 }

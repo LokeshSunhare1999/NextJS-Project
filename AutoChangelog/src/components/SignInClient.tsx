@@ -1,13 +1,9 @@
 'use client'
 
 import { signIn } from 'next-auth/react'
-import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 
 function SignInContent() {
-  const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-10 text-center">
@@ -15,11 +11,10 @@ function SignInContent() {
           <span className="text-3xl font-extrabold text-indigo-600">AutoChangelog</span>
           <p className="text-gray-500 mt-2 text-sm">Automated changelog generator for your Git repos</p>
         </div>
-
         <div className="border-t pt-6">
           <p className="text-gray-700 font-medium mb-4">Sign in to continue</p>
           <button
-            onClick={() => signIn('github', { callbackUrl })}
+            onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
             className="w-full flex items-center justify-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition font-semibold text-sm"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
