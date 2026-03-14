@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id
       }
-      if (account) {
+      if (account?.access_token) {
         token.accessToken = account.access_token
       }
       return token
@@ -30,6 +30,7 @@ export const authOptions: NextAuthOptions = {
     session: async ({ session, token }) => {
       if (session?.user && token) {
         session.user.id = token.id as string
+        ;(session as any).accessToken = token.accessToken
       }
       return session
     },

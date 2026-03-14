@@ -30,12 +30,10 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { githubId, name, fullName, owner, isPrivate, defaultBranch } = body
 
-    const account = await prisma.account.findFirst({
-      where: { userId: session.user.id, provider: 'github' },
-    })
+    const accessToken = (session as any).accessToken
 
-    if (!account?.access_token) {
-      return NextResponse.json({ error: 'No GitHub token found' }, { status: 400 })
+    if (!accessToken) {
+      return NextResponse.json({ error: 'No GitHub token found. Please sign out and sign in again.' }, { status: 400 })
     }
 
     // Check if already connected
@@ -56,7 +54,7 @@ export async function POST(request: Request) {
         owner,
         isPrivate,
         defaultBranch: defaultBranch || 'main',
-        accessToken: account.access_token,
+        accessToken,
       },
     })
 
